@@ -1,0 +1,139 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		printallhandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "PrintAllHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+#include "../UtilsForMT.h"
+#include "../Logger.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace assertWrapper;
+using namespace tupleIdx;
+using namespace typeLiterals;
+
+CPrintAllHandler::CPrintAllHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+    : IHandler(inCommand), IPointHandler(inCommand), IShapeHandler(inCommand), IPointAndRectangleHandler(inCommand)
+<span style = "background-color:#dfd">{}</span>
+
+const int CPrintAllHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 1;
+}</span>
+
+std::string CPrintAllHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "s";
+}</span>
+
+CODE CPrintAllHandler::checkArgsAndPerform(
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
+<span style = "background-color:#dfd">{
+    if (checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inPointCache, inRectangleCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CPrintAllHandler::purePerform(
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
+<span style = "background-color:#dfd">{
+    CODE retCode = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    retCode = getFinalResultCode</span>
+    ({
+        checkArgsAndPerform(inPointCache),
+        checkArgsAndPerform(inRectangleCache)
+    });
+
+<span style = "background-color:#dfd">    return retCode;
+}</span>
+
+CODE CPrintAllHandler::checkArgsAndPerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    if (checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CPrintAllHandler::checkArgsAndPerform(CPointWithSize inCache)
+<span style = "background-color:#dfd">{
+    if (checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CPrintAllHandler::purePerform(CPointWithSize inCache)
+<span style = "background-color:#dfd">{
+    int cacheSize = std::get&lt;SIZE&gt;(inCache);</span>
+
+<span style = "background-color:#dfd">    Logger::info() &lt;&lt; POINTS &lt;&lt; POST_PRINT;
+    std::map&lt;int, bool&gt; isInitializedMap = std::get&lt;INITIALIZED_MAP&gt;(inCache);</span>
+
+<span style = "background-color:#dfd">    for (int i = 0; i &lt; cacheSize; i++)</span>
+    {
+<span style = "background-color:#dfd">        if (isInitializedMap[i])</span>
+        {
+<span style = "background-color:#dfd">            Logger::info() &lt;&lt; std::get&lt;ARRAY&gt;(inCache)[i]-&gt;toString() &lt;&lt; POST_PRINT;</span>
+        }
+<span style = "background-color:#dfd">        else</span>
+        {
+<span style = "background-color:#fdd">            Logger::info() &lt;&lt; toString(CODE::NOT_INITIALIZED) &lt;&lt; POST_PRINT;</span>
+        }
+<span style = "background-color:#dfd">    }
+    return CODE::DONE;
+}</span>
+
+CODE CPrintAllHandler::purePerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    int cacheSize = std::get&lt;SIZE&gt;(inCache);</span>
+
+<span style = "background-color:#dfd">    Logger::info() &lt;&lt; SHAPES &lt;&lt; POST_PRINT;
+    std::map&lt;int, bool&gt; isInitializedMap = std::get&lt;INITIALIZED_MAP&gt;(inCache);</span>
+
+<span style = "background-color:#dfd">    for (int i = 0; i &lt; cacheSize; i++)</span>
+    {
+<span style = "background-color:#dfd">        if (isInitializedMap[i])</span>
+        {
+<span style = "background-color:#dfd">            Logger::info() &lt;&lt; std::get&lt;ARRAY&gt;(inCache)[i]-&gt;toString();</span>
+        }
+<span style = "background-color:#dfd">        else</span>
+        {
+<span style = "background-color:#fdd">            Logger::info() &lt;&lt; toString(CODE::NOT_INITIALIZED);</span>
+        }
+<span style = "background-color:#dfd">        Logger::info() &lt;&lt; POST_PRINT;
+    }</span>
+
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span></pre>
+	</body>
+</html>

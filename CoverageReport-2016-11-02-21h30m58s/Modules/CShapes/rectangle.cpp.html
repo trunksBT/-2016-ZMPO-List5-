@@ -1,0 +1,178 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		rectangle.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include "Rectangle.h"
+#include "Point.hpp"
+#include "Utils.hpp"
+#include &lt;iostream&gt;
+#include &lt;limits&gt;
+#include &lt;sstream&gt;
+#include "Logger.h"
+#include &lt;cmath&gt;
+
+using namespace defaultVals;
+using namespace funs;
+using namespace typeLiterals;
+using namespace flags;
+
+CRectangle::CRectangle() 
+<span style = "background-color:#fdd">    : objectFst_(0, 0), objectSnd_(1, 1)
+{
+    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; CTOR_DEF_PRE_PRINT
+            &lt;&lt; RECTANGLE
+            &lt;&lt; POST_PRINT;
+    }
+<span style = "background-color:#fdd">}</span>
+
+CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd)
+<span style = "background-color:#dfd">    : objectFst_(*inPointFst), objectSnd_(*inPointSnd)
+{
+    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; CTOR_ARG1_PRE_PRINT
+            &lt;&lt; RECTANGLE
+            &lt;&lt; POST_PRINT;
+    }
+<span style = "background-color:#dfd">}</span>
+
+CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
+<span style = "background-color:#dfd">    : objectFst_(fstX, fstY), objectSnd_(sndX, sndY)
+{
+    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; CTOR_ARG1_PRE_PRINT
+            &lt;&lt; RECTANGLE
+            &lt;&lt; POST_PRINT;
+    }
+<span style = "background-color:#dfd">}</span>
+
+CRectangle::CRectangle(const CRectangle&amp; inVal)
+<span style = "background-color:#dfd">    : objectFst_(inVal.objectFst_), objectSnd_(inVal.objectSnd_)
+{
+    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; CTOR_COPY_PRE_PRINT
+            &lt;&lt; RECTANGLE
+            &lt;&lt; POST_PRINT;
+    }
+<span style = "background-color:#dfd">}</span>
+
+CRectangle::~CRectangle()
+<span style = "background-color:#dfd">{
+    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; DTOR_PRE_PRINT
+            &lt;&lt; RECTANGLE
+            &lt;&lt; POST_PRINT;
+    }
+<span style = "background-color:#dfd">}</span>
+
+std::pair&lt;CODE,double&gt; CRectangle::field()
+<span style = "background-color:#dfd">{
+    double fstX = objectFst_.getX();
+    double fstY = objectFst_.getY();</span>
+
+<span style = "background-color:#dfd">    double sndX = objectSnd_.getX();
+    double sndY = objectSnd_.getY();</span>
+
+<span style = "background-color:#dfd">    double segmentFstLength = 0.0;
+    double segmentSndLength = 0.0;
+    double finalField = 0.0;
+    if (isSegmentToBig(fstX, sndX) &amp;&amp; isSegmentToBig(fstY, sndY))</span>
+    {
+<span style = "background-color:#fdd">        return{ CODE::ERROR, 0.0 };</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#dfd">        segmentFstLength = abs(fstX - sndX);
+        segmentSndLength = abs(fstY - sndY);</span>
+    }
+
+<span style = "background-color:#dfd">    if (isDoubleOverflow(segmentFstLength, segmentSndLength))</span>
+    {
+<span style = "background-color:#fdd">        return{ CODE::ERROR, 0.0 };</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#dfd">        finalField = segmentFstLength * segmentSndLength;</span>
+    }
+
+<span style = "background-color:#dfd">    return{ CODE::DONE, finalField };
+}</span>
+
+CRectangle* CRectangle::buildNewObj(CPoint* inPointFst, CPoint* inPointSnd)
+<span style = "background-color:#dfd">{
+    return new CRectangle(inPointFst, inPointSnd);
+}</span>
+
+CRectangle* CRectangle::buildNewObj(double fstX, double fstY, double sndX, double sndY)
+<span style = "background-color:#dfd">{
+    return new CRectangle(fstX, fstY, sndX, sndY);
+}</span>
+
+CRectangle* CRectangle::buildNewObj(CRectangle* inObj)
+<span style = "background-color:#dfd">{
+    return new CRectangle(*inObj);
+}</span>
+
+CRectangle* CRectangle::buildNewObj()
+<span style = "background-color:#fdd">{
+    return new CRectangle();
+}</span>
+
+std::string CRectangle::getType()
+<span style = "background-color:#fdd">{
+    return RECTANGLE;
+}</span>
+
+std::string CRectangle::toString()
+<span style = "background-color:#dfd">{
+    std::stringstream retVal;
+    retVal</span>
+        &lt;&lt; PRE_PRINT &lt;&lt; RECTANGLE &lt;&lt; BRACKET_OPEN
+        &lt;&lt; objectFst_.toString()
+        &lt;&lt; COMMA_SPACE
+        &lt;&lt; objectSnd_.toString()
+        &lt;&lt; BRACKET_CLOSE;
+
+<span style = "background-color:#dfd">    return retVal.str();
+}</span>
+
+double CRectangle::fstGetX()
+<span style = "background-color:#dfd">{
+    return objectFst_.getX();
+}</span>
+
+double CRectangle::fstGetY()
+<span style = "background-color:#dfd">{
+    return objectFst_.getY();
+}</span>
+
+double CRectangle::sndGetX()
+<span style = "background-color:#dfd">{
+    return objectSnd_.getX();
+}</span>
+
+double CRectangle::sndGetY()
+<span style = "background-color:#dfd">{
+    return objectSnd_.getY();
+}</span>
+</pre>
+	</body>
+</html>

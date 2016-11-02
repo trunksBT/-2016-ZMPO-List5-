@@ -1,0 +1,73 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		createrectdefaulthandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "CreateRectDefaultHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+#include "../UtilsForMT.h"
+
+using namespace defaultVals;
+using namespace cacheIdx;
+using namespace funs;
+using namespace assertWrapper;
+using namespace tupleIdx;
+
+CCreateRectDefaultHandler::CCreateRectDefaultHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+    : IHandler(inCommand), IShapeHandler(inCommand)
+<span style = "background-color:#fdd">{}</span>
+
+const int CCreateRectDefaultHandler::getProperAmountOfArgs()
+<span style = "background-color:#fdd">{
+    return 2;
+}</span>
+
+std::string CCreateRectDefaultHandler::getProperTypesOfArgs()
+<span style = "background-color:#fdd">{
+    return "si";
+}</span>
+
+CODE CCreateRectDefaultHandler::checkArgsAndPerform(CShapeWithSize inCache)
+<span style = "background-color:#fdd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#fdd">        return purePerform(inCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#dfd">}</span>
+
+CODE CCreateRectDefaultHandler::purePerform(CShapeWithSize inCache)
+<span style = "background-color:#fdd">{
+    std::string goalIdxStr(wholeCommand_[idxOf::RECT_GOAL_ID]);
+    int copyToIdx = std::stoi(goalIdxStr);</span>
+
+<span style = "background-color:#fdd">    if (!isProperIdx(copyToIdx, std::get&lt;SIZE&gt;(inCache)))</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+
+<span style = "background-color:#fdd">    delete std::get&lt;ARRAY&gt;(inCache)[copyToIdx];
+    std::get&lt;ARRAY&gt;(inCache)[copyToIdx] = CRectangle::buildNewObj();
+    return CODE::DONE;
+}</span>
+
+CCreateRectDefaultHandler::~CCreateRectDefaultHandler()
+<span style = "background-color:#fdd">{</span>
+
+<span style = "background-color:#fdd">}</span></pre>
+	</body>
+</html>

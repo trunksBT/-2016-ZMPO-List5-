@@ -1,0 +1,79 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		createpointhandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "CreatePointHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace cacheIdx;
+using namespace tupleIdx;
+
+CCreatePointHandler::CCreatePointHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+<span style = "background-color:#dfd">    : IHandler(inCommand), IPointHandler(inCommand)
+{
+}</span>
+
+const int CCreatePointHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 4;
+}</span>
+
+std::string CCreatePointHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "sidd";
+}</span>
+
+CODE CCreatePointHandler::checkArgsAndPerform(CPointWithSize inPointCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inPointCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+
+CODE CCreatePointHandler::purePerform(CPointWithSize inCache)
+<span style = "background-color:#dfd">{
+    std::string receivedId(wholeCommand_[idxOf::ID_FOR_CREATE]);
+    int idxOrAmount = std::stoi(receivedId);</span>
+
+<span style = "background-color:#dfd">    std::string receivedXAxis(wholeCommand_[idxOf::X_AXIS_VAL]);
+    double xAxis = std::stod(receivedXAxis);</span>
+
+<span style = "background-color:#dfd">    std::string receivedYAxis(wholeCommand_[idxOf::Y_AXIS_VAL]);
+    double yAxis = std::stod(receivedYAxis);</span>
+
+<span style = "background-color:#dfd">    if(!isProperIdx(idxOrAmount, std::get&lt;SIZE&gt;(inCache)))</span>
+    {
+<span style = "background-color:#dfd">        return CODE::ERROR;</span>
+    }
+
+<span style = "background-color:#dfd">    CPoint* objOnSelectedIdx = std::get&lt;ARRAY&gt;(inCache)[idxOrAmount];
+    if(objOnSelectedIdx != nullptr)</span>
+    {
+<span style = "background-color:#dfd">        delete objOnSelectedIdx;</span>
+    }
+<span style = "background-color:#dfd">    std::get&lt;ARRAY&gt;(inCache)[idxOrAmount] = CPoint::buildNewObj(xAxis, yAxis);</span>
+
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span></pre>
+	</body>
+</html>

@@ -1,0 +1,137 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		flyweightproperamountofargsbutwrongmt.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;gtest/gtest.h&gt;
+
+#include &lt;limits&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;utility&gt;
+
+#include "Flyweight.h"
+#include "Stub.hpp"
+#include "UtilsForMT.h"
+
+using namespace defaultVals;
+using namespace assertWrapper;
+
+namespace
+{
+class CCFlyweightProperAmountOfArgsButWrongMT : public testing::Test
+{
+protected:
+    virtual void SetUp()
+<span style = "background-color:#dfd">    {
+        rcVal = CODE::ERROR;
+    }</span>
+
+    virtual void TearDown()
+<span style = "background-color:#dfd">    {}</span>
+protected:
+    CFlyweight application;
+    CODE rcVal;
+};
+
+<span style = "background-color:#dfd">TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createDefZ_OnEmptyCCFlyweight_Expect_ERROR)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(wrongTypeStub::createDefZ)
+    });
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);</span>
+
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createCopyZZ_OnEmptyCCFlyweight_Expect_ERROR)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(wrongTypeStub::createCopyZZ)
+    });
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);</span>
+
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, printZ_OnEmptyCCFlyweight_Expect_ERROR)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(wrongTypeStub::printZ)
+    });
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);</span>
+
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, deleteZ_OnEmptyCCFlyweight_Expect_ERROR)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(wrongTypeStub::deleteZ)
+    });
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);</span>
+
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getValueZZ_OnEmptyCCFlyweight_Expect_ERROR)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(wrongTypeStub::getValueZZ)
+    });
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);</span>
+
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setValue0ZZZ_OnEmptyCCFlyweight_Expect_ERROR)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(wrongTypeStub::setValue0ZZZ)
+    });
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);</span>
+
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createZZZ_OnEmptyCCFlyweight_Expect_ERROR)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(wrongTypeStub::createZZZ)
+    });
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);</span>
+
+<span style = "background-color:#dfd">}</span>
+
+}</pre>
+	</body>
+</html>

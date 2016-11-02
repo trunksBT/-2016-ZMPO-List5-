@@ -1,0 +1,53 @@
+Hej.
+
+Ta instrukcja jest dla uzytkownikow Windowsa a konkretnie Visual Studio 2015 w wersji kazdej
+
+I) Przygotowanie srodowiska i projektu:
+    1) Stworz projekt:
+        a) File-> NewProject
+        b) wybierz Win32
+        c) Podaj nazwe -> Dalej....
+    
+    2) Dodaj biblioteke boost do projektu:
+        a) Kliknij prawym przyciskiem myszy na nazwe projektu, np. 'TableCtors'
+        b) Manage Nuget Packages
+        c) Wybierz zakladke Browse
+        d) wpisz boost
+        e) Install
+    
+    3) Teraz oczekiwanie :)
+        a) Installing boost 1.62.0 ... ok 2-3 minut
+        b) Adding package 'boost 1.62.0'
+        c) ==== FINISHED ====
+
+II) Przykladowe uzycie
+
+************ COPY ALL BELOW ************
+// TableCtors.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <boost/optional.hpp>
+
+void printIfIsInitilized(boost::optional<int>& inOptionalVal)
+{
+    if (inOptionalVal.is_initialized())
+    {
+        std::cout << inOptionalVal.get();
+    }
+    else
+    {
+        std::cout << "Not initialized value";
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    std::cout << "HelloBoost" << std::endl;
+    boost::optional<int> optionalVal;
+    printIfIsInitilized(optionalVal);
+    return 0;
+}
+************ COPY ALL ABOVE ************

@@ -1,0 +1,12 @@
+﻿1>------ Build started: Project: TableCtors, Configuration: Debug Win32 ------
+1>  Flyweight.cpp
+1>d:\clouds\onedrive\github\c++\-2016-zmpo-list1\tablectors\tablectors\flyweight.cpp(28): warning C4018: '<': signed/unsigned mismatch
+1>d:\clouds\onedrive\github\c++\-2016-zmpo-list1\tablectors\tablectors\flyweight.cpp(43): warning C4018: '>': signed/unsigned mismatch
+1>d:\clouds\onedrive\github\c++\-2016-zmpo-list1\tablectors\tablectors\flyweight.cpp(51): warning C4018: '<': signed/unsigned mismatch
+1>d:\clouds\onedrive\github\c++\-2016-zmpo-list1\tablectors\tablectors\flyweight.cpp(71): warning C4018: '>': signed/unsigned mismatch
+1>d:\clouds\onedrive\github\c++\-2016-zmpo-list1\tablectors\tablectors\flyweight.cpp(71): warning C4804: '<': unsafe use of type 'bool' in operation
+1>d:\clouds\onedrive\github\c++\-2016-zmpo-list1\tablectors\tablectors\flyweight.cpp(83): warning C4553: '==': operator has no effect; did you intend '='?
+1>d:\clouds\onedrive\github\c++\-2016-zmpo-list1\tablectors\tablectors\flyweight.cpp(105): warning C4018: '<': signed/unsigned mismatch
+1>  TableCtors.vcxproj -> D:\Clouds\OneDrive\GitHub\C++\-2016-ZMPO-List1\TableCtors\Debug\TableCtors.exe
+1>  TableCtors.vcxproj -> D:\Clouds\OneDrive\GitHub\C++\-2016-ZMPO-List1\TableCtors\Debug\TableCtors.pdb (Full PDB)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

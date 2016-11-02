@@ -1,0 +1,35 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		logger.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include "Logger.h"
+
+using namespace flags;
+
+Logger::Logger()
+<span style = "background-color:#dfd">{}</span>
+
+Logger::~Logger()
+<span style = "background-color:#dfd">{}</span>
+
+Logger&amp; Logger::operator&lt;&lt;(std::string inLog)
+<span style = "background-color:#dfd">{
+    std::cout &lt;&lt; inLog;
+    return info();
+}</span>
+
+Logger&amp; Logger::info()
+<span style = "background-color:#dfd">{
+    static Logger member;
+    return member;
+}</span></pre>
+	</body>
+</html>

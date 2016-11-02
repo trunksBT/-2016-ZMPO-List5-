@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 14 for Windows Desktop
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CShapes", "CShapes\CShapes.vcxproj", "{1E76733E-2DE8-4307-A330-B118DF084252}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D401D9F-7CDC-4E06-9257-9D9FAB6E0E4E}"
+	ProjectSection(SolutionItems) = preProject
+		HowToBoostTokenizer.txt = HowToBoostTokenizer.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E76733E-2DE8-4307-A330-B118DF084252}.Debug|x64.ActiveCfg = Debug|x64
+		{1E76733E-2DE8-4307-A330-B118DF084252}.Debug|x64.Build.0 = Debug|x64
+		{1E76733E-2DE8-4307-A330-B118DF084252}.Debug|x86.ActiveCfg = Debug|Win32
+		{1E76733E-2DE8-4307-A330-B118DF084252}.Debug|x86.Build.0 = Debug|Win32
+		{1E76733E-2DE8-4307-A330-B118DF084252}.Release|x64.ActiveCfg = Release|x64
+		{1E76733E-2DE8-4307-A330-B118DF084252}.Release|x64.Build.0 = Release|x64
+		{1E76733E-2DE8-4307-A330-B118DF084252}.Release|x86.ActiveCfg = Release|Win32
+		{1E76733E-2DE8-4307-A330-B118DF084252}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

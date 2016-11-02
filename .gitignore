@@ -1,0 +1,11 @@
+Debug/
+ipch/
+packages/
+.vs/
+x64/
+x86/
+
+*.vcxproj
+*.vcxproj.filters
+*.db
+*.opendb

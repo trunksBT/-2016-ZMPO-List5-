@@ -1,0 +1,179 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		gohandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "GoHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+#include "../UtilsForMT.h"
+
+using namespace defaultVals;
+using namespace cacheIdx;
+using namespace funs;
+using namespace assertWrapper;
+using namespace tupleIdx;
+
+CGoHandler::CGoHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+    : IHandler(inCommand), IPointHandler(inCommand), IShapeHandler(inCommand), IPointAndRectangleHandler(inCommand)
+<span style = "background-color:#dfd">{
+}</span>
+
+const int CGoHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 3;
+}</span>
+
+std::string CGoHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "sii";
+}</span>
+
+CODE CGoHandler::checkArgsAndPerform(
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inPointCache, inRectangleCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CGoHandler::purePerform(
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
+<span style = "background-color:#dfd">{
+    CODE retCode = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    retCode = getFinalResultCode</span>
+    ({
+        checkArgsAndPerform(inPointCache),
+        checkArgsAndPerform(inRectangleCache)
+    });
+
+<span style = "background-color:#dfd">    return retCode;
+}</span>
+
+CODE CGoHandler::checkArgsAndPerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CGoHandler::checkArgsAndPerform(CPointWithSize inCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CGoHandler::purePerform(CPointWithSize inCache)
+<span style = "background-color:#dfd">{
+    std::string receivedId(wholeCommand_[idxOf::ID_OF_POINTS]);
+    int idxOrAmount = std::stoi(receivedId);
+    int cacheSize = std::get&lt;SIZE&gt;(inCache);</span>
+
+<span style = "background-color:#dfd">    if (idxOrAmount &lt; ZERO)</span>
+    {
+<span style = "background-color:#dfd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#dfd">    else if (idxOrAmount == ZERO)</span>
+    {
+<span style = "background-color:#dfd">        return CODE::DONE;</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#dfd">        int newSize = cacheSize + idxOrAmount;
+        CShape** newTable = new CShape*[newSize];</span>
+
+<span style = "background-color:#dfd">        for (int i = 0; i &lt; cacheSize; i++)</span>
+        {
+<span style = "background-color:#fdd">            newTable[i] = std::get&lt;ARRAY&gt;(inCache)[i];
+        }</span>
+
+<span style = "background-color:#dfd">        int cursor = cacheSize;
+        for (int i = 0; i &lt; idxOrAmount; i++, cursor++)</span>
+        {
+<span style = "background-color:#dfd">            CFlyweight::updateIsInitializedPointCache(cursor, true);
+            newTable[cursor] = CPoint::buildNewObj(DEFAULT_FST_AXIS_VAL, DEFAULT_FST_AXIS_VAL);
+        }
+        CFlyweight::setPointCacheSize(newSize);
+        CFlyweight::updatePointCache(newTable);
+        newTable = nullptr;</span>
+    }
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span>
+
+CODE CGoHandler::purePerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    std::string receivedId(wholeCommand_[idxOf::ID_OF_SHAPES]);
+    int idxOrAmount = std::stoi(receivedId);
+    int cacheSize = std::get&lt;SIZE&gt;(inCache);</span>
+
+<span style = "background-color:#dfd">    if (idxOrAmount &lt; ZERO)</span>
+    {
+<span style = "background-color:#dfd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#dfd">    else if (idxOrAmount == ZERO)</span>
+    {
+<span style = "background-color:#dfd">        return CODE::DONE;</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#dfd">        int newSize = cacheSize + idxOrAmount;
+        CShape** newTable = new CShape*[newSize];</span>
+
+<span style = "background-color:#dfd">        for (int i = 0; i &lt; cacheSize; i++)</span>
+        {
+<span style = "background-color:#fdd">            newTable[i] = std::get&lt;ARRAY&gt;(inCache)[i];
+        }</span>
+
+<span style = "background-color:#dfd">        int cursor = cacheSize;
+        for (int i = 0; i &lt; idxOrAmount; i++, cursor++)</span>
+        {
+<span style = "background-color:#dfd">            CFlyweight::updateIsInitializedShapeCache(cursor, true);
+            newTable[cursor] = CRectangle::buildNewObj(</span>
+                DEFAULT_FST_AXIS_VAL,
+                DEFAULT_FST_AXIS_VAL,
+                DEFAULT_SND_AXIS_VAL,
+                DEFAULT_SND_AXIS_VAL
+            );
+<span style = "background-color:#dfd">        }
+        CFlyweight::setShapeCacheSize(newSize);
+        CFlyweight::updateShapeCache(newTable);
+        newTable = nullptr;</span>
+    }
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span>
+
+CGoHandler::~CGoHandler()
+<span style = "background-color:#fdd">{</span>
+
+<span style = "background-color:#fdd">}</span></pre>
+	</body>
+</html>

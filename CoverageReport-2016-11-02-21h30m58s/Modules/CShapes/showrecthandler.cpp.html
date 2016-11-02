@@ -1,0 +1,71 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		showrecthandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "ShowRectHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+#include "../UtilsForMT.h"
+#include "../Logger.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace assertWrapper;
+using namespace tupleIdx;
+using namespace typeLiterals;
+
+CShowRectHandler::CShowRectHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+    : IHandler(inCommand), IShapeHandler(inCommand)
+<span style = "background-color:#dfd">{}</span>
+
+const int CShowRectHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 2;
+}</span>
+
+std::string CShowRectHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "si";
+}</span>
+
+CODE CShowRectHandler::checkArgsAndPerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    if (checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CShowRectHandler::purePerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    int cacheSize = std::get&lt;SIZE&gt;(inCache);
+    std::string goalIdxStr(wholeCommand_[idxOf::COPY_TO]);
+    int copyToId = std::stoi(goalIdxStr);</span>
+
+<span style = "background-color:#dfd">    if (!isProperIdx(copyToId, std::get&lt;SIZE&gt;(inCache)))</span>
+    {
+<span style = "background-color:#dfd">        return CODE::ERROR;</span>
+    }
+
+<span style = "background-color:#dfd">    Logger::info() &lt;&lt; SHAPE &lt;&lt; POST_PRINT;
+    Logger::info() &lt;&lt; std::get&lt;ARRAY&gt;(inCache)[copyToId]-&gt;toString() &lt;&lt; POST_PRINT;</span>
+
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span></pre>
+	</body>
+</html>

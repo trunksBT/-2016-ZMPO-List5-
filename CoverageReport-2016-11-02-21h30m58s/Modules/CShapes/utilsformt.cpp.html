@@ -1,0 +1,50 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		utilsformt.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include "UtilsForMT.h"
+
+#include &lt;gtest/gtest.h&gt;
+#include "Utils.hpp"
+#include "Logger.h"
+
+using namespace defaultVals;
+using namespace funs;
+
+namespace assertWrapper
+{
+CODE getFinalResultCode(std::vector&lt;CODE&gt; inCodes)
+<span style = "background-color:#dfd">{
+    bool isLegit = true;
+    CODE resultCode = CODE::ERROR;
+    int idxOfWrongCode = MINUS_ONE;</span>
+
+<span style = "background-color:#dfd">    for(int i = 0; i &lt; inCodes.size() &amp;&amp; isLegit; i++)</span>
+    {
+<span style = "background-color:#dfd">        if(inCodes[i] == CODE::DONE)</span>
+        {
+<span style = "background-color:#dfd">            isLegit &amp;= true;
+            resultCode = CODE::DONE;</span>
+        }
+<span style = "background-color:#dfd">        else</span>
+        {
+<span style = "background-color:#dfd">            isLegit &amp;= false;
+            resultCode = inCodes[i];
+            idxOfWrongCode = i;</span>
+        }
+<span style = "background-color:#dfd">    }</span>
+
+<span style = "background-color:#dfd">    return resultCode;
+}</span>
+
+}</pre>
+	</body>
+</html>

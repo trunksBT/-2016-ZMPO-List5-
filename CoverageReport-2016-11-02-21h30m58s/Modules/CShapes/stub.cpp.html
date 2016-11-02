@@ -1,0 +1,132 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		stub.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include "Stub.hpp"
+
+namespace stub
+{
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; emptyCommand = {};
+std::vector&lt;std::string&gt; noCommand = { "" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; gom1m1 = { "go", "-1", "-1" };
+std::vector&lt;std::string&gt; gom10 = { "go", "-1", "0" };
+std::vector&lt;std::string&gt; go0m1 = { "go", "0", "-1" };
+std::vector&lt;std::string&gt; go00 = { "go", "0", "0" };
+std::vector&lt;std::string&gt; go10 = { "go", "1", "0" };
+std::vector&lt;std::string&gt; go01 = { "go", "0", "1" };
+std::vector&lt;std::string&gt; go66 = { "go", "6", "6" };
+std::vector&lt;std::string&gt; go60 = { "go", "6", "0" };
+std::vector&lt;std::string&gt; go06 = { "go", "0", "6" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; createPoint1_1y5_5y5 = { "createPoint", "1", "1.5", "5.5" };
+std::vector&lt;std::string&gt; createPoint6_1y5_5y5 = { "createPoint", "6", "1.5", "5.5" };
+std::vector&lt;std::string&gt; createPoint0_m1y5_5y5 = { "createPoint", "0", "-1.5", "5.5" };
+std::vector&lt;std::string&gt; createPoint0_1y5_m5y5 = { "createPoint", "0", "1.5", "-5.5" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; setPoint1_1y5_5y5 = { "setPoint", "1", "1.5", "5.5" };
+std::vector&lt;std::string&gt; setPoint6_1y5_5y5 = { "setPoint", "6", "1.5", "5.5" };
+std::vector&lt;std::string&gt; setPoint0_m1y5_5y5 = { "setPoint", "0", "-1.5", "5.5" };
+std::vector&lt;std::string&gt; setPoint0_1y5_m5y5 = { "setPoint", "0", "1.5", "-5.5" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; createPointCopy00 = { "createPointCopy", "0", "0" };
+std::vector&lt;std::string&gt; createPointCopy10 = { "createPointCopy", "1", "0" };
+std::vector&lt;std::string&gt; createPointCopym1_0 = { "createPointCopy", "-1", "0" };
+std::vector&lt;std::string&gt; createPointCopy0_m1 = { "createPointCopy", "0", "-1" };
+std::vector&lt;std::string&gt; createPointCopym1_m1 = { "createPointCopy", "-1", "-1" };
+std::vector&lt;std::string&gt; createPointCopy60 = { "createPointCopy", "6", "0" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; getPointX0 = { "getPointX", "0" };
+std::vector&lt;std::string&gt; getPointXm1 = { "getPointX", "-1" };
+std::vector&lt;std::string&gt; getPointX1 = { "getPointX", "1" };
+std::vector&lt;std::string&gt; getPointX6 = { "getPointX", "6" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; getPointY0 = { "getPointY", "0" };
+std::vector&lt;std::string&gt; getPointYm1 = { "getPointY", "-1" };
+std::vector&lt;std::string&gt; getPointY1 = { "getPointY", "1" };
+std::vector&lt;std::string&gt; getPointY6 = { "getPointY", "6" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; fieldRectX0 = { "fieldRect", "0" };
+std::vector&lt;std::string&gt; fieldRectXm1 = { "fieldRect", "-1" };
+std::vector&lt;std::string&gt; fieldRectX1 = { "fieldRect", "1" };
+std::vector&lt;std::string&gt; fieldRectX6 = { "fieldRect", "6" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; createRectPoints1_1_1 = { "createRectPoints", "1", "1", "1" };
+std::vector&lt;std::string&gt; createRectPoints1_0_1 = { "createRectPoints", "1", "0", "1" };
+std::vector&lt;std::string&gt; createRectPoints6_0_1 = { "createRectPoints", "6", "0", "1" };
+std::vector&lt;std::string&gt; createRectPoints0_m1_5 = { "createRectPoints", "0", "-1", "5" };
+std::vector&lt;std::string&gt; createRectPoints0_5_m1 = { "createRectPoints", "0", "5", "-1" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; createRectDouble1_1y5_5y5_1y5_5y5 = { "createRectDouble", "1", "1.5", "5.5", "1.5", "5.5" };
+std::vector&lt;std::string&gt; createRectDouble1_1y5_5y5_m1_m1 = { "createRectDouble", "1", "1.5", "5.5", "-1", "-1" };
+std::vector&lt;std::string&gt; createRectDouble1_m1_m1_1y5_5y5 = { "createRectDouble", "1", "-1", "-1", "1.5", "5.5" };
+std::vector&lt;std::string&gt; createRectDouble6_1y5_5y5_1y5_5y5 = { "createRectDouble", "6", "1.5", "5.5", "1.5", "5.5" };
+std::vector&lt;std::string&gt; createRectDouble0_m1_5_1y5_5y5 = { "createRectDouble", "0", "-1", "5.5", "1.5", "5.5" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; createRectCopy00 = { "createRectCopy", "0", "0" };
+std::vector&lt;std::string&gt; createRectCopy10 = { "createRectCopy", "1", "0" };
+std::vector&lt;std::string&gt; createRectCopym1_0 = { "createRectCopy", "-1", "0" };
+std::vector&lt;std::string&gt; createRectCopy0_m1 = { "createRectCopy", "0", "-1" };
+std::vector&lt;std::string&gt; createRectCopym1_m1 = { "createRectCopy", "-1", "-1" };
+std::vector&lt;std::string&gt; createRectCopy60 = { "createRectCopy", "6", "0" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; showRect0 = { "showRect", "0" };
+std::vector&lt;std::string&gt; showRectm1 = { "showRect", "-1" };
+std::vector&lt;std::string&gt; showRect6 = { "showRect", "6" };
+std::vector&lt;std::string&gt; showRect10 = { "showRect", "10" };
+std::vector&lt;std::string&gt; printAll = { "printAll" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; deletem1 = { "delete", "-1" };
+std::vector&lt;std::string&gt; delete0 = { "delete", "0" };
+std::vector&lt;std::string&gt; delete10 = { "delete", "10" };
+std::vector&lt;std::string&gt; deleteAll = { "deleteAll" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; help = { "help" };</span>
+}
+
+namespace wrongAmountStub
+{
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; goToSmall = { "go" };
+std::vector&lt;std::string&gt; createToSmall = { "create", "1" };
+std::vector&lt;std::string&gt; createDefToSmall = { "createDef" };
+std::vector&lt;std::string&gt; createCopy0ToSmall = { "createCopy", "0" };
+std::vector&lt;std::string&gt; printToSmall = { "print" };
+std::vector&lt;std::string&gt; deleteToSmall = { "delete" };
+std::vector&lt;std::string&gt; getValue0ToSmall = { "getValue", "0" };
+std::vector&lt;std::string&gt; setValue0_0ToSmall = { "setValue", "0", "0" };
+std::vector&lt;std::string&gt; wrongCommandToSmall = { "wrongCommand" };</span>
+
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; goToBig = { "go", "0", "6" };
+std::vector&lt;std::string&gt; createToBig = { "create", "1", "5", "Name" , "23" };
+std::vector&lt;std::string&gt; createDefToBig = { "createDef", "0", "6" };
+std::vector&lt;std::string&gt; createCopy0ToBig = { "createCopy", "0", "1", "6" };
+std::vector&lt;std::string&gt; printToBig = { "print", "0", "6" };
+std::vector&lt;std::string&gt; deleteToBig = { "delete", "0", "6" };
+std::vector&lt;std::string&gt; deleteAllToBig = { "deleteAll", "0", "6" };
+std::vector&lt;std::string&gt; getValue0ToBig = { "getValue", "0", "0", "6" };
+std::vector&lt;std::string&gt; setValue0_0ToBig = { "setValue", "0", "0", "0", "6" };
+std::vector&lt;std::string&gt; wrongCommandToBig = { "wrongCommand", "0", "6" };</span>
+}
+
+namespace wrongTypeStub
+{
+<span style = "background-color:#dfd">std::vector&lt;std::string&gt; goZ = { "go", "Z" };
+std::vector&lt;std::string&gt; createZZZ = { "create", "Z", "Z", "Z" };
+std::vector&lt;std::string&gt; createDefZ = { "createDef", "Z" };
+std::vector&lt;std::string&gt; createCopyZZ = { "createCopy", "Z", "Z" };
+std::vector&lt;std::string&gt; printZ = { "print", "Z" };
+std::vector&lt;std::string&gt; deleteZ = { "delete", "Z" };
+std::vector&lt;std::string&gt; getValueZZ = { "getValue", "Z", "Z" };
+std::vector&lt;std::string&gt; setValue0ZZZ = { "setValue", "Z", "Z", "Z" };
+std::vector&lt;std::string&gt; setSizeZZ = { "setSize", "Z", "Z" };</span>
+}</pre>
+	</body>
+</html>

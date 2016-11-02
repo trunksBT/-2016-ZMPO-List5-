@@ -1,0 +1,60 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		helphandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "HelpHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace cacheIdx;
+using namespace tupleIdx;
+
+CHelpHandler::CHelpHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+<span style = "background-color:#fdd">    : IHandler(inCommand), IShapeHandler(inCommand)
+{}</span>
+
+const int CHelpHandler::getProperAmountOfArgs()
+<span style = "background-color:#fdd">{
+    return 1;
+}</span>
+
+std::string CHelpHandler::getProperTypesOfArgs()
+<span style = "background-color:#fdd">{
+    return "s";
+}</span>
+
+CODE CHelpHandler::checkArgsAndPerform(CShapeWithSize inPointCache)
+<span style = "background-color:#fdd">{
+    purePerform(inPointCache);
+    return CODE::DONE;
+}</span>
+
+
+CODE CHelpHandler::purePerform(CShapeWithSize inCache)
+<span style = "background-color:#fdd">{
+    for (auto&amp; it : fullCommands::all)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info() &lt;&lt; it &lt;&lt; POST_PRINT;
+    }
+    return CODE::DONE;
+}</span>
+
+CHelpHandler::~CHelpHandler()
+<span style = "background-color:#fdd">{
+}</span>
+</pre>
+	</body>
+</html>

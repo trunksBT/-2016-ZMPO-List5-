@@ -1,0 +1,436 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		utils.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include "Utils.hpp"
+#include "Point.hpp"
+#include &lt;map&gt;
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+#include "Logger.h"
+
+using namespace defaultVals;
+using namespace tupleIdx;
+
+namespace funs
+{
+    bool isMinus(char inChar)
+<span style = "background-color:#dfd">    {
+        return inChar == '-';
+    }</span>
+    
+    bool isDot(char inChar)
+<span style = "background-color:#dfd">    {
+        return inChar == '.';
+    }</span>
+
+    bool isOverDoubleMinLimit(std::string inChain)
+<span style = "background-color:#dfd">    {
+        bool isLimit = true;</span>
+
+<span style = "background-color:#dfd">        if (inChain.size() &gt; MAX_SIZE_OF_DOUBLE_PLUS_SIGN)</span>
+        {
+<span style = "background-color:#fdd">            return true;</span>
+        }
+<span style = "background-color:#dfd">        else if (inChain.size() &lt; MAX_SIZE_OF_DOUBLE_PLUS_SIGN)</span>
+        {
+<span style = "background-color:#dfd">            return false;</span>
+        }
+
+<span style = "background-color:#fdd">        double parsedOnDouble = std::stod(inChain);</span>
+
+<span style = "background-color:#fdd">        if (parsedOnDouble &gt; MIN_DOUBLE_VAL)</span>
+        {
+<span style = "background-color:#fdd">            return true;</span>
+        }
+<span style = "background-color:#fdd">        else</span>
+        {
+<span style = "background-color:#fdd">            return false;</span>
+        }
+<span style = "background-color:#fdd">    }</span>
+
+    bool isOverDoubleMaxLimit(std::string inChain)
+<span style = "background-color:#dfd">    {
+        if (isMinus(inChain[ZERO]))</span>
+        {
+<span style = "background-color:#fdd">            bool isLimit = true;</span>
+
+<span style = "background-color:#fdd">            if (inChain.size() &gt; (MAX_SIZE_OF_DOUBLE + MINUS_SIZE))</span>
+            {
+<span style = "background-color:#fdd">                return true;</span>
+            }
+<span style = "background-color:#fdd">            else if (inChain.size() &lt; (MAX_SIZE_OF_DOUBLE + MINUS_SIZE))</span>
+            {
+<span style = "background-color:#fdd">                return false;</span>
+            }
+
+<span style = "background-color:#fdd">            double parsedOnDouble = std::stod(inChain);</span>
+
+<span style = "background-color:#fdd">            if (parsedOnDouble &lt; MAX_DOUBLE_VAL)</span>
+            {
+<span style = "background-color:#fdd">                return true;</span>
+            }
+<span style = "background-color:#fdd">            else</span>
+            {
+<span style = "background-color:#fdd">                return false;</span>
+            }
+        }
+<span style = "background-color:#fdd">        else</span>
+        {
+<span style = "background-color:#dfd">            bool isLimit = true;</span>
+
+<span style = "background-color:#dfd">            if (inChain.size() &gt; MAX_SIZE_OF_DOUBLE)</span>
+            {
+<span style = "background-color:#fdd">                return true;</span>
+            }
+<span style = "background-color:#dfd">            else if (inChain.size() &lt; MAX_SIZE_OF_DOUBLE)</span>
+            {
+<span style = "background-color:#dfd">                return false;</span>
+            }
+
+<span style = "background-color:#fdd">            double parsedOnDouble = std::stod(inChain);</span>
+
+<span style = "background-color:#fdd">            if (parsedOnDouble &gt; MAX_DOUBLE_VAL)</span>
+            {
+<span style = "background-color:#fdd">                return true;</span>
+            }
+<span style = "background-color:#fdd">            else</span>
+            {
+<span style = "background-color:#fdd">                return false;</span>
+            }
+        }
+<span style = "background-color:#fdd">    }</span>
+
+    bool isDouble(std::string inChain)
+<span style = "background-color:#dfd">    {
+        int i = 0;
+        bool isNumber = true;</span>
+
+<span style = "background-color:#dfd">        if (i == 0 &amp;&amp; inChain[i] != '-' &amp;&amp; inChain[i] != '.')</span>
+        {
+<span style = "background-color:#dfd">            if (isOverDoubleMaxLimit(inChain))</span>
+            {
+<span style = "background-color:#fdd">                return false;</span>
+            }
+        }
+<span style = "background-color:#dfd">        else
+            if (i == 0 &amp;&amp; inChain[i] == '-')</span>
+            {
+<span style = "background-color:#dfd">                if (isOverDoubleMinLimit(inChain))</span>
+                {
+<span style = "background-color:#fdd">                    return false;</span>
+                }
+<span style = "background-color:#dfd">            }</span>
+<span style = "background-color:#fdd">            else if (inChain.size() == ONE &amp;&amp; inChain[ZERO] == '-')</span>
+            {
+<span style = "background-color:#fdd">                return false;</span>
+            }
+
+<span style = "background-color:#dfd">        int counterOfDots = 0;
+        for (; i &lt; inChain.size() &amp;&amp; isNumber; i++)</span>
+        {
+<span style = "background-color:#dfd">            if (i == 0 &amp;&amp; inChain[i] == '-')</span>
+            {
+<span style = "background-color:#dfd">                isNumber &amp;= true;</span>
+            }
+<span style = "background-color:#dfd">            else if (i == 0 &amp;&amp; inChain[i] == '.')</span>
+            {
+<span style = "background-color:#fdd">                isNumber &amp;= false;</span>
+            }
+<span style = "background-color:#dfd">            else if (isDot(inChain[i]))</span>
+            {
+<span style = "background-color:#dfd">                if (counterOfDots &gt; ZERO)</span>
+                {
+<span style = "background-color:#fdd">                    isNumber &amp;= false;</span>
+                }
+<span style = "background-color:#fdd">                else</span>
+                {
+<span style = "background-color:#dfd">                    isNumber &amp;= true;</span>
+                }
+<span style = "background-color:#dfd">                counterOfDots++;</span>
+            }
+<span style = "background-color:#dfd">            else if (isdigit(inChain[i]))</span>
+            {
+<span style = "background-color:#dfd">                isNumber &amp;= true;</span>
+            }
+<span style = "background-color:#dfd">            else</span>
+            {
+<span style = "background-color:#fdd">                isNumber &amp;= false;</span>
+            }
+<span style = "background-color:#dfd">        }</span>
+
+<span style = "background-color:#dfd">        return isNumber;
+    }</span>
+
+    bool isProperIdx(int idxOrAmount, CShapeWithSize inCache)
+<span style = "background-color:#fdd">    {
+        return idxOrAmount &gt; MINUS_ONE &amp;&amp; idxOrAmount &lt; std::get&lt;SIZE&gt;(inCache);
+    }</span>
+
+    bool isProperIdx(int inIdx, int inSize)
+<span style = "background-color:#dfd">    {
+        return inIdx &gt; MINUS_ONE &amp;&amp; inIdx &lt; inSize;
+    }</span>
+
+    std::string toString(CODE inCode)
+<span style = "background-color:#dfd">    {
+        static std::map&lt;CODE, std::string&gt; codeToString;</span>
+
+<span style = "background-color:#dfd">        codeToString[CODE::DONE] = "DONE";
+        codeToString[CODE::ERROR] = "ERROR";
+        codeToString[CODE::CLOSE] = "CLOSE";
+        codeToString[CODE::NOT_INITIALIZED] = "NOT_INITIALIZED";</span>
+
+<span style = "background-color:#dfd">        return codeToString[inCode];
+    }</span>
+
+    bool isProperAmmountOfArgs(std::vector&lt;std::string&gt;&amp; inCommand, int inProperAmountOfArgs)
+<span style = "background-color:#dfd">    {
+        return inCommand.size() &gt;= inProperAmountOfArgs;
+    }</span>
+
+    bool isIntLimit(std::string inChain)
+<span style = "background-color:#dfd">    {
+        bool isLimit = true;</span>
+
+<span style = "background-color:#dfd">        if(inChain.size() &gt; 5)</span>
+        {
+<span style = "background-color:#fdd">            return true;</span>
+        }
+<span style = "background-color:#dfd">        else if(inChain.size() &lt; 5)</span>
+        {
+<span style = "background-color:#dfd">            return false;</span>
+        }
+
+<span style = "background-color:#fdd">        long inLong = std::stol(inChain);</span>
+
+<span style = "background-color:#fdd">        if(inLong &lt;= MAX_INT_VAL)</span>
+        {
+<span style = "background-color:#fdd">            return true;</span>
+        }
+<span style = "background-color:#fdd">        else</span>
+        {
+<span style = "background-color:#fdd">            return false;</span>
+        }
+
+<span style = "background-color:#fdd">    }</span>
+
+    bool isInt(std::string inChain)
+<span style = "background-color:#dfd">    {
+        bool isNumber = true;</span>
+
+<span style = "background-color:#dfd">        if(isIntLimit(inChain))</span>
+        {
+<span style = "background-color:#fdd">            return false;</span>
+        }
+<span style = "background-color:#dfd">        else if(inChain.size() == ONE &amp;&amp; inChain[ZERO] == '-')</span>
+        {
+<span style = "background-color:#fdd">            return false;</span>
+        }
+
+<span style = "background-color:#dfd">        for(int i = 0; i &lt; inChain.size() &amp;&amp; isNumber; i++)</span>
+        {
+<span style = "background-color:#dfd">            if(i == 0 &amp;&amp; inChain[i] == '-')</span>
+            {
+<span style = "background-color:#dfd">                isNumber &amp;= true;</span>
+            }
+<span style = "background-color:#dfd">            else if(isdigit(inChain[i]))</span>
+            {
+<span style = "background-color:#dfd">                isNumber &amp;= true;</span>
+            }
+<span style = "background-color:#dfd">            else</span>
+            {
+<span style = "background-color:#fdd">                isNumber &amp;= false;</span>
+            }
+<span style = "background-color:#dfd">        }</span>
+
+<span style = "background-color:#dfd">        return isNumber;
+    }</span>
+
+    bool isProperTypeOfArgs(std::vector&lt;std::string&gt;&amp; inCommand, std::string inProperTypeOfArgs)
+<span style = "background-color:#dfd">    {
+        bool isProperType = true;
+        for(int i = 0; i &lt; inCommand.size() &amp;&amp; isProperType &amp;&amp; i&lt; inProperTypeOfArgs.size(); i++)</span>
+        {
+<span style = "background-color:#dfd">            if (inProperTypeOfArgs[i] == DOUBLE_TYPE)</span>
+            {
+<span style = "background-color:#dfd">                if (!isDouble(inCommand[i]))</span>
+                {
+<span style = "background-color:#fdd">                    isProperType &amp;= false;</span>
+                }
+<span style = "background-color:#dfd">            }
+            else if(inProperTypeOfArgs[i] == INT_TYPE)</span>
+            {
+<span style = "background-color:#dfd">                if (!isInt(inCommand[i]))</span>
+                {
+<span style = "background-color:#fdd">                    isProperType &amp;= false;</span>
+                }
+            }
+<span style = "background-color:#dfd">        }
+        return isProperType;
+    }</span>
+
+    int toInt(char inChar)
+<span style = "background-color:#fdd">    {
+        return inChar - 48;
+    }</span>
+
+    int sizeOfDouble(double inVal)
+<span style = "background-color:#dfd">    {
+        std::stringstream valueStream;
+        valueStream &lt;&lt; std::fixed &lt;&lt; inVal;
+        std::string segmentFstStr = valueStream.str();
+        return static_cast&lt;int&gt;(segmentFstStr.size());
+    }</span>
+
+    bool isDoubleOverflow(double inVal1, double inVal2)
+<span style = "background-color:#dfd">    {
+        if (sizeOfDouble(inVal1) + sizeOfDouble(inVal2) &gt; (MAX_SIZE_OF_DOUBLE - ONE))</span>
+        {
+            // bo mnozac liczby rozmiar wyniku moze miec wartosc maksymalna rowna sume ich rozmiarow,
+            // ONE Bo a nie sprawdzajac calego double bezpieczniej wczesniej zglosic blad ( minus )
+<span style = "background-color:#fdd">            return true;</span>
+        }
+<span style = "background-color:#fdd">        else</span>
+        {
+<span style = "background-color:#dfd">            return false;</span>
+        }
+<span style = "background-color:#dfd">    }</span>
+
+    bool isSegmentToBig(double fstX, double sndX)
+<span style = "background-color:#dfd">    {
+        int sizeOfLongerValue = sizeOfDouble(fstX);
+        return sizeOfLongerValue &gt; (MAX_SIZE_OF_DOUBLE - TWO);</span>
+        // bo dodajac liczby rozmiar wyniku moze miec wartosc maksymalna rowna rozmiarowi dluzszej + 1
+        // TWO a nie sprawdzajac calego double bezpieczniej wczesniej zglosic blad ( minus )
+
+<span style = "background-color:#dfd">    }</span>
+
+}
+namespace fullCommands
+{
+    std::string goArgs =
+        std::string(messageLiterals::GO) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::SIZE) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::SIZE);</span>
+
+    std::string createPointArgs =
+        std::string(messageLiterals::CREATE_POINT) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE);</span>
+
+    std::string createPointCopyArgs =
+        std::string(messageLiterals::CREATE_POINT_COPY) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);</span>
+
+    std::string createRectPointsArgs =
+        std::string(messageLiterals::CREATE_RECT_POINTS) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);</span>
+
+    std::string createRectDoubleArgs =
+        std::string(messageLiterals::CREATE_RECT_DOUBLE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE);</span>
+
+    std::string createRectDefaultArgs =
+        std::string(messageLiterals::CREATE_RECT_DEFAULT) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);</span>
+
+    std::string createRectCopyArgs =
+        std::string(messageLiterals::CREATE_RECT_COPY) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);</span>
+
+    std::string setPointArgs =
+        std::string(messageLiterals::SET_POINT) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE);</span>
+
+    std::string getPointXArgs =
+        std::string(messageLiterals::GET_POINT_X) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);</span>
+
+    std::string getPointYArgs =
+        std::string(messageLiterals::GET_POINT_Y) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);</span>
+
+    std::string fieldRectArgs =
+        std::string(messageLiterals::FIELD_RECT) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);</span>
+
+    std::string printAllArgs =
+<span style = "background-color:#dfd">        std::string(messageLiterals::PRINT_ALL);</span>
+
+    std::string showRectArgs =
+        std::string(messageLiterals::SHOW_RECT) +
+<span style = "background-color:#dfd">        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);</span>
+
+    std::string closeArgs =
+<span style = "background-color:#dfd">        std::string(messageLiterals::CLOSE);</span>
+
+    std::string helpArgs =
+<span style = "background-color:#dfd">        std::string(messageLiterals::HELP);</span>
+    
+<span style = "background-color:#dfd">    std::vector&lt;std::string&gt; all =</span>
+    {
+        goArgs,
+        createPointArgs,
+        createPointCopyArgs,
+        createRectPointsArgs,
+        createRectDoubleArgs,
+        createRectDefaultArgs,
+        createRectCopyArgs,
+        setPointArgs,
+        getPointXArgs,
+        getPointYArgs,
+        fieldRectArgs,
+        showRectArgs,
+        printAllArgs,
+        closeArgs
+<span style = "background-color:#dfd">    };</span>
+} 
+</pre>
+	</body>
+</html>

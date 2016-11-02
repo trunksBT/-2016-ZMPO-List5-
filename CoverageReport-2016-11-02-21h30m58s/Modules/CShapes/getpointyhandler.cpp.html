@@ -1,0 +1,69 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		getpointyhandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "GetPointYHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+#include "../Logger.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace cacheIdx;
+using namespace tupleIdx;
+using namespace typeLiterals;
+
+CGetPointYHandler::CGetPointYHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+<span style = "background-color:#dfd">    : IHandler(inCommand), IPointHandler(inCommand)
+{}</span>
+
+const int CGetPointYHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 2;
+}</span>
+
+std::string CGetPointYHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "si";
+}</span>
+
+CODE CGetPointYHandler::checkArgsAndPerform(CPointWithSize inPointCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inPointCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CGetPointYHandler::purePerform(CPointWithSize inCache)
+<span style = "background-color:#dfd">{
+    std::string receivedId(wholeCommand_[idxOf::ID_OF_POINTS]);
+    int idxOrAmount = std::stoi(receivedId);</span>
+
+<span style = "background-color:#dfd">    if (!isProperIdx(idxOrAmount, std::get&lt;SIZE&gt;(inCache)))</span>
+    {
+<span style = "background-color:#dfd">        return CODE::ERROR;</span>
+    }
+
+<span style = "background-color:#dfd">    Logger::info() &lt;&lt; POINT &lt;&lt; SPACE &lt;&lt; Y &lt;&lt; SEPARATOR &lt;&lt;</span>
+        std::to_string(std::get&lt;ARRAY&gt;(inCache)[idxOrAmount]-&gt;getY()) &lt;&lt; POST_PRINT;
+
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span></pre>
+	</body>
+</html>

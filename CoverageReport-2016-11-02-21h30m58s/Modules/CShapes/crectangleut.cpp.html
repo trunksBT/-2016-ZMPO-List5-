@@ -1,0 +1,181 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		crectangleut.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;gtest/gtest.h&gt;
+#include "Rectangle.h"
+#include "Utils.hpp"
+#include &lt;limits&gt;
+#include &lt;vector&gt;
+
+using namespace defaultVals;
+namespace
+{
+class CRectangleTests : public testing::Test
+{
+protected:
+    virtual void SetUp()
+<span style = "background-color:#dfd">    {}</span>
+
+    virtual void TearDown()
+<span style = "background-color:#dfd">    {}</span>
+};
+
+<span style = "background-color:#dfd">TEST_F(CRectangleTests, build_withPoint_fst_1_1_snd_4_4)
+{
+    double fstX = 1;
+    double fstY = 1;
+    CPoint* fstPoint = CPoint::buildNewObj(fstX, fstY);</span>
+
+<span style = "background-color:#dfd">    double sndX = 4;
+    double sndY = 4;
+    CPoint* sndPoint = CPoint::buildNewObj(sndX, sndY);</span>
+
+<span style = "background-color:#dfd">    CRectangle* rectangle = CRectangle::buildNewObj(fstPoint, sndPoint);
+    std::cout &lt;&lt; rectangle-&gt;toString() &lt;&lt; POST_PRINT;</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(fstX, rectangle-&gt;fstGetX());
+    ASSERT_EQ(fstY, rectangle-&gt;fstGetY());
+    ASSERT_EQ(sndX, rectangle-&gt;sndGetX());
+    ASSERT_EQ(sndY, rectangle-&gt;sndGetY());</span>
+
+<span style = "background-color:#dfd">    delete fstPoint;
+    delete sndPoint;
+    delete rectangle;
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CRectangleTests, build_withDoubles_fst_1_1_snd_4_4)
+{
+    double fstX = 1;
+    double fstY = 1;
+    double sndX = 4;
+    double sndY = 4;</span>
+
+<span style = "background-color:#dfd">    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+    std::cout &lt;&lt; rectangle-&gt;toString() &lt;&lt; POST_PRINT;</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(fstX, rectangle-&gt;fstGetX());
+    ASSERT_EQ(fstY, rectangle-&gt;fstGetY());
+    ASSERT_EQ(sndX, rectangle-&gt;sndGetX());
+    ASSERT_EQ(sndY, rectangle-&gt;sndGetY());</span>
+
+<span style = "background-color:#dfd">    delete rectangle;
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CRectangleTests, build_withPointer_fst_1_1_snd_4_4)
+{
+    double fstX = 1;
+    double fstY = 1;
+    double sndX = 4;
+    double sndY = 4;</span>
+
+<span style = "background-color:#dfd">    CRectangle* rectangleToCopyFrom = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+    CRectangle* rectangleToCopyTo = CRectangle::buildNewObj(rectangleToCopyFrom);
+    std::cout &lt;&lt; rectangleToCopyFrom-&gt;toString() &lt;&lt; POST_PRINT;
+    std::cout &lt;&lt; rectangleToCopyTo-&gt;toString() &lt;&lt; POST_PRINT;</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(fstX, rectangleToCopyFrom-&gt;fstGetX());
+    ASSERT_EQ(fstY, rectangleToCopyFrom-&gt;fstGetY());
+    ASSERT_EQ(sndX, rectangleToCopyFrom-&gt;sndGetX());
+    ASSERT_EQ(sndY, rectangleToCopyFrom-&gt;sndGetY());</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(fstX, rectangleToCopyTo-&gt;fstGetX());
+    ASSERT_EQ(fstY, rectangleToCopyTo-&gt;fstGetY());
+    ASSERT_EQ(sndX, rectangleToCopyTo-&gt;sndGetX());
+    ASSERT_EQ(sndY, rectangleToCopyTo-&gt;sndGetY());</span>
+
+<span style = "background-color:#dfd">    delete rectangleToCopyFrom;
+    delete rectangleToCopyTo;
+}</span>
+//
+//TEST_F(CRectangleTests, field_fst_0_0_snd_4_4_Expect_16)
+//{
+//    double fstX = 0;
+//    double fstY = 0;
+//    double sndX = 4;
+//    double sndY = 4;
+//    double expField = 16.0;
+//
+//    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+//    std::cout &lt;&lt; rectangle-&gt;toString() &lt;&lt; POST_PRINT;
+//
+//    ASSERT_EQ(fstX, rectangle-&gt;fstGetX());
+//    ASSERT_EQ(fstY, rectangle-&gt;fstGetY());
+//    ASSERT_EQ(sndX, rectangle-&gt;sndGetX());
+//    ASSERT_EQ(sndY, rectangle-&gt;sndGetY());
+//    ASSERT_EQ(expField, rectangle-&gt;field());
+//
+//    delete rectangle;
+//}
+//
+//TEST_F(CRectangleTests, field_fst_0_0_snd_m4_m4_Expect_16)
+//{
+//    double fstX = 0;
+//    double fstY = 0;
+//    double sndX = -4;
+//    double sndY = -4;
+//    double expField = 16.0;
+//
+//    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+//    std::cout &lt;&lt; rectangle-&gt;toString() &lt;&lt; POST_PRINT;
+//
+//    ASSERT_EQ(fstX, rectangle-&gt;fstGetX());
+//    ASSERT_EQ(fstY, rectangle-&gt;fstGetY());
+//    ASSERT_EQ(sndX, rectangle-&gt;sndGetX());
+//    ASSERT_EQ(sndY, rectangle-&gt;sndGetY());
+//    ASSERT_EQ(expField, rectangle-&gt;field());
+//
+//    delete rectangle;
+//}
+//
+//TEST_F(CRectangleTests, field_fst_0_0_snd_8_7_Expect_56)
+//{
+//    double fstX = 0;
+//    double fstY = 0;
+//    double sndX = 8;
+//    double sndY = 7;
+//    double expField = 56.0;
+//
+//    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+//    std::cout &lt;&lt; rectangle-&gt;toString() &lt;&lt; POST_PRINT;
+//
+//    ASSERT_EQ(fstX, rectangle-&gt;fstGetX());
+//    ASSERT_EQ(fstY, rectangle-&gt;fstGetY());
+//    ASSERT_EQ(sndX, rectangle-&gt;sndGetX());
+//    ASSERT_EQ(sndY, rectangle-&gt;sndGetY());
+//    ASSERT_EQ(expField, rectangle-&gt;field());
+//
+//    delete rectangle;
+//}
+//
+//TEST_F(CRectangleTests, field_fst_7_0_snd_0_8_Expect_56)
+//{
+//    double fstX = 7;
+//    double fstY = 0;
+//    double sndX = 0;
+//    double sndY = 8;
+//    double expField = 56.0;
+//
+//    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+//    std::cout &lt;&lt; rectangle-&gt;toString() &lt;&lt; POST_PRINT;
+//
+//    ASSERT_EQ(fstX, rectangle-&gt;fstGetX());
+//    ASSERT_EQ(fstY, rectangle-&gt;fstGetY());
+//    ASSERT_EQ(sndX, rectangle-&gt;sndGetX());
+//    ASSERT_EQ(sndY, rectangle-&gt;sndGetY());
+//    ASSERT_EQ(expField, rectangle-&gt;field());
+//
+//    delete rectangle;
+//}
+
+}</pre>
+	</body>
+</html>

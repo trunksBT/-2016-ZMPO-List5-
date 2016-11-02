@@ -1,0 +1,59 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		cshapesrunner.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+// TableCtors.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+#include &lt;gtest/gtest.h&gt;
+
+#include "Stub.hpp"
+#include "Utils.hpp"
+#include "Interface.hpp"
+#include "Flyweight.h"
+#include "UtilsForMT.h"
+
+using namespace defaultVals;
+using namespace communication;
+using namespace assertWrapper;
+using namespace funs;
+
+#define STUB
+
+int main(int argc, char **argv)
+<span style = "background-color:#dfd">{</span>
+    {
+<span style = "background-color:#dfd">        CFlyweight application(ZERO, ZERO);
+        CODE commandResult = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">        std::cout &lt;&lt; "Pass command" &lt;&lt; std::endl;</span>
+        do
+        {
+<span style = "background-color:#dfd">            auto command = receiveAndLexCommandFromUser();
+            commandResult = application.interpretCommand(command);
+            std::cout &lt;&lt; toString(commandResult) &lt;&lt; POST_PRINT;
+        } while (commandResult != CODE::CLOSE);</span>
+
+<span style = "background-color:#dfd">        std::cout &lt;&lt; std::endl &lt;&lt; "Dzieki za uzycie programu, Korytko_MS" &lt;&lt; POST_PRINT &lt;&lt; POST_PRINT;
+        system("Pause");
+    }</span>
+   
+<span style = "background-color:#dfd">    ::testing::InitGoogleTest(&amp;argc, argv);
+    return RUN_ALL_TESTS();
+}</span>
+
+</pre>
+	</body>
+</html>

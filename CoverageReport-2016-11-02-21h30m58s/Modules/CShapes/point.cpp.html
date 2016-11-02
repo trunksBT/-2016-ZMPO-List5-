@@ -1,0 +1,140 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		point.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include "Point.hpp"
+#include "Utils.hpp"
+#include &lt;iostream&gt;
+#include &lt;limits&gt;
+#include &lt;sstream&gt;
+#include "Logger.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace typeLiterals;
+using namespace flags;
+
+<span style = "background-color:#dfd">CPoint::CPoint(double xAxis, double yAxis) : CShape()
+{
+    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; CTOR_ARG1_PRE_PRINT
+            &lt;&lt; POINT
+            &lt;&lt; POST_PRINT;
+    }
+
+<span style = "background-color:#dfd">    xAxis_ = new double(xAxis);
+    yAxis_ = new double(yAxis);</span>
+
+<span style = "background-color:#dfd">    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; CTOR_ARG1_PRE_PRINT
+            &lt;&lt; X &lt;&lt; SEPARATOR &lt;&lt; std::to_string(*xAxis_)
+            &lt;&lt; COMMA_SPACE
+            &lt;&lt; Y &lt;&lt; SEPARATOR &lt;&lt; std::to_string(*yAxis_)
+            &lt;&lt; POST_PRINT;
+    }
+<span style = "background-color:#dfd">}</span>
+
+CPoint::CPoint(const CPoint&amp; inVal)
+<span style = "background-color:#dfd">{
+    deepCopy(inVal);</span>
+
+<span style = "background-color:#dfd">    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; CTOR_COPY_PRE_PRINT
+            &lt;&lt; X &lt;&lt; SEPARATOR &lt;&lt; std::to_string(*xAxis_)
+            &lt;&lt; COMMA_SPACE
+            &lt;&lt; Y &lt;&lt; SEPARATOR &lt;&lt; std::to_string(*yAxis_)
+            &lt;&lt; POST_PRINT;
+    }
+<span style = "background-color:#dfd">}</span>
+
+void CPoint::deepCopy(const CPoint&amp; inVal)
+<span style = "background-color:#dfd">{
+    xAxis_ = new double(*inVal.xAxis_);
+    yAxis_ = new double(*inVal.yAxis_);
+}</span>
+
+CPoint::~CPoint()
+<span style = "background-color:#dfd">{
+    if (PRINT_CTORS)</span>
+    {
+<span style = "background-color:#fdd">        Logger::info()</span>
+            &lt;&lt; DTOR_PRE_PRINT
+            &lt;&lt; POINT
+            &lt;&lt; X &lt;&lt; SEPARATOR &lt;&lt; std::to_string(*xAxis_)
+            &lt;&lt; COMMA_SPACE
+            &lt;&lt; Y &lt;&lt; SEPARATOR &lt;&lt; std::to_string(*yAxis_)
+            &lt;&lt; POST_PRINT;
+    }
+<span style = "background-color:#dfd">    deallocateMemory();
+}</span>
+
+CPoint* CPoint::buildNewObj(double xAxis, double yAxis)
+<span style = "background-color:#dfd">{
+    return new CPoint(xAxis, yAxis);
+}</span>
+
+CPoint* CPoint::buildNewObj(CPoint* inObj)
+<span style = "background-color:#dfd">{
+    return new CPoint(*inObj);
+}</span>
+
+void CPoint::deallocateMemory()
+<span style = "background-color:#dfd">{
+    delete xAxis_;
+    delete yAxis_;
+}</span>
+
+void CPoint::setX(double newX)
+<span style = "background-color:#dfd">{
+    *xAxis_ = newX;
+}</span>
+
+void CPoint::setY(double newY)
+<span style = "background-color:#dfd">{
+    *yAxis_ = newY;
+}</span>
+
+double CPoint::getX() const
+<span style = "background-color:#dfd">{
+    return double(*xAxis_);
+}</span>
+
+double CPoint::getY() const
+<span style = "background-color:#dfd">{
+    return double(*yAxis_);
+}</span>
+
+std::string CPoint::getType()
+<span style = "background-color:#fdd">{
+    return POINT;
+}</span>
+
+std::string CPoint::toString()
+<span style = "background-color:#dfd">{
+    std::stringstream retVal;
+    retVal</span>
+        &lt;&lt; PRE_PRINT &lt;&lt; POINT &lt;&lt; BRACKET_OPEN
+        &lt;&lt; X &lt;&lt; SEPARATOR &lt;&lt; std::to_string(*xAxis_)
+        &lt;&lt; COMMA_SPACE
+        &lt;&lt; Y &lt;&lt; SEPARATOR &lt;&lt; std::to_string(*yAxis_)
+        &lt;&lt; BRACKET_CLOSE;
+
+<span style = "background-color:#dfd">    return retVal.str();
+}</span>
+</pre>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		fieldrecthandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "FieldRectHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+#include "../Logger.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace cacheIdx;
+using namespace tupleIdx;
+using namespace typeLiterals;
+
+CFieldRectHandler::CFieldRectHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+<span style = "background-color:#dfd">    : IHandler(inCommand), IShapeHandler(inCommand)
+{}</span>
+
+const int CFieldRectHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 2;
+}</span>
+
+std::string CFieldRectHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "si";
+}</span>
+
+CODE CFieldRectHandler::checkArgsAndPerform(CShapeWithSize inPointCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inPointCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CFieldRectHandler::purePerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    std::string receivedId(wholeCommand_[idxOf::RECT_GOAL_ID]);
+    int idxOrAmount = std::stoi(receivedId);</span>
+
+<span style = "background-color:#dfd">    if (!isProperIdx(idxOrAmount, std::get&lt;SIZE&gt;(inCache)))</span>
+    {
+<span style = "background-color:#dfd">        return CODE::ERROR;</span>
+    }
+
+    std::pair&lt;CODE, double&gt; fieldWithCode =
+<span style = "background-color:#dfd">        reinterpret_cast&lt;CRectangle*&gt;(std::get&lt;ARRAY&gt;(inCache)[idxOrAmount])-&gt;field();</span>
+
+<span style = "background-color:#dfd">    if (std::get&lt;0&gt;(fieldWithCode) == CODE::ERROR)</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#dfd">        Logger::info() &lt;&lt; POINT &lt;&lt; SPACE &lt;&lt; FIELD &lt;&lt; SEPARATOR &lt;&lt;</span>
+            std::to_string(std::get&lt;1&gt;(fieldWithCode)) &lt;&lt; POST_PRINT;
+    }
+
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span></pre>
+	</body>
+</html>

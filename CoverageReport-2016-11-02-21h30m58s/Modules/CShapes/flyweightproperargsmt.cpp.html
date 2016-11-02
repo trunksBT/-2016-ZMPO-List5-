@@ -1,0 +1,892 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		flyweightproperargsmt.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;gtest/gtest.h&gt;
+
+#include &lt;limits&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;utility&gt;
+
+#include "Flyweight.h"
+#include "Stub.hpp"
+#include "UtilsForMT.h"
+
+using namespace defaultVals;
+using namespace assertWrapper;
+using namespace funs;
+
+namespace
+{
+class CFlyweightProperArgsMT : public testing::Test
+{
+protected:
+    virtual void SetUp()
+<span style = "background-color:#dfd">    {
+        rcVal = CODE::ERROR;
+    }</span>
+
+    virtual void TearDown()
+<span style = "background-color:#dfd">    {
+        application.releaseResources();
+    }</span>
+protected:
+    CFlyweight application;
+    CODE rcVal;
+};
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, gom1m1_OnEmptyCFlyweight_Expect_WRONG_VALUE)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::gom1m1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, gom10_OnEmptyCFlyweight_Expect_WRONG_VALUE)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::gom10)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, go0m1_OnEmptyCFlyweight_Expect_WRONG_VALUE)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go0m1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, go00_OnEmptyCFlyweight)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go00)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, go10_OnEmptyCFlyweight)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go10)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, go01_OnEmptyCFlyweight)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go01)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, go66_OnEmptyCFlyweight)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, go60_OnEmptyCFlyweight)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go60)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, go06_OnEmptyCFlyweight)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go06)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPoint1_1y5_5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPoint1_1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPoint6_1y5_5y5)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPoint6_1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPoint0_m1y5_5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPoint0_m1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPoint0_1y5_m5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPoint0_1y5_m5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, setPoint1_1y5_5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::setPoint1_1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, setPoint6_1y5_5y5)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::setPoint6_1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, setPoint0_m1y5_5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::setPoint0_m1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, setPoint0_1y5_m5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::setPoint0_1y5_m5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+////////////////////////////////////////////////
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPointCopy00)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPointCopy00)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPointCopy10)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPointCopy10)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPointCopym1_0)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPointCopym1_0)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPointCopy0_m1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPointCopy0_m1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPointCopym1_m1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPointCopym1_m1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createPointCopy60)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createPointCopy60)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+/////////////////////////////////////////
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, getPointX0)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::getPointX0)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, getPointXm1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::getPointXm1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, getPointX1)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::getPointX1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, getPointX6)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::getPointX6)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+/////////////////////////////////////////
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, getPointY0)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::getPointY0)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, getPointYm1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::getPointYm1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, getPointY1)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::getPointY1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, getPointY6)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::getPointY6)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+////////////////////////////////////////////////
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectPoints1_1_1)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints1_1_1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectPoints1_0_1)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints1_0_1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectPoints6_0_1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints6_0_1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectPoints0_m1_5)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints0_m1_5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectPoints0_5_m1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints0_5_m1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+////////////////////////////////////////////
+
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectDouble1_1y5_5y5_1y5_5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectDouble1_1y5_5y5_1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectDouble1_1y5_5y5_m1_m1)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectDouble1_1y5_5y5_m1_m1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectDouble1_m1_m1_1y5_5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectDouble1_m1_m1_1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectDouble6_1y5_5y5_1y5_5y5)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectDouble6_1y5_5y5_1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectDouble0_m1_5_1y5_5y5)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectDouble0_m1_5_1y5_5y5)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+//////////////////////////////////////////////////////////////////
+
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectCopy00)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopy00)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectCopy10)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopy10)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectCopym1_0)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopym1_0)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectCopy0_m1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopy0_m1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectCopym1_m1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopym1_m1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, createRectCopy60)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopy60)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+///////////////////////////////////////////////////
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, fieldRectX0)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::fieldRectX0)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, fieldRectXm1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::fieldRectXm1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, fieldRectX1)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::fieldRectX1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, fieldRectX6)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::fieldRectX6)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, bigPoints_fieldRect)
+{
+    std::vector&lt;std::string&gt; setBigPoint1 =</span>
+    { 
+        "setPoint", "0", 
+        "0.0",
+        "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999.0"
+    };
+
+<span style = "background-color:#dfd">    std::vector&lt;std::string&gt; setBigPoint2 =</span>
+    {
+        "setPoint", "1",
+        "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999.0",
+        "0.0"
+    };
+
+<span style = "background-color:#dfd">    std::vector&lt;std::string&gt; createRectPoints0_0_0 = </span>
+    { 
+        "createRectPoints", "0", "0", "1" 
+    };
+
+<span style = "background-color:#dfd">    std::vector&lt;std::string&gt; printAll =</span>
+    {
+        "printAll"
+    };
+
+<span style = "background-color:#dfd">    std::vector&lt;std::string&gt; fieldRectTest =</span>
+    {
+        "fieldRect", "0"
+    };
+
+
+<span style = "background-color:#dfd">    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(setBigPoint1),
+        application.interpretCommand(printAll),
+        application.interpretCommand(setBigPoint2),
+        application.interpretCommand(printAll),
+        application.interpretCommand(createRectPoints0_0_0),
+        application.interpretCommand(printAll),
+        application.interpretCommand(fieldRectTest)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, showRect0)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::showRect0)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, showRectm1)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::showRectm1)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, showRect6)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::showRect6)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, showRect10)
+{
+    CODE expVal = CODE::ERROR;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::showRect10)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CFlyweightProperArgsMT, printAll)
+{
+    CODE expVal = CODE::DONE;</span>
+
+<span style = "background-color:#dfd">    rcVal = getFinalResultCode</span>
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::printAll)
+    });
+<span style = "background-color:#dfd">    std::cout &lt;&lt; toString(rcVal);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(expVal, rcVal);
+}</span>
+
+
+}</pre>
+	</body>
+</html>

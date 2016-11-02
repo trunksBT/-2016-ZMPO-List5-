@@ -1,0 +1,774 @@
+<html>
+    <title>
+        CShapes.exe
+    </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../third-party/css/style.css">
+        <script src="../third-party/RGraph/libraries/RGraph.common.core.js" ></script>
+        <script src="../third-party/RGraph/libraries/RGraph.common.dynamic.js" ></script>
+        <script src="../third-party/RGraph/libraries/RGraph.common.tooltips.js"></script>
+        <script src="../third-party/RGraph/libraries/RGraph.pie.js" ></script>
+
+        <script src="../third-party/JQuery/jquery-1.11.1.min.js"></script>
+    </head>
+    <body>
+    <script>
+        $(document).ready(function ()
+        {
+            
+            new RGraph.Pie('pi_849a5d34-3211-40a8-a933-17852eb23e18', [0, 20])
+                .set('labels', ['Cover 0%','Uncover 100%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 0 lines (0%)', 'uncover 20 lines (100%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_abc14a3b-732c-4744-b991-61feac45a70d', [1, 23])
+                .set('labels', ['Cover 4%','Uncover 96%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 1 lines (4%)', 'uncover 23 lines (96%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_7a368697-b26a-4f9d-8c86-6cf4af51cbcc', [1, 2])
+                .set('labels', ['Cover 33%','Uncover 67%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 1 lines (33%)', 'uncover 2 lines (67%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_ca182975-6a90-47fe-bb80-b33f8858122c', [2, 2])
+                .set('labels', ['Cover 50%','Uncover 50%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 2 lines (50%)', 'uncover 2 lines (50%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_6037c018-4d8b-47a0-a7a0-2299f3a70acf', [2, 2])
+                .set('labels', ['Cover 50%','Uncover 50%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 2 lines (50%)', 'uncover 2 lines (50%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_bc776f0b-77d1-448d-8047-04aec5635769', [24, 19])
+                .set('labels', ['Cover 55%','Uncover 45%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 24 lines (55%)', 'uncover 19 lines (45%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_f052fb8a-51c6-4364-908e-4445fabf0fba', [10, 6])
+                .set('labels', ['Cover 62%','Uncover 38%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 10 lines (62%)', 'uncover 6 lines (38%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_a2669eab-0313-48fc-93b4-268a24f28585', [128, 53])
+                .set('labels', ['Cover 70%','Uncover 30%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 128 lines (70%)', 'uncover 53 lines (30%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_d0f48c87-41f9-4564-8152-5595ebf1aead', [56, 19])
+                .set('labels', ['Cover 74%','Uncover 26%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 56 lines (74%)', 'uncover 19 lines (26%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_afef64ab-e672-47e4-b191-954715680ef7', [64, 17])
+                .set('labels', ['Cover 79%','Uncover 21%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 64 lines (79%)', 'uncover 17 lines (21%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_1f765150-8717-478c-9982-40147713ea78', [21, 5])
+                .set('labels', ['Cover 80%','Uncover 20%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 21 lines (80%)', 'uncover 5 lines (20%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_80e65de0-b5fe-4950-bab2-738d2e403a50', [44, 11])
+                .set('labels', ['Cover 80%','Uncover 20%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 44 lines (80%)', 'uncover 11 lines (20%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_583c580d-e1a1-490c-aa95-7088e076ff0c', [24, 5])
+                .set('labels', ['Cover 82%','Uncover 18%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 24 lines (82%)', 'uncover 5 lines (18%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_abbdf4c5-6d5e-4dd7-82e5-f25de0a3d4f5', [27, 5])
+                .set('labels', ['Cover 84%','Uncover 16%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 27 lines (84%)', 'uncover 5 lines (16%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_edf17e44-3ab7-4c2a-9559-4761d30ba7a6', [109, 19])
+                .set('labels', ['Cover 85%','Uncover 15%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 109 lines (85%)', 'uncover 19 lines (15%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_74e7314e-c7e5-473a-9731-49b0fbae707f', [19, 3])
+                .set('labels', ['Cover 86%','Uncover 14%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 19 lines (86%)', 'uncover 3 lines (14%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_13223e5f-1932-49b7-ac46-927048d4d1c4', [19, 3])
+                .set('labels', ['Cover 86%','Uncover 14%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 19 lines (86%)', 'uncover 3 lines (14%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_6ba6f351-944d-472c-acaa-f39baaa38860', [20, 3])
+                .set('labels', ['Cover 86%','Uncover 14%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 20 lines (86%)', 'uncover 3 lines (14%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_a64870b3-c87b-4c7e-8532-16cc6b7836e2', [46, 7])
+                .set('labels', ['Cover 86%','Uncover 14%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 46 lines (86%)', 'uncover 7 lines (14%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_9c868c4a-8dbb-4a8d-9cfb-7f560ce4c404', [24, 3])
+                .set('labels', ['Cover 88%','Uncover 12%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 24 lines (88%)', 'uncover 3 lines (12%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_a4a0e6a2-bd6a-4469-b11f-6afbf4cadb0b', [24, 3])
+                .set('labels', ['Cover 88%','Uncover 12%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 24 lines (88%)', 'uncover 3 lines (12%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_bbbe3f51-0755-4d41-bab8-b6ed38828a48', [27, 3])
+                .set('labels', ['Cover 90%','Uncover 10%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 27 lines (90%)', 'uncover 3 lines (10%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_09cc2b1d-8b02-417d-a8ed-10e8dacfc3d1', [55, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 55 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_141b339a-b9f1-44da-9259-622456775351', [14, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 14 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_52c59a3a-6ce7-49ba-8358-0d77514db616', [13, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 13 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_2f1fa25a-6565-4f9a-81bd-f44c26a8d41a', [10, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 10 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_27b6a2b1-00eb-4d13-bb76-a31322e233d8', [46, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 46 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_d22ffa78-49d3-4680-a9eb-3c973f682acc', [410, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 410 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_9a9d91a2-35a6-40f4-961e-3d0b16dc7984', [3, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 3 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_497d76da-111f-40f0-8a9e-3f6a45edc079', [91, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 91 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_dbe741bd-9c3a-4f57-bc91-e47d55bd239e', [72, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 72 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_54a566a0-6de3-4ef9-b85b-e29419a128ef', [3, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 3 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_13ad27c1-1b81-4ec0-8b39-9d7f041df407', [15, 0])
+                .set('labels', ['Cover 100%','Uncover 0%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 15 lines (100%)', 'uncover 0 lines (0%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+
+      })
+    </script>
+    
+        <h1>
+        CShapes.exe
+        </h1>
+        <h4>
+        
+        </h4>
+        <table id="rounded-corner">
+            <thead>
+                <tr>
+                    <th scope="col" class="rounded-left">Coverage</th>
+                    <th scope="col">Total lines</th>
+                    <th scope="col" class="rounded-right">Items</th>
+                </tr>
+            </thead> 
+            <tfoot>
+                <tr>
+                <td colspan="2" class="rounded-foot-left"></td>
+                <td class="rounded-foot-right"></td>
+                </tr>
+            </tfoot>            
+            <tbody>
+                
+                <tr>
+                    <td>
+            <canvas id="pi_849a5d34-3211-40a8-a933-17852eb23e18" width="280" height="100">Cover 0%</canvas>
+                    </td>            
+                    <td>20</td>
+                    <td>            
+                       <a href="CShapes/helphandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\helphandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_abc14a3b-732c-4744-b991-61feac45a70d" width="280" height="100">Cover 4%</canvas>
+                    </td>            
+                    <td>24</td>
+                    <td>            
+                       <a href="CShapes/createrectdefaulthandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\createrectdefaulthandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_7a368697-b26a-4f9d-8c86-6cf4af51cbcc" width="280" height="100">Cover 33%</canvas>
+                    </td>            
+                    <td>3</td>
+                    <td>            
+                       <a href="CShapes/ipointandrectanglehandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\ipointandrectanglehandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_ca182975-6a90-47fe-bb80-b33f8858122c" width="280" height="100">Cover 50%</canvas>
+                    </td>            
+                    <td>4</td>
+                    <td>            
+                       <a href="CShapes/ipointhandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\ipointhandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_6037c018-4d8b-47a0-a7a0-2299f3a70acf" width="280" height="100">Cover 50%</canvas>
+                    </td>            
+                    <td>4</td>
+                    <td>            
+                       <a href="CShapes/ishapehandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\ishapehandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_bc776f0b-77d1-448d-8047-04aec5635769" width="280" height="100">Cover 55%</canvas>
+                    </td>            
+                    <td>43</td>
+                    <td>            
+                       <a href="CShapes/createrectpointshandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\createrectpointshandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_f052fb8a-51c6-4364-908e-4445fabf0fba" width="280" height="100">Cover 62%</canvas>
+                    </td>            
+                    <td>16</td>
+                    <td>            
+                       <a href="CShapes/ihandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\ihandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_a2669eab-0313-48fc-93b4-268a24f28585" width="280" height="100">Cover 70%</canvas>
+                    </td>            
+                    <td>181</td>
+                    <td>            
+                       <a href="CShapes/utils.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\utils.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_d0f48c87-41f9-4564-8152-5595ebf1aead" width="280" height="100">Cover 74%</canvas>
+                    </td>            
+                    <td>75</td>
+                    <td>            
+                       <a href="CShapes/rectangle.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\rectangle.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_afef64ab-e672-47e4-b191-954715680ef7" width="280" height="100">Cover 79%</canvas>
+                    </td>            
+                    <td>81</td>
+                    <td>            
+                       <a href="CShapes/gohandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\gohandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_1f765150-8717-478c-9982-40147713ea78" width="280" height="100">Cover 80%</canvas>
+                    </td>            
+                    <td>26</td>
+                    <td>            
+                       <a href="CShapes/fieldrecthandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\fieldrecthandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_80e65de0-b5fe-4950-bab2-738d2e403a50" width="280" height="100">Cover 80%</canvas>
+                    </td>            
+                    <td>55</td>
+                    <td>            
+                       <a href="CShapes/printallhandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\printallhandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_583c580d-e1a1-490c-aa95-7088e076ff0c" width="280" height="100">Cover 82%</canvas>
+                    </td>            
+                    <td>29</td>
+                    <td>            
+                       <a href="CShapes/createrectcopyhandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\createrectcopyhandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_abbdf4c5-6d5e-4dd7-82e5-f25de0a3d4f5" width="280" height="100">Cover 84%</canvas>
+                    </td>            
+                    <td>32</td>
+                    <td>            
+                       <a href="CShapes/createrectdoublehandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\createrectdoublehandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_edf17e44-3ab7-4c2a-9559-4761d30ba7a6" width="280" height="100">Cover 85%</canvas>
+                    </td>            
+                    <td>128</td>
+                    <td>            
+                       <a href="CShapes/flyweight.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\flyweight.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_74e7314e-c7e5-473a-9731-49b0fbae707f" width="280" height="100">Cover 86%</canvas>
+                    </td>            
+                    <td>22</td>
+                    <td>            
+                       <a href="CShapes/getpointxhandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\getpointxhandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_13223e5f-1932-49b7-ac46-927048d4d1c4" width="280" height="100">Cover 86%</canvas>
+                    </td>            
+                    <td>22</td>
+                    <td>            
+                       <a href="CShapes/getpointyhandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\getpointyhandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_6ba6f351-944d-472c-acaa-f39baaa38860" width="280" height="100">Cover 86%</canvas>
+                    </td>            
+                    <td>23</td>
+                    <td>            
+                       <a href="CShapes/showrecthandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\showrecthandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_a64870b3-c87b-4c7e-8532-16cc6b7836e2" width="280" height="100">Cover 86%</canvas>
+                    </td>            
+                    <td>53</td>
+                    <td>            
+                       <a href="CShapes/point.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\point.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_9c868c4a-8dbb-4a8d-9cfb-7f560ce4c404" width="280" height="100">Cover 88%</canvas>
+                    </td>            
+                    <td>27</td>
+                    <td>            
+                       <a href="CShapes/createpointcopyhandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\createpointcopyhandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_a4a0e6a2-bd6a-4469-b11f-6afbf4cadb0b" width="280" height="100">Cover 88%</canvas>
+                    </td>            
+                    <td>27</td>
+                    <td>            
+                       <a href="CShapes/setpointhandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\setpointhandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_bbbe3f51-0755-4d41-bab8-b6ed38828a48" width="280" height="100">Cover 90%</canvas>
+                    </td>            
+                    <td>30</td>
+                    <td>            
+                       <a href="CShapes/createpointhandler.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\handlers\createpointhandler.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_09cc2b1d-8b02-417d-a8ed-10e8dacfc3d1" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>55</td>
+                    <td>            
+                       <a href="CShapes/crectangleut.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\crectangleut.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_141b339a-b9f1-44da-9259-622456775351" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>14</td>
+                    <td>            
+                       <a href="CShapes/cshapesrunner.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\cshapesrunner.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_52c59a3a-6ce7-49ba-8358-0d77514db616" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>13</td>
+                    <td>            
+                       <a href="CShapes/interface.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\interface.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_2f1fa25a-6565-4f9a-81bd-f44c26a8d41a" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>10</td>
+                    <td>            
+                       <a href="CShapes/logger.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\logger.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_27b6a2b1-00eb-4d13-bb76-a31322e233d8" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>46</td>
+                    <td>            
+                       <a href="CShapes/flyweightproperamountofargsbutwrongmt.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\flyweightproperamountofargsbutwrongmt.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_d22ffa78-49d3-4680-a9eb-3c973f682acc" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>410</td>
+                    <td>            
+                       <a href="CShapes/flyweightproperargsmt.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\flyweightproperargsmt.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_9a9d91a2-35a6-40f4-961e-3d0b16dc7984" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>3</td>
+                    <td>            
+                       <a href="CShapes/shape.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\shape.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_497d76da-111f-40f0-8a9e-3f6a45edc079" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>91</td>
+                    <td>            
+                       <a href="CShapes/stub.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\stub.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_dbe741bd-9c3a-4f57-bc91-e47d55bd239e" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>72</td>
+                    <td>            
+                       <a href="CShapes/cpointut.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\cpointut.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_54a566a0-6de3-4ef9-b85b-e29419a128ef" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>3</td>
+                    <td>            
+                       <a href="CShapes/utils.hpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\utils.hpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_13ad27c1-1b81-4ec0-8b39-9d7f041df407" width="280" height="100">Cover 100%</canvas>
+                    </td>            
+                    <td>15</td>
+                    <td>            
+                       <a href="CShapes/utilsformt.cpp.html">d:\clouds\onedrive\github\c++\-2016-zmpo-list2-\cshapes\cshapes\utilsformt.cpp</a> 
+                      
+                    </td>
+                </tr>        
+                
+            </tbody>
+        </table>
+    </body>
+</html>

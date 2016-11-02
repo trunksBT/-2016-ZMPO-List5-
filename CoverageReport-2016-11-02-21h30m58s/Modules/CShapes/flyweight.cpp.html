@@ -1,0 +1,268 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		flyweight.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+#include "Flyweight.h"
+#include "Utils.hpp"
+
+#include "Handlers/GoHandler.h"
+#include "Handlers/CreatePointHandler.h"
+#include "Handlers/SetPointHandler.h"
+#include "Handlers/CreatePointCopyHandler.h"
+#include "Handlers/GetPointXHandler.h"
+#include "Handlers/GetPointYHandler.h"
+#include "Handlers/CreateRectPointsHandler.h"
+#include "Handlers/CreateRectDoubleHandler.h"
+#include "Handlers/CreateRectCopyHandler.h"
+#include "Handlers/CreateRectDefaultHandler.h"
+#include "Handlers/FieldRectHandler.h"
+#include "Handlers/ShowRectHandler.h"
+
+#include "Handlers/RemoveAllHandler.h"
+#include "Handlers/RemoveHandler.h"
+#include "Handlers/PrintAllHandler.h"
+#include "Handlers/HelpHandler.h"
+#include "UtilsForMT.h"
+#include "Logger.h"
+
+using namespace defaultVals;
+using namespace messageLiterals;
+using namespace funs;
+
+CShape** CFlyweight::pointCache_;
+int CFlyweight::pointCacheSize_;
+<span style = "background-color:#dfd">std::map&lt;int, bool&gt; CFlyweight::pointCacheIsInitialized_;</span>
+
+CShape** CFlyweight::shapeCache_;
+int CFlyweight::shapeCacheSize_;
+<span style = "background-color:#dfd">std::map&lt;int, bool&gt; CFlyweight::shapeCacheIsInitialized_;</span>
+
+CODE CFlyweight::interpretCommand(std::vector&lt;std::string&gt;&amp; inCommand)
+<span style = "background-color:#dfd">{
+    CODE returnedCode = CODE::ERROR;</span>
+    {
+<span style = "background-color:#dfd">        if (inCommand.size() == ZERO)</span>
+        {
+<span style = "background-color:#fdd">            return CODE::ERROR;</span>
+        }
+
+<span style = "background-color:#dfd">        std::string command(inCommand[idxOf::COMMAND]);
+        CPointWithSize pairedPointCache = { </span>
+            reinterpret_cast&lt;CPoint**&gt;(pointCache_),
+            pointCacheSize_,
+            pointCacheIsInitialized_
+        };
+
+        CShapeWithSize pairedShapeCache = 
+<span style = "background-color:#dfd">        {</span>
+            shapeCache_,
+            shapeCacheSize_,
+            shapeCacheIsInitialized_ 
+        };
+
+<span style = "background-color:#dfd">        if (command == GO)</span>
+        {
+<span style = "background-color:#dfd">            IPointAndRectangleHandler* evaluate = new CGoHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedPointCache, pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if(command == CREATE_POINT)</span>
+        {
+<span style = "background-color:#dfd">            IPointHandler* evaluate = new CCreatePointHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedPointCache);</span>
+        }
+<span style = "background-color:#dfd">        else if(command == CREATE_POINT_COPY)</span>
+        {
+<span style = "background-color:#dfd">            IPointHandler* evaluate = new CCreatePointCopyHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedPointCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == SET_POINT)</span>
+        {
+<span style = "background-color:#dfd">            IPointHandler* evaluate = new CSetPointHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedPointCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == GET_POINT_X)</span>
+        {
+<span style = "background-color:#dfd">            IPointHandler* evaluate = new CGetPointXHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedPointCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == GET_POINT_Y)</span>
+        {
+<span style = "background-color:#dfd">            IPointHandler* evaluate = new CGetPointYHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedPointCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == CREATE_RECT_POINTS)</span>
+        {
+<span style = "background-color:#dfd">            IPointAndRectangleHandler* evaluate = new CCreateRectPointsHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedPointCache, pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == CREATE_RECT_DOUBLE)</span>
+        {
+<span style = "background-color:#dfd">            IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == CREATE_RECT_DEFAULT)</span>
+        {
+<span style = "background-color:#fdd">            IShapeHandler* evaluate = new CCreateRectDefaultHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == CREATE_RECT_COPY)</span>
+        {
+<span style = "background-color:#dfd">            IShapeHandler* evaluate = new CCreateRectCopyHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == FIELD_RECT)</span>
+        {
+<span style = "background-color:#dfd">            IShapeHandler* evaluate = new CFieldRectHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == PRINT_ALL)</span>
+        {
+<span style = "background-color:#dfd">            IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedPointCache, pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == SHOW_RECT)</span>
+        {
+<span style = "background-color:#dfd">            IShapeHandler* evaluate = new CShowRectHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == HELP)</span>
+        {
+<span style = "background-color:#fdd">            IShapeHandler* evaluate = new CHelpHandler(inCommand);
+            returnedCode = evaluate-&gt;checkArgsAndPerform(pairedShapeCache);</span>
+        }
+<span style = "background-color:#dfd">        else if (command == CLOSE)</span>
+        {
+<span style = "background-color:#dfd">            releaseResources();
+            returnedCode = CODE::CLOSE;</span>
+        }
+
+<span style = "background-color:#dfd">    }</span>
+
+<span style = "background-color:#dfd">    return returnedCode;
+}</span>
+
+#pragma region ********** CTORS_DTORS **********
+
+void CFlyweight::releaseResources()
+<span style = "background-color:#dfd">{
+    for (int i = 0; i &lt; pointCacheSize_; i++)</span>
+    {
+<span style = "background-color:#dfd">        if (pointCacheIsInitialized_[i] &amp;&amp; pointCache_[i] != nullptr)</span>
+        {
+<span style = "background-color:#dfd">            delete pointCache_[i];
+            pointCache_[i] = nullptr;</span>
+        }
+<span style = "background-color:#dfd">    }
+    delete[] pointCache_;
+    pointCache_ = nullptr;
+    pointCacheSize_ = ZERO;
+    pointCacheIsInitialized_.clear();</span>
+
+<span style = "background-color:#dfd">    for (int i = 0; i &lt; shapeCacheSize_; i++)</span>
+    {
+<span style = "background-color:#dfd">        if ( shapeCacheIsInitialized_[i] &amp;&amp; shapeCache_[i] != nullptr )</span>
+        {
+<span style = "background-color:#dfd">            delete shapeCache_[i];
+            shapeCache_[i] = nullptr;</span>
+        }
+<span style = "background-color:#dfd">    }
+    delete[] shapeCache_;
+    shapeCache_ = nullptr;
+    shapeCacheSize_ = ZERO;
+    shapeCacheIsInitialized_.clear();
+}</span>
+
+void CFlyweight::initPointCache(int inCacheSize)
+<span style = "background-color:#dfd">{
+    if (inCacheSize &gt;= ZERO)</span>
+    {
+<span style = "background-color:#dfd">        pointCacheSize_ = inCacheSize;
+        pointCache_ = nullptr;
+        for (int i = 0; i &lt; pointCacheSize_; i++)</span>
+        {
+<span style = "background-color:#fdd">            pointCacheIsInitialized_[i] = false;
+        }</span>
+
+<span style = "background-color:#dfd">        pointCache_ = new CShape*[pointCacheSize_];</span>
+    }
+<span style = "background-color:#dfd">}</span>
+
+void CFlyweight::initShapeCache(int inCacheSize)
+<span style = "background-color:#fdd">{
+    if (inCacheSize &gt;= ZERO)</span>
+    {
+<span style = "background-color:#fdd">        shapeCacheSize_ = inCacheSize;
+        shapeCache_ = nullptr;
+        for (int i = 0; i &lt; shapeCacheSize_; i++)</span>
+        {
+<span style = "background-color:#fdd">            shapeCacheIsInitialized_[i] = false;
+        }</span>
+
+<span style = "background-color:#fdd">        shapeCache_ = new CShape*[shapeCacheSize_];</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CFlyweight::CFlyweight()
+<span style = "background-color:#dfd">{
+    initPointCache(ZERO);
+    initPointCache(ZERO);
+}</span>
+
+CFlyweight::CFlyweight(int inPointCacheSize, int inShapeCacheSize)
+<span style = "background-color:#dfd">{
+    initPointCache(inPointCacheSize);
+    initPointCache(inShapeCacheSize);
+}</span>
+
+CFlyweight::~CFlyweight()
+<span style = "background-color:#dfd">{
+    CFlyweight::releaseResources();
+}</span>
+
+void CFlyweight::setPointCacheSize(int inSize)
+<span style = "background-color:#dfd">{
+    pointCacheSize_ = inSize;
+}</span>
+void CFlyweight::setShapeCacheSize(int inSize)
+<span style = "background-color:#dfd">{
+    shapeCacheSize_ = inSize;
+}</span>
+
+void CFlyweight::updateIsInitializedPointCache(int idx, bool newVal)
+<span style = "background-color:#dfd">{
+    pointCacheIsInitialized_[idx] = newVal;
+}</span>
+
+void CFlyweight::updateIsInitializedShapeCache(int idx, bool newVal)
+<span style = "background-color:#dfd">{
+    shapeCacheIsInitialized_[idx] = newVal;
+}</span>
+
+void CFlyweight::updatePointCache(CShape** newPointCache)
+<span style = "background-color:#dfd">{
+    pointCache_ = newPointCache;
+}</span>
+
+void CFlyweight::updateShapeCache(CShape** newShapeCache)
+<span style = "background-color:#dfd">{
+    shapeCache_ = newShapeCache;
+}</span>
+
+void CFlyweight::updatePointCache(int idx, CShape* newPointCache)
+<span style = "background-color:#fdd">{
+    pointCache_[idx] = newPointCache;
+}</span>
+
+
+# pragma endregion</pre>
+	</body>
+</html>

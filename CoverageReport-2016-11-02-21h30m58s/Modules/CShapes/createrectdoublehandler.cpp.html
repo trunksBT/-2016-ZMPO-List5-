@@ -1,0 +1,94 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		createrectdoublehandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "CreateRectDoubleHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+#include "../UtilsForMT.h"
+
+using namespace defaultVals;
+using namespace cacheIdx;
+using namespace funs;
+using namespace assertWrapper;
+using namespace tupleIdx;
+
+CCreateRectDoubleHandler::CCreateRectDoubleHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+    : IHandler(inCommand), IShapeHandler(inCommand)
+<span style = "background-color:#dfd">{}</span>
+
+const int CCreateRectDoubleHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 6;
+}</span>
+
+std::string CCreateRectDoubleHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "sidddd";
+}</span>
+
+CODE CCreateRectDoubleHandler::checkArgsAndPerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CCreateRectDoubleHandler::purePerform(CShapeWithSize inCache)
+<span style = "background-color:#dfd">{
+    std::string goalIdxStr(wholeCommand_[idxOf::RECT_GOAL_ID]);
+    int copyToIdx = std::stoi(goalIdxStr);</span>
+
+<span style = "background-color:#dfd">    std::string pointFstXIdxStr(wholeCommand_[idxOf::POINT_FST_X]);
+    double pointFstXIdx = std::stod(pointFstXIdxStr);</span>
+
+<span style = "background-color:#dfd">    std::string pointFstYIdxStr(wholeCommand_[idxOf::POINT_FST_Y]);
+    double pointFstYIdx = std::stod(pointFstYIdxStr);</span>
+
+<span style = "background-color:#dfd">    std::string pointSndXIdxStr(wholeCommand_[idxOf::POINT_SND_X]);
+    double pointSndXIdx = std::stod(pointSndXIdxStr);</span>
+
+<span style = "background-color:#dfd">    std::string pointSndYIdxStr(wholeCommand_[idxOf::POINT_SND_Y]);
+    double pointSndYIdx = std::stod(pointSndYIdxStr);</span>
+
+<span style = "background-color:#dfd">    if (!isProperIdx(copyToIdx, std::get&lt;SIZE&gt;(inCache)))</span>
+    {
+<span style = "background-color:#dfd">        return CODE::ERROR;</span>
+    }
+
+
+    //// TODO FORGOTTEN CHECK OF PROPER ARGS WTS?
+
+<span style = "background-color:#dfd">    delete std::get&lt;ARRAY&gt;(inCache)[copyToIdx];
+    std::get&lt;ARRAY&gt;(inCache)[copyToIdx] = CRectangle::buildNewObj(</span>
+        pointFstXIdx,
+        pointFstYIdx,
+        pointSndXIdx,
+        pointSndYIdx
+    );
+
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span>
+
+CCreateRectDoubleHandler::~CCreateRectDoubleHandler()
+<span style = "background-color:#fdd">{</span>
+
+<span style = "background-color:#fdd">}</span></pre>
+	</body>
+</html>

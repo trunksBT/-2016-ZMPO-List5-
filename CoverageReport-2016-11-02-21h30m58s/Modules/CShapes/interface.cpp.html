@@ -1,0 +1,45 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		interface.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+#include &lt;boost/tokenizer.hpp&gt;
+#include "Utils.hpp"
+
+using tokenizer = boost::tokenizer&lt;boost::char_separator&lt;char&gt;&gt;;
+using namespace defaultVals;
+
+namespace communication
+{
+
+std::vector&lt;std::string&gt; performLexer(std::string inCommand)
+<span style = "background-color:#dfd">{
+    boost::char_separator&lt;char&gt; sep(defaultVals::SEPARATOR);
+    tokenizer tokens(inCommand, sep);
+    std::vector&lt;std::string&gt; retVal(tokens.begin(), tokens.end());
+    return retVal;
+}</span>
+
+std::vector&lt;std::string&gt; receiveAndLexCommandFromUser()
+<span style = "background-color:#dfd">{
+    std::string inChain;</span>
+    do
+    {
+<span style = "background-color:#dfd">        std::cout &lt;&lt; CURSOR_SIGN;
+        getline(std::cin, inChain);
+    } while(inChain.size() == ZERO);</span>
+
+<span style = "background-color:#dfd">    return performLexer(std::move(inChain));
+}</span>
+
+};</pre>
+	</body>
+</html>

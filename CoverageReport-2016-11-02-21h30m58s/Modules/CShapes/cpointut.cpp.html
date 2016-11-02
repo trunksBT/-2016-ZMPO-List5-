@@ -1,0 +1,128 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		cpointut.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;gtest/gtest.h&gt;
+#include "Point.hpp"
+#include "Utils.hpp"
+#include &lt;limits&gt;
+#include &lt;vector&gt;
+
+using namespace defaultVals;
+namespace
+{
+class CPointTests : public testing::Test
+{
+protected:
+    virtual void SetUp()
+<span style = "background-color:#dfd">    {}</span>
+
+    virtual void TearDown()
+<span style = "background-color:#dfd">    {}</span>
+};
+
+<span style = "background-color:#dfd">TEST_F(CPointTests, build_x_m1_y_m1_Expect_True)
+{
+    double inX = -1;
+    double inY = -1;
+    CPoint* inPoint = CPoint::buildNewObj(inX, inY);</span>
+    
+<span style = "background-color:#dfd">    ASSERT_EQ(inX, inPoint-&gt;getX());
+    ASSERT_EQ(inY, inPoint-&gt;getY());</span>
+
+<span style = "background-color:#dfd">    delete inPoint;
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CPointTests, build_x_1_y_1_Expect_True)
+{
+    double inX = 1;
+    double inY = 1;
+    CPoint* inPoint = CPoint::buildNewObj(inX, inY);</span>
+    
+<span style = "background-color:#dfd">    ASSERT_EQ(inX, inPoint-&gt;getX());
+    ASSERT_EQ(inY, inPoint-&gt;getY());</span>
+
+<span style = "background-color:#dfd">    delete inPoint;
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CPointTests, build_x_1_y_1_set_x_0_y_0_Expect_True)
+{
+    double inX = 1;
+    double inY = 1;</span>
+
+<span style = "background-color:#dfd">    double newX = 0;
+    double newY = 0;
+    CPoint* inPoint = CPoint::buildNewObj(inX, inY);</span>
+    
+<span style = "background-color:#dfd">    inPoint-&gt;setX(newX);
+    inPoint-&gt;setY(newY);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(newX, inPoint-&gt;getX());
+    ASSERT_EQ(newY, inPoint-&gt;getY());</span>
+
+<span style = "background-color:#dfd">    delete inPoint;
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CPointTests, copyCtor_x_1_y_1_onEmptyPtr_Expect_True)
+{
+    double inX = 1;
+    double inY = 1;</span>
+
+<span style = "background-color:#dfd">    CPoint* sourcePoint = CPoint::buildNewObj(inX, inY);
+    CPoint* goalPoint = new CPoint(*sourcePoint);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(inX, goalPoint-&gt;getX());
+    ASSERT_EQ(inY, goalPoint-&gt;getY());</span>
+
+<span style = "background-color:#dfd">    delete sourcePoint;
+    delete goalPoint;
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CPointTests, buildCopyCtor_x_1_y_1_onEmptyPtr_Expect_True)
+{
+    double inX = 1;
+    double inY = 1;
+    double inX2 = 2;
+    double inY2 = 2;</span>
+
+<span style = "background-color:#dfd">    CPoint* sourcePoint = CPoint::buildNewObj(inX, inY);
+    CPoint* goalPoint = CPoint::buildNewObj(sourcePoint);</span>
+
+<span style = "background-color:#dfd">    ASSERT_EQ(inX, goalPoint-&gt;getX());
+    ASSERT_EQ(inY, goalPoint-&gt;getY());</span>
+
+<span style = "background-color:#dfd">    delete sourcePoint;
+    delete goalPoint;
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(CPointTests, buildCopyCtor_x_1_y_1_onNotEmptyPtr_Expect_True)
+{
+    double inX = 1;
+    double inY = 1;
+    double inX2 = 2;
+    double inY2 = 2;</span>
+
+<span style = "background-color:#dfd">    CPoint* sourcePoint = CPoint::buildNewObj(inX, inY);
+    CPoint* goalPoint = CPoint::buildNewObj(inX2, inY2);
+    delete goalPoint;
+    goalPoint = CPoint::buildNewObj(sourcePoint);;</span>
+
+
+<span style = "background-color:#dfd">    ASSERT_EQ(inX, goalPoint-&gt;getX());
+    ASSERT_EQ(inY, goalPoint-&gt;getY());</span>
+
+<span style = "background-color:#dfd">    delete sourcePoint;
+    delete goalPoint;
+}</span>
+
+}</pre>
+	</body>
+</html>

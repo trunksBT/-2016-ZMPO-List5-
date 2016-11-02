@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IHandler">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAABAiAAAABAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\IHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IPointHandler" Collapsed="true">
+    <Position X="0.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAAAAAAABAgAAAEAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Handlers\IPointHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IShapeHandler" Collapsed="true">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAgAAAAAAABAgAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Handlers\IShapeHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGoHandler" Collapsed="true">
+    <Position X="2.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAggAAAAAABAgAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Handlers\GoHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IPointAndRectangleHandler" Collapsed="true">
+    <Position X="2.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAAAAAAABAgAAAAAAAAAAAAAAQAAAAAAAAAIAA=</HashCode>
+      <FileName>Handlers\IPointAndRectangleHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

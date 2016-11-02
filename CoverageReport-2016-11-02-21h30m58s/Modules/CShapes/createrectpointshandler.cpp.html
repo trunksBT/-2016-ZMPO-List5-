@@ -1,0 +1,117 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		createrectpointshandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "CreateRectPointsHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+#include "../UtilsForMT.h"
+
+using namespace defaultVals;
+using namespace cacheIdx;
+using namespace funs;
+using namespace assertWrapper;
+using namespace tupleIdx;
+
+CCreateRectPointsHandler::CCreateRectPointsHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+    : IHandler(inCommand), IPointHandler(inCommand), IShapeHandler(inCommand), IPointAndRectangleHandler(inCommand)
+<span style = "background-color:#dfd">{}</span>
+
+const int CCreateRectPointsHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 4;
+}</span>
+
+std::string CCreateRectPointsHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "siii";
+}</span>
+
+CODE CCreateRectPointsHandler::checkArgsAndPerform(
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inPointCache, inRectangleCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#dfd">}</span>
+
+CODE CCreateRectPointsHandler::purePerform(
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        std::string goalIdxStr(wholeCommand_[idxOf::COPY_TO]);
+        int copyToId = std::stoi(goalIdxStr);</span>
+
+<span style = "background-color:#dfd">        std::string fstPointIdxStr(wholeCommand_[idxOf::POINTS_FST]);
+        int pointFstIdx = std::stoi(fstPointIdxStr);</span>
+
+<span style = "background-color:#dfd">        std::string sndPointIdxStr(wholeCommand_[idxOf::POINT_SND]);
+        int pointSndIdx = std::stoi(sndPointIdxStr);</span>
+
+        if (!isProperIdx(copyToId, std::get&lt;SIZE&gt;(inRectangleCache)) ||
+<span style = "background-color:#dfd">            !isProperIdx(pointFstIdx, std::get&lt;SIZE&gt;(inPointCache)) ||</span>
+            !isProperIdx(pointSndIdx, std::get&lt;SIZE&gt;(inPointCache)))
+        {
+<span style = "background-color:#dfd">            return CODE::ERROR;</span>
+        }
+
+<span style = "background-color:#dfd">        delete std::get&lt;ARRAY&gt;(inRectangleCache)[copyToId];</span>
+
+<span style = "background-color:#dfd">        std::get&lt;ARRAY&gt;(inRectangleCache)[copyToId] = CRectangle::buildNewObj(</span>
+            std::get&lt;ARRAY&gt;(inPointCache)[pointFstIdx],
+            std::get&lt;ARRAY&gt;(inPointCache)[pointSndIdx]
+        );
+
+<span style = "background-color:#dfd">        return CODE::DONE;</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+CODE CCreateRectPointsHandler::checkArgsAndPerform(CShapeWithSize inCache)
+<span style = "background-color:#fdd">{
+    return CODE::DONE;
+}</span>
+
+CODE CCreateRectPointsHandler::purePerform(CShapeWithSize inCache)
+<span style = "background-color:#fdd">{
+    return CODE::DONE;
+}</span>
+
+CODE CCreateRectPointsHandler::checkArgsAndPerform(CPointWithSize inCache)
+<span style = "background-color:#fdd">{
+    return CODE::DONE;
+}</span>
+
+CODE CCreateRectPointsHandler::purePerform(CPointWithSize inCache)
+<span style = "background-color:#fdd">{
+    return CODE::DONE;
+}</span>
+
+CCreateRectPointsHandler::~CCreateRectPointsHandler()
+<span style = "background-color:#fdd">{</span>
+
+<span style = "background-color:#fdd">}</span></pre>
+	</body>
+</html>

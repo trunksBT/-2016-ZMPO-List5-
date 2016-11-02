@@ -1,0 +1,78 @@
+<html>
+	<head>
+	<link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<title>
+		createpointcopyhandler.cpp
+	</title>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "stdafx.h"
+#include &lt;iostream&gt;
+
+#include "CreatePointCopyHandler.h"
+#include "../Utils.hpp"
+#include "../Point.hpp"
+#include "../Flyweight.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace cacheIdx;
+using namespace tupleIdx;
+
+CCreatePointCopyHandler::CCreatePointCopyHandler(std::vector&lt;std::string&gt;&amp; inCommand)
+<span style = "background-color:#dfd">    : IHandler(inCommand), IPointHandler(inCommand)
+{}</span>
+
+const int CCreatePointCopyHandler::getProperAmountOfArgs()
+<span style = "background-color:#dfd">{
+    return 3;
+}</span>
+
+std::string CCreatePointCopyHandler::getProperTypesOfArgs()
+<span style = "background-color:#dfd">{
+    return "sii";
+}</span>
+
+CODE CCreatePointCopyHandler::checkArgsAndPerform(CPointWithSize inPointCache)
+<span style = "background-color:#dfd">{
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)</span>
+    {
+<span style = "background-color:#dfd">        return purePerform(inPointCache);</span>
+    }
+<span style = "background-color:#fdd">    else</span>
+    {
+<span style = "background-color:#fdd">        return CODE::ERROR;</span>
+    }
+<span style = "background-color:#fdd">}</span>
+
+
+CODE CCreatePointCopyHandler::purePerform(CPointWithSize inCache)
+<span style = "background-color:#dfd">{
+    std::string copyToIdStr(wholeCommand_[idxOf::COPY_TO]);
+    int copyToId = std::stoi(copyToIdStr);</span>
+
+<span style = "background-color:#dfd">    std::string copyFromIdStr(wholeCommand_[idxOf::COPY_FROM]);
+    int copyFromId = std::stoi(copyFromIdStr);</span>
+
+<span style = "background-color:#dfd">    if (!isProperIdx(copyToId, std::get&lt;SIZE&gt;(inCache)) ||</span>
+        !isProperIdx(copyFromId, std::get&lt;SIZE&gt;(inCache)) )
+    {
+<span style = "background-color:#dfd">        return CODE::ERROR;</span>
+    }
+
+<span style = "background-color:#dfd">    if (copyToId == copyFromId)</span>
+    {
+<span style = "background-color:#dfd">        return CODE::DONE;</span>
+    }
+
+<span style = "background-color:#dfd">    delete std::get&lt;ARRAY&gt;(inCache)[copyToId];
+    std::get&lt;ARRAY&gt;(inCache)[copyToId] =</span>
+        CPoint::buildNewObj(std::get&lt;ARRAY&gt;(inCache)[copyFromId]);
+
+<span style = "background-color:#dfd">    return CODE::DONE;
+}</span></pre>
+	</body>
+</html>
