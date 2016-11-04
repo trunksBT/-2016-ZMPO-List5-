@@ -3,7 +3,7 @@
 
 #include "CreateRectPointsHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
+#include "../Shapes/Point.hpp"
 #include "../Flyweight.h"
 #include "../UtilsForMT.h"
 

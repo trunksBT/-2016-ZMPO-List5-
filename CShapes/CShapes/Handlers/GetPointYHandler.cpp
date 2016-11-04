@@ -3,7 +3,7 @@
 
 #include "GetPointYHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
+#include "../Shapes/Point.hpp"
 #include "../Flyweight.h"
 #include "../Logger.h"
 
@@ -49,7 +49,7 @@ CODE CGetPointYHandler::purePerform(CPointWithSize inCache)
         return CODE::ERROR;
     }
 
-    Logger::info() << POINT << SPACE << Y << SEPARATOR <<
+    Logger() << POINT << SPACE << Y << SEPARATOR <<
         std::to_string(std::get<ARRAY>(inCache)[idxOrAmount]->getY()) << POST_PRINT;
 
     return CODE::DONE;

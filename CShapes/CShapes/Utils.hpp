@@ -1,8 +1,8 @@
 #pragma once
 
 #include <vector>
-#include "Point.hpp"
-#include "Shape.h"
+#include "Shapes/Point.hpp"
+#include "Shapes/Shape.h"
 #include <limits>
 #include <tuple>
 #include <map>

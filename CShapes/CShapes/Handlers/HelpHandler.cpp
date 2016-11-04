@@ -3,7 +3,7 @@
 
 #include "HelpHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
+#include "../Shapes/Point.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -36,7 +36,7 @@ CODE CHelpHandler::purePerform(CShapeWithSize inCache)
 {
     for (auto& it : fullCommands::all)
     {
-        Logger::info() << it << POST_PRINT;
+        Logger() << it << POST_PRINT;
     }
     return CODE::DONE;
 }

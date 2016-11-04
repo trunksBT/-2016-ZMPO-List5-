@@ -6,9 +6,9 @@
 #include <string>
 #include <utility>
 
-#include "Flyweight.h"
-#include "Stub.hpp"
-#include "UtilsForMT.h"
+#include "../Flyweight.h"
+#include "../Stub.hpp"
+#include "../UtilsForMT.h"
 
 using namespace defaultVals;
 using namespace assertWrapper;

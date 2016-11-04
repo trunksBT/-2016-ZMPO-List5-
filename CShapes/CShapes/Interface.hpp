@@ -1,7 +1,7 @@
 #pragma once
 
 #include <boost/tokenizer.hpp>
-#include "Point.hpp"
+#include "Shapes/Point.hpp"
 
 namespace communication
 {

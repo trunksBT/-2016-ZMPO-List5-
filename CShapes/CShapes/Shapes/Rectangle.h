@@ -2,12 +2,13 @@
 
 #include <string>
 #include <vector>
-#include "Shape.h"
-#include "Utils.hpp"
-#include <iostream>
 #include <limits>
 #include <sstream>
-#include "Logger.h"
+#include <iostream>
+
+#include "Shape.h"
+#include "../Utils.hpp"
+#include "../Logger.h"
 
 using namespace defaultVals;
 using namespace funs;

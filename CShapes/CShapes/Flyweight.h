@@ -3,9 +3,10 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "Point.hpp"
+
 #include "Utils.hpp"
-#include "Rectangle.h"
+#include "Shapes/Point.hpp"
+#include "Shapes/Rectangle.h"
 
 class CFlyweight
 {

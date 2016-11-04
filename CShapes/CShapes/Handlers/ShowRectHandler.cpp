@@ -3,10 +3,10 @@
 
 #include "ShowRectHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
 #include "../Flyweight.h"
 #include "../UtilsForMT.h"
 #include "../Logger.h"
+#include "../Shapes/Point.hpp"
 
 using namespace defaultVals;
 using namespace funs;
@@ -51,8 +51,8 @@ CODE CShowRectHandler::purePerform(CShapeWithSize inCache)
         return CODE::ERROR;
     }
 
-    Logger::info() << SHAPE << POST_PRINT;
-    Logger::info() << std::get<ARRAY>(inCache)[copyToId]->toString() << POST_PRINT;
+    Logger() << SHAPE << POST_PRINT;
+    Logger() << std::get<ARRAY>(inCache)[copyToId]->toString() << POST_PRINT;
 
     return CODE::DONE;
 }

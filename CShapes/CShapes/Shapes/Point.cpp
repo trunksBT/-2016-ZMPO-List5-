@@ -1,10 +1,12 @@
 #include "stdafx.h"
-#include "Point.hpp"
-#include "Utils.hpp"
+
 #include <iostream>
 #include <limits>
 #include <sstream>
-#include "Logger.h"
+
+#include "Point.hpp"
+#include "../Utils.hpp"
+#include "../Logger.h"
 
 using namespace defaultVals;
 using namespace funs;
@@ -15,7 +17,7 @@ CPoint::CPoint(double xAxis, double yAxis) : CShape()
 {
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << CTOR_ARG1_PRE_PRINT
             << POINT
             << POST_PRINT;
@@ -26,7 +28,7 @@ CPoint::CPoint(double xAxis, double yAxis) : CShape()
 
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << CTOR_ARG1_PRE_PRINT
             << X << SEPARATOR << std::to_string(*xAxis_)
             << COMMA_SPACE
@@ -41,7 +43,7 @@ CPoint::CPoint(const CPoint& inVal)
 
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << CTOR_COPY_PRE_PRINT
             << X << SEPARATOR << std::to_string(*xAxis_)
             << COMMA_SPACE
@@ -60,7 +62,7 @@ CPoint::~CPoint()
 {
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << DTOR_PRE_PRINT
             << POINT
             << X << SEPARATOR << std::to_string(*xAxis_)
