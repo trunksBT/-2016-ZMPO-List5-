@@ -34,6 +34,13 @@ namespace
         ASSERT_TRUE(true);
     }
 
+    TEST_F(CCoordinatesBelongabilityTest, Default_CTOR_False)
+    {
+        CCoordinatesBelongability belongability;
+
+        ASSERT_FALSE(belongability);
+    }
+
     TEST_F(CCoordinatesBelongabilityTest, operatorBool_True_True_Expect_True)
     {
         std::map<char, bool> belongabilityVals;
@@ -75,6 +82,25 @@ namespace
 
         CCoordinatesBelongability belongability = belongabilityVals;
 
+        ASSERT_FALSE(belongability);
+    }
+
+
+    TEST_F(CCoordinatesBelongabilityTest, setBelong_X_True_Expect_True_False)
+    {
+        CCoordinatesBelongability belongability;
+        belongability[X] = true;
+
+        ASSERT_TRUE(belongability[X]);
+        ASSERT_FALSE(belongability);
+    }
+
+    TEST_F(CCoordinatesBelongabilityTest, setBelong_Y_True_Expect_True_False)
+    {
+        CCoordinatesBelongability belongability;
+        belongability[Y] = true;
+
+        ASSERT_TRUE(belongability[Y]);
         ASSERT_FALSE(belongability);
     }
 
