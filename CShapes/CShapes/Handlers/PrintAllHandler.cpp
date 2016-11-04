@@ -3,7 +3,7 @@
 
 #include "PrintAllHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
+#include "../Shapes/Point.hpp"
 #include "../Flyweight.h"
 #include "../UtilsForMT.h"
 #include "../Logger.h"
@@ -85,18 +85,18 @@ CODE CPrintAllHandler::purePerform(CPointWithSize inCache)
 {
     int cacheSize = std::get<SIZE>(inCache);
 
-    Logger::info() << POINTS << POST_PRINT;
+    Logger() << POINTS << POST_PRINT;
     std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(inCache);
 
     for (int i = 0; i < cacheSize; i++)
     {
         if (isInitializedMap[i])
         {
-            Logger::info() << std::get<ARRAY>(inCache)[i]->toString() << POST_PRINT;
+            Logger() << std::get<ARRAY>(inCache)[i]->toString() << POST_PRINT;
         }
         else
         {
-            Logger::info() << toString(CODE::NOT_INITIALIZED) << POST_PRINT;
+            Logger() << toString(CODE::NOT_INITIALIZED) << POST_PRINT;
         }
     }
     return CODE::DONE;
@@ -106,20 +106,20 @@ CODE CPrintAllHandler::purePerform(CShapeWithSize inCache)
 {
     int cacheSize = std::get<SIZE>(inCache);
 
-    Logger::info() << SHAPES << POST_PRINT;
+    Logger() << SHAPES << POST_PRINT;
     std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(inCache);
 
     for (int i = 0; i < cacheSize; i++)
     {
         if (isInitializedMap[i])
         {
-            Logger::info() << std::get<ARRAY>(inCache)[i]->toString();
+            Logger() << std::get<ARRAY>(inCache)[i]->toString();
         }
         else
         {
-            Logger::info() << toString(CODE::NOT_INITIALIZED);
+            Logger() << toString(CODE::NOT_INITIALIZED);
         }
-        Logger::info() << POST_PRINT;
+        Logger() << POST_PRINT;
     }
 
     return CODE::DONE;

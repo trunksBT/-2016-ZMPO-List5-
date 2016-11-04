@@ -13,7 +13,7 @@ IHandler::IHandler(std::vector<std::string>& inCommand)
     wholeCommand_ = inCommand;
     if (REPLY_COMMAND)
     {
-        Logger::info() << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
+        Logger() << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
     }
 }
 
@@ -35,5 +35,5 @@ CODE IHandler::checkTypeAndAmountOfArgs()
 
 IHandler::~IHandler()
 {
-    Logger::info() << POST_PRINT;
+    Logger() << POST_PRINT;
 }

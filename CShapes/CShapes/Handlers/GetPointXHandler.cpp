@@ -3,7 +3,7 @@
 
 #include "GetPointXHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
+#include "../Shapes/Point.hpp"
 #include "../Flyweight.h"
 #include "../Logger.h"
 
@@ -49,7 +49,7 @@ CODE CGetPointXHandler::purePerform(CPointWithSize inCache)
         return CODE::ERROR;
     }
 
-    Logger::info() << POINT << SPACE << X << SEPARATOR <<
+    Logger() << POINT << SPACE << X << SEPARATOR <<
         std::to_string(std::get<ARRAY>(inCache)[idxOrAmount]->getX()) << POST_PRINT;
 
     return CODE::DONE;

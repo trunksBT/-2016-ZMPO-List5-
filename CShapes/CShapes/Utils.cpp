@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Utils.hpp"
-#include "Point.hpp"
 #include <map>
 #include <iostream>
 #include <sstream>

@@ -3,7 +3,7 @@
 
 #include "IPointAndRectangleHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
+#include "../Shapes/Point.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;

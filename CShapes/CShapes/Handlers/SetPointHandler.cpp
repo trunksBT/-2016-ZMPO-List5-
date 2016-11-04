@@ -3,8 +3,8 @@
 
 #include "SetPointHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
 #include "../Flyweight.h"
+#include "../Shapes/Point.hpp"
 
 using namespace defaultVals;
 using namespace funs;

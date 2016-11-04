@@ -1,9 +1,11 @@
 #include "stdafx.h"
 #include <gtest/gtest.h>
-#include "Rectangle.h"
-#include "Utils.hpp"
+
 #include <limits>
 #include <vector>
+
+#include "../Shapes/Rectangle.h"
+#include "../Utils.hpp"
 
 using namespace defaultVals;
 namespace

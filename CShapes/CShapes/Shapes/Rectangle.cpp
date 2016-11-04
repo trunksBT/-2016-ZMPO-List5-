@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "Rectangle.h"
 #include "Point.hpp"
-#include "Utils.hpp"
+#include "../Utils.hpp"
 #include <iostream>
 #include <limits>
 #include <sstream>
-#include "Logger.h"
+#include "../Logger.h"
 #include <cmath>
 
 using namespace defaultVals;
@@ -18,7 +18,7 @@ CRectangle::CRectangle()
 {
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << CTOR_DEF_PRE_PRINT
             << RECTANGLE
             << POST_PRINT;
@@ -30,7 +30,7 @@ CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd)
 {
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << CTOR_ARG1_PRE_PRINT
             << RECTANGLE
             << POST_PRINT;
@@ -42,7 +42,7 @@ CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
 {
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << CTOR_ARG1_PRE_PRINT
             << RECTANGLE
             << POST_PRINT;
@@ -54,7 +54,7 @@ CRectangle::CRectangle(const CRectangle& inVal)
 {
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << CTOR_COPY_PRE_PRINT
             << RECTANGLE
             << POST_PRINT;
@@ -65,7 +65,7 @@ CRectangle::~CRectangle()
 {
     if (PRINT_CTORS)
     {
-        Logger::info()
+        Logger()
             << DTOR_PRE_PRINT
             << RECTANGLE
             << POST_PRINT;

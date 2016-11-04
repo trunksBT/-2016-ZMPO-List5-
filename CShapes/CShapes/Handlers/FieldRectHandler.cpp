@@ -3,7 +3,7 @@
 
 #include "FieldRectHandler.h"
 #include "../Utils.hpp"
-#include "../Point.hpp"
+#include "../Shapes/Point.hpp"
 #include "../Flyweight.h"
 #include "../Logger.h"
 
@@ -58,7 +58,7 @@ CODE CFieldRectHandler::purePerform(CShapeWithSize inCache)
     }
     else
     {
-        Logger::info() << POINT << SPACE << FIELD << SEPARATOR <<
+        Logger() << POINT << SPACE << FIELD << SEPARATOR <<
             std::to_string(std::get<1>(fieldWithCode)) << POST_PRINT;
     }
 

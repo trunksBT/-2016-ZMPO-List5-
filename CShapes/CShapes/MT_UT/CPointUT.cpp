@@ -1,9 +1,12 @@
 #include "stdafx.h"
 #include <gtest/gtest.h>
-#include "Point.hpp"
-#include "Utils.hpp"
+
 #include <limits>
 #include <vector>
+
+#include "../Shapes/Point.hpp"
+#include "../Utils.hpp"
+#include "../Logger.h"
 
 using namespace defaultVals;
 namespace
