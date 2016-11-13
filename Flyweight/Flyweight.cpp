@@ -44,18 +44,18 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
 
         std::string command(inCommand[idxOf::COMMAND]);
-        CPointWithSize pairedPointCache = { 
+        CPointWithSize pairedPointCache =
+        std::make_tuple(
             reinterpret_cast<CPoint**>(pointCache_),
             pointCacheSize_,
-            pointCacheIsInitialized_
-        };
+            pointCacheIsInitialized_);
+;
 
         CShapeWithSize pairedShapeCache = 
-        {
+        std::make_tuple(
             shapeCache_,
             shapeCacheSize_,
-            shapeCacheIsInitialized_ 
-        };
+            shapeCacheIsInitialized_ );
 
         if (command == GO)
         {
