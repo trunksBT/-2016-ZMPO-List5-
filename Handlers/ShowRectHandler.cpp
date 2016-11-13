@@ -42,7 +42,6 @@ CODE CShowRectHandler::checkArgsAndPerform(CShapeWithSize inCache)
 
 CODE CShowRectHandler::purePerform(CShapeWithSize inCache)
 {
-    int cacheSize = std::get<SIZE>(inCache);
     std::string goalIdxStr(wholeCommand_[idxOf::COPY_TO]);
     int copyToId = std::stoi(goalIdxStr);
 

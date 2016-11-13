@@ -89,8 +89,8 @@ std::pair<CODE,double> CRectangle::field()
     }
     else
     {
-        segmentFstLength = abs(fstX - sndX);
-        segmentSndLength = abs(fstY - sndY);
+        segmentFstLength = std::abs(fstX - sndX);
+        segmentSndLength = std::abs(fstY - sndY);
     }
 
     if (isDoubleOverflow(segmentFstLength, segmentSndLength))
