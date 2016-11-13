@@ -7,6 +7,8 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 add_subdirectory(googletest/googletest)
 include_directories(googletest/googletest/include)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+
 if(MSVC)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
   set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
