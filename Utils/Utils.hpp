@@ -23,6 +23,7 @@ namespace geometry
 
 namespace typeLiterals
 {
+    constexpr const char* IBRIDGE = "IBRIDGE";
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SHAPE = "SHAPE";
@@ -50,7 +51,7 @@ namespace defaultVals
     constexpr const char* DEFAULT_TABLE_NAME = "KORYTKO_TABLE";
 
     constexpr const char* POST_COPIED_NAME = "_copy";
-    constexpr const char* DTOR_PRE_PRINT = "usuwam: ";
+    constexpr const char* DTOR_PRE_PRINT = "DTOR: ";
     constexpr const char* CTOR_COPY_PRE_PRINT = "kopiuj: ";
     constexpr const char* CTOR_DEFAULT_PRE_PRINT = "bezp: ";
     constexpr const char* CTOR_DEFAULT_MOVE_PRINT = "przenoszenie: ";

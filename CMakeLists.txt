@@ -93,11 +93,20 @@ set(FLYWEIGHT
     Flyweight/Flyweight.hpp
 )
 
+set(BRIDGES
+	Bridges/IBridge.hpp
+	Bridges/CirclePerimeterBridge.hpp
+	Bridges/CirclePerimeterBridge.cpp
+	Bridges/CircleAreaBridge.hpp
+	Bridges/CircleAreaBridge.cpp
+	)
+
 source_group("Handlers" FILES ${HANDLERS})
 source_group("MT_UT" FILES ${MT_UT})
 source_group("Shapes" FILES ${SHAPES})
 source_group("Utils" FILES ${UTILS})
 source_group("Flyweight" FILES ${FLYWEIGHT})
+source_group("Bridges" FILES ${BRIDGES})
 
 add_executable(${PROJECT_NAME} CShapesRunner.cpp
     #${HANDLERS}
@@ -105,6 +114,7 @@ add_executable(${PROJECT_NAME} CShapesRunner.cpp
     ${UTILS}
     ${MT_UT}
     ${FLYWEIGHT}
+	${BRIDGES}
 )
 
 add_dependencies(${PROJECT_NAME} gtest_main)
