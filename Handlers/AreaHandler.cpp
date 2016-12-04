@@ -50,11 +50,7 @@ CODE CAreaHandler::purePerform(CShapeWithSize inCache)
         return CODE::ERROR;
     }
 
-    double fieldWithCode =
-        reinterpret_cast<CRectangle*>(std::get<ARRAY>(inCache)[idxOrAmount])->calculateArea();
-
-        if (static_cast<bool>(std::fetestexcept(FE_OVERFLOW)) ||
-            static_cast<bool>(std::fetestexcept(FE_UNDERFLOW)))
+    double fieldWithCode = std::get<ARRAY>(inCache)[idxOrAmount]->calculateArea();
 
     if (static_cast<bool>(std::fetestexcept(FE_OVERFLOW)) ||
         static_cast<bool>(std::fetestexcept(FE_UNDERFLOW)))

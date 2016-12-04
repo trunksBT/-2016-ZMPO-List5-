@@ -383,7 +383,7 @@ namespace fullCommands
         std::string(commandArgs::IDX);
 
     std::string fieldRectArgs =
-        std::string(messageLiterals::FIELD_RECT) +
+        std::string(messageLiterals::CALCULATE_AREA) +
         std::string(defaultVals::SPACE) +
         std::string(commandArgs::IDX);
 

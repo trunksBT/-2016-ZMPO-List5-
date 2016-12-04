@@ -52,17 +52,12 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IShapeHandler* evaluate = new CGoHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
-        else if (command == CLOSE)
-        {
-            releaseResources();
-            returnedCode = CODE::CLOSE;
-        }
         else if (command == CREATE_RECT_DOUBLE)
         {
             IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
-        else if (command == FIELD_RECT)
+        else if (command == CALCULATE_AREA)
         {
             IShapeHandler* evaluate = new CAreaHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
@@ -71,6 +66,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         {
             IShapeHandler* evaluate = new CPrintAllHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == CLOSE)
+        {
+            releaseResources();
+            returnedCode = CODE::CLOSE;
         }
 
         std::cout << shapeCacheIsInitialized_[0] << std::endl;

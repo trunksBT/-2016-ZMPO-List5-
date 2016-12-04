@@ -197,7 +197,7 @@ namespace messageLiterals
     constexpr const char* SET_POINT = "setPoint";
     constexpr const char* GET_POINT_X = "getPointX";
     constexpr const char* GET_POINT_Y = "getPointY";
-    constexpr const char* FIELD_RECT = "fieldRect";
+    constexpr const char* CALCULATE_AREA = "calculateArea";
     constexpr const char* PRINT_ALL = "printAll";
     constexpr const char* SHOW_RECT = "showRect";
     constexpr const char* CLOSE = "close";
