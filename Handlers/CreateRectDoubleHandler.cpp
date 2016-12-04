@@ -55,9 +55,7 @@ CODE CCreateRectDoubleHandler::purePerform(CShapeWithSize inCache)
     {
         return CODE::ERROR;
     }
-
-    //// TODO FORGOTTEN CHECK OF PROPER ARGS WTS? /// TODO
-
+    
     if (std::get<INITIALIZED_MAP>(inCache)[newRectIdx])
     {
         delete std::get<ARRAY>(inCache)[newRectIdx];

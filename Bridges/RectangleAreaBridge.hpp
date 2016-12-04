@@ -1,8 +1,13 @@
+#pragma once
+
 #include <Bridges/IBridge.hpp>
 
-class RectangleAreaBridge : public IBridge
+class CRectangleAreaBridge : public IBridge
 {
 public:
-    boost::any perform(const InfoModel& inVal) override;
-    virtual ~RectangleAreaBridge();
+    CRectangleAreaBridge();
+    virtual ~CRectangleAreaBridge();
+public:
+    const boost::any perform(const InfoModel& inVal) override;
+    IBridge* clone() override;
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <exception>
 #include <Shapes/Point.hpp>
 #include <Shapes/Shape.hpp>
 #include <limits>
@@ -35,12 +36,23 @@ namespace dataBusKeys
     }
 }
 
+namespace bridgeModelKeys
+{
+    namespace rectangle
+    {
+        constexpr const char* AREA = "rectangleArea";
+        constexpr const char* PERIMETER = "rectanglePerimeter";
+    }
+}
+
 namespace typeLiterals
 {
+    constexpr const char* BRIDGES_MODEL = "BRIDGES_MODEL";
     constexpr const char* DOUBLE_OVERFLOW_OR_UNDERFLOW
         = "DOUBLE_OVERFLOW_OR_UNDERFLOW";
     constexpr const char* IBRIDGE = "IBRIDGE";
-    constexpr const char* CIRCLE_AREA_BRIDGE = "CIRCLE_AREA_BRIDGE";
+    constexpr const char* RECTANGLE_AREA_BRIDGE = "RECTANGLE_AREA_BRIDGE";
+    constexpr const char* RECTANGLE_PERIMETER_BRIDGE = "RECTANGLE_PERIMETER_BRIDGE";
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SHAPE = "SHAPE";

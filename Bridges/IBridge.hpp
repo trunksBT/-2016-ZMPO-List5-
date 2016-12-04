@@ -4,11 +4,12 @@
 #include <boost/any.hpp>
 
 class IBridge;
-using InfoModel = std::map<const char*, boost::any>;
+using InfoModel = std::map<std::string, boost::any>;
 
 class IBridge
 {
 public:
-    virtual boost::any perform(const InfoModel& inVal) = 0;
-    virtual ~IBridge();
+    virtual const boost::any perform(const InfoModel& inVal) = 0;
+    virtual IBridge* clone() = 0;
+    virtual ~IBridge() = default;
 };

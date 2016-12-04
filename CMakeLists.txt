@@ -23,12 +23,13 @@ set(HANDLERS
     Handlers/IHandler.hpp
 	Handlers/GoHandler.cpp
     Handlers/GoHandler.hpp
-
     Handlers/CreateRectDoubleHandler.cpp
     Handlers/CreateRectDoubleHandler.hpp
+    Handlers/AreaHandler.cpp
+    Handlers/AreaHandler.hpp
 
-    #Handlers/FieldRectHandler.cpp
-    #Handlers/FieldRectHandler.hpp
+	Handlers/PrintAllHandler.cpp
+    Handlers/PrintAllHandler.hpp
 
     #Handlers/CreatePointCopyHandler.cpp
     #Handlers/CreatePointCopyHandler.hpp
@@ -44,8 +45,7 @@ set(HANDLERS
     #Handlers/GetPointYHandler.hpp
     #Handlers/HelpHandler.cpp
     #Handlers/HelpHandler.hpp
-    #Handlers/PrintAllHandler.cpp
-    #Handlers/PrintAllHandler.hpp
+
     #Handlers/RemoveAllHandler.cpp
     #Handlers/RemoveAllHandler.hpp
     #Handlers/RemoveHandler.cpp
@@ -79,6 +79,7 @@ set(UTILS
 )
 
 set(MT_UT
+	MT_UT/CBridgesUT.cpp
     # MT_UT/CPointUT.cpp
     MT_UT/CRectangleUT.cpp
     # MT_UT/FlyweightProperAmountOfArgsButWrongMT.cpp
@@ -93,7 +94,8 @@ set(FLYWEIGHT
 )
 
 set(BRIDGES
-	Bridges/IBridge.cpp
+	Bridges/BridgesModel.cpp
+	Bridges/BridgesModel.hpp
 	Bridges/IBridge.hpp
 	Bridges/RectangleAreaBridge.cpp
 	Bridges/RectangleAreaBridge.hpp

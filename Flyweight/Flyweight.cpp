@@ -7,7 +7,8 @@
 
 #include <Handlers/GoHandler.hpp>
 #include <Handlers/CreateRectDoubleHandler.hpp>
-#include <Handlers/FieldRectHandler.hpp>
+#include <Handlers/AreaHandler.hpp>
+#include <Handlers/PrintAllHandler.hpp>
 
 //#include <Handlers/CreatePointHandler.hpp>
 //#include <Handlers/SetPointHandler.hpp>
@@ -19,7 +20,6 @@
 //#include <Handlers/ShowRectHandler.hpp>
 //#include <Handlers/RemoveAllHandler.hpp>
 //#include <Handlers/RemoveHandler.hpp>
-//#include <Handlers/PrintAllHandler.hpp>
 //#include <Handlers/HelpHandler.hpp>
 
 using namespace defaultVals;
@@ -62,6 +62,16 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
+        else if (command == FIELD_RECT)
+        {
+            IShapeHandler* evaluate = new CAreaHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == PRINT_ALL)
+        {
+            IShapeHandler* evaluate = new CPrintAllHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
 
         std::cout << shapeCacheIsInitialized_[0] << std::endl;
         //else if(command == CREATE_POINT)
@@ -98,16 +108,6 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         //{
         //    IShapeHandler* evaluate = new CCreateRectCopyHandler(inCommand);
         //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        //}
-        //else if (command == FIELD_RECT)
-        //{
-        //    IShapeHandler* evaluate = new CFieldRectHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        //}
-        //else if (command == PRINT_ALL)
-        //{
-        //    IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
         //}
         //else if (command == SHOW_RECT)
         //{
