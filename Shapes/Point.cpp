@@ -13,7 +13,7 @@ using namespace funs;
 using namespace typeLiterals;
 using namespace flags;
 
-CPoint::CPoint(double xAxis, double yAxis) : CShape()
+CPoint::CPoint(double xAxis, double yAxis)
 {
     if (PRINT_CTORS)
     {

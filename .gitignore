@@ -5,6 +5,7 @@ packages/
 .vs/
 x64/
 x86/
+boost/
 
 *.vcxproj
 *.vcxproj.filters

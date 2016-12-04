@@ -23,14 +23,13 @@ CODE IHandler::checkTypeAndAmountOfArgs()
     {
         return CODE::ERROR;
     }
-    else if (!isProperTypeOfArgs(wholeCommand_, getProperTypesOfArgs()))
+    
+    if (!isProperTypeOfArgs(wholeCommand_, getProperTypesOfArgs()))
     {
         return CODE::ERROR;
     }
-    else
-    {
-        return CODE::DONE;
-    }
+
+    return CODE::DONE;
 }
 
 IHandler::~IHandler()

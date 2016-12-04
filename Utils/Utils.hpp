@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <exception>
 #include <Shapes/Point.hpp>
 #include <Shapes/Shape.hpp>
 #include <limits>
@@ -21,8 +22,37 @@ namespace geometry
     constexpr char Y = 'y';
 }
 
+namespace dataBusKeys
+{
+    namespace circle
+    {
+        constexpr const char* SIDE_SND = "radious";
+    }
+
+    namespace rectangle
+    {
+        constexpr const char* SIDE_FST = "sideFst";
+        constexpr const char* SIDE_SND = "sideSnd";
+    }
+}
+
+namespace bridgeModelKeys
+{
+    namespace rectangle
+    {
+        constexpr const char* AREA = "rectangleArea";
+        constexpr const char* PERIMETER = "rectanglePerimeter";
+    }
+}
+
 namespace typeLiterals
 {
+    constexpr const char* BRIDGES_MODEL = "BRIDGES_MODEL";
+    constexpr const char* DOUBLE_OVERFLOW_OR_UNDERFLOW
+        = "DOUBLE_OVERFLOW_OR_UNDERFLOW";
+    constexpr const char* IBRIDGE = "IBRIDGE";
+    constexpr const char* RECTANGLE_AREA_BRIDGE = "RECTANGLE_AREA_BRIDGE";
+    constexpr const char* RECTANGLE_PERIMETER_BRIDGE = "RECTANGLE_PERIMETER_BRIDGE";
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SHAPE = "SHAPE";
@@ -50,7 +80,7 @@ namespace defaultVals
     constexpr const char* DEFAULT_TABLE_NAME = "KORYTKO_TABLE";
 
     constexpr const char* POST_COPIED_NAME = "_copy";
-    constexpr const char* DTOR_PRE_PRINT = "usuwam: ";
+    constexpr const char* DTOR_PRE_PRINT = "DTOR: ";
     constexpr const char* CTOR_COPY_PRE_PRINT = "kopiuj: ";
     constexpr const char* CTOR_DEFAULT_PRE_PRINT = "bezp: ";
     constexpr const char* CTOR_DEFAULT_MOVE_PRINT = "przenoszenie: ";
@@ -84,6 +114,9 @@ namespace defaultVals
 
     constexpr const double MAX_DOUBLE_VAL = (std::numeric_limits<double>::max)();
     constexpr const double MIN_DOUBLE_VAL = (std::numeric_limits<double>::lowest)();
+
+    constexpr const char* ERROR = "ERROR";
+    constexpr const char* NOT_FOUND_IN_IM = "NOT_FOUND_IN_IM";
 }
 
 namespace cacheIdx
@@ -99,8 +132,7 @@ namespace tupleIdx
     constexpr const int INITIALIZED_MAP = 2;
 }
 
-using CShapeWithSize = std::tuple<CShape**, int, std::map<int, bool>>;
-using CPointWithSize = std::tuple<CPoint**, int, std::map<int, bool>>;
+using CShapeWithSize = std::tuple<CShape**, int, std::map<int, bool>&>;
 
 namespace funs
 {
@@ -126,10 +158,15 @@ namespace funs
 
 namespace idxOf
 {
+    namespace rectangle
+    {
+        constexpr const int SIDE_FST_IDX = 2;
+        constexpr const int SIDE_SND_IDX = 2;
+    }
+
     constexpr const int COMMAND = 0;
-    constexpr const int ID_OF_POINTS = 1;
     constexpr const int ID_FOR_CREATE = 1;
-    constexpr const int ID_OF_SHAPES = 2;
+    constexpr const int ID_OF_SHAPES = 1;
     constexpr const int NEW_NAME = 2;
     constexpr const int NEW_SIZE = 2;
     constexpr const int GOAL_ID = 2;
@@ -143,8 +180,7 @@ namespace idxOf
     constexpr const int INITIAL_NAME = 3;
 
     constexpr const int RECT_GOAL_ID = 1;
-    constexpr const int POINT_FST_X = 2;
-    constexpr const int POINT_FST_Y = 3;
+
     constexpr const int POINT_SND_X = 4;
     constexpr const int POINT_SND_Y = 5;
 }
@@ -161,7 +197,7 @@ namespace messageLiterals
     constexpr const char* SET_POINT = "setPoint";
     constexpr const char* GET_POINT_X = "getPointX";
     constexpr const char* GET_POINT_Y = "getPointY";
-    constexpr const char* FIELD_RECT = "fieldRect";
+    constexpr const char* CALCULATE_AREA = "calculateArea";
     constexpr const char* PRINT_ALL = "printAll";
     constexpr const char* SHOW_RECT = "showRect";
     constexpr const char* CLOSE = "close";

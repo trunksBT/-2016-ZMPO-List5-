@@ -1,7 +1,8 @@
+#include "AreaHandler.hpp"
 
 #include <iostream>
+#include <cfenv>
 
-#include "FieldRectHandler.hpp"
 #include <Utils/Utils.hpp>
 #include <Shapes/Point.hpp>
 #include <Flyweight/Flyweight.hpp>
@@ -13,21 +14,21 @@ using namespace cacheIdx;
 using namespace tupleIdx;
 using namespace typeLiterals;
 
-CFieldRectHandler::CFieldRectHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand), IShapeHandler(inCommand)
+CAreaHandler::CAreaHandler(std::vector<std::string>& inCommand)
+    : IShapeHandler(inCommand)
 {}
 
-const int CFieldRectHandler::getProperAmountOfArgs()
+const int CAreaHandler::getProperAmountOfArgs()
 {
     return 2;
 }
 
-std::string CFieldRectHandler::getProperTypesOfArgs()
+std::string CAreaHandler::getProperTypesOfArgs()
 {
     return "si";
 }
 
-CODE CFieldRectHandler::checkArgsAndPerform(CShapeWithSize inPointCache)
+CODE CAreaHandler::checkArgsAndPerform(CShapeWithSize inPointCache)
 {
     if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)
     {
@@ -39,7 +40,7 @@ CODE CFieldRectHandler::checkArgsAndPerform(CShapeWithSize inPointCache)
     }
 }
 
-CODE CFieldRectHandler::purePerform(CShapeWithSize inCache)
+CODE CAreaHandler::purePerform(CShapeWithSize inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::RECT_GOAL_ID]);
     int idxOrAmount = std::stoi(receivedId);
@@ -49,17 +50,17 @@ CODE CFieldRectHandler::purePerform(CShapeWithSize inCache)
         return CODE::ERROR;
     }
 
-    std::pair<CODE, double> fieldWithCode =
-        reinterpret_cast<CRectangle*>(std::get<ARRAY>(inCache)[idxOrAmount])->field();
+    double fieldWithCode = std::get<ARRAY>(inCache)[idxOrAmount]->calculateArea();
 
-    if (std::get<0>(fieldWithCode) == CODE::ERROR)
+    if (static_cast<bool>(std::fetestexcept(FE_OVERFLOW)) ||
+        static_cast<bool>(std::fetestexcept(FE_UNDERFLOW)))
     {
         return CODE::ERROR;
     }
     else
     {
         Logger() << POINT << SPACE << FIELD << SEPARATOR <<
-            std::to_string(std::get<1>(fieldWithCode)) << POST_PRINT;
+            std::to_string(fieldWithCode) << POST_PRINT;
     }
 
     return CODE::DONE;

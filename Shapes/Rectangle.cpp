@@ -2,19 +2,22 @@
 #include "Rectangle.hpp"
 #include "Point.hpp"
 #include <Utils/Utils.hpp>
-#include <iostream>
 #include <limits>
 #include <sstream>
 #include <Utils/Logger.hpp>
 #include <cmath>
 
+#include <Bridges/RectangleAreaBridge.hpp>
+#include <Bridges/RectanglePerimeterBridge.hpp>
+
 using namespace defaultVals;
 using namespace funs;
 using namespace typeLiterals;
 using namespace flags;
+using namespace bridgeModelKeys;
 
-CRectangle::CRectangle() 
-    : width_(ZERO), height_(ZERO)
+CRectangle::CRectangle(const BridgesModel& inBridges)
+    : CShape(inBridges), width_(ZERO), height_(ZERO)
 {
     if (PRINT_CTORS)
     {
@@ -25,8 +28,8 @@ CRectangle::CRectangle()
     }
 }
 
-CRectangle::CRectangle(double width, double height)
-    : width_(width), height_(height)
+CRectangle::CRectangle(double width, double height, const BridgesModel& inBridges)
+    : CShape(inBridges), width_(width), height_(height)
 {
     if (PRINT_CTORS)
     {
@@ -38,7 +41,7 @@ CRectangle::CRectangle(double width, double height)
 }
 
 CRectangle::CRectangle(const CRectangle& inVal)
-    : width_(inVal.width_), height_(inVal.height_)
+    : CShape(), width_(inVal.width_), height_(inVal.height_)
 {
     if (PRINT_CTORS)
     {
@@ -60,38 +63,26 @@ CRectangle::~CRectangle()
     }
 }
 
-std::pair<CODE,double> CRectangle::field()
+double CRectangle::calculateArea()
 {
-    //double fstX = objectFst_.getX();
-    //double fstY = objectFst_.getY();
+    double retVal = boost::any_cast<double>(
+    bridgesMap_.fetch(bridgeModelKeys::rectangle::AREA).perform(
+    { 
+        { dataBusKeys::rectangle::SIDE_FST, width_ },
+        { dataBusKeys::rectangle::SIDE_SND, height_ }
+    }));
+    return retVal;
+}
 
-    //double sndX = objectSnd_.getX();
-    //double sndY = objectSnd_.getY();
-
-    //double segmentFstLength = 0.0;
-    //double segmentSndLength = 0.0;
-    //double finalField = 0.0;
-    //if (isSegmentToBig(fstX, sndX) && isSegmentToBig(fstY, sndY))
-    //{
-    //    return{ CODE::ERROR, 0.0 };
-    //}
-    //else
-    //{
-    //    segmentFstLength = std::abs(fstX - sndX);
-    //    segmentSndLength = std::abs(fstY - sndY);
-    //}
-
-    //if (isDoubleOverflow(segmentFstLength, segmentSndLength))
-    //{
-    //    return{ CODE::ERROR, 0.0 };
-    //}
-    //else
-    //{
-    //    finalField = segmentFstLength * segmentSndLength;
-    //}
-
-    return { CODE::DONE, 3.0 };
-    //return std::pair<CODE, double>();
+double CRectangle::calculatePerimeter()
+{
+    double retVal = boost::any_cast<double>(
+        bridgesMap_.fetch(bridgeModelKeys::rectangle::PERIMETER).perform(
+    {
+        { dataBusKeys::rectangle::SIDE_FST, width_ },
+        { dataBusKeys::rectangle::SIDE_SND, height_ }
+    }));
+    return retVal;
 }
 
 CRectangle* CRectangle::buildNewObj(double width, double height)

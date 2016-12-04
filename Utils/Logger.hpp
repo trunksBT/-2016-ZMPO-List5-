@@ -5,7 +5,7 @@
 
 namespace flags
 {
-constexpr bool PRINT_CTORS = false;
+constexpr bool PRINT_CTORS = true;
 constexpr bool REPLY_COMMAND = true;
 }
 

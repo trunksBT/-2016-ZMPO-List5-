@@ -4,7 +4,7 @@
 #include <vector>
 #include <Shapes/Shape.hpp>
 
-class CPoint : public CShape
+class CPoint
 {
 public:
     explicit CPoint(double xAxis, double yAxis);
@@ -13,7 +13,7 @@ public:
 public:
     double getX() const;
     double getY() const;
-    std::string toString() override;
+    std::string toString();
 public:
     void setX(double newX);
     void setY(double newY);
