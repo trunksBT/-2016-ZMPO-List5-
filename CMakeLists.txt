@@ -94,12 +94,13 @@ set(FLYWEIGHT
 )
 
 set(BRIDGES
+	Bridges/IBridge.cpp
 	Bridges/IBridge.hpp
-	Bridges/CirclePerimeterBridge.hpp
-	Bridges/CirclePerimeterBridge.cpp
-	Bridges/CircleAreaBridge.hpp
-	Bridges/CircleAreaBridge.cpp
-	)
+	Bridges/RectangleAreaBridge.cpp
+	Bridges/RectangleAreaBridge.hpp
+	Bridges/RectanglePerimeterBridge.cpp
+	Bridges/RectanglePerimeterBridge.hpp
+)
 
 source_group("Handlers" FILES ${HANDLERS})
 source_group("MT_UT" FILES ${MT_UT})
@@ -114,7 +115,7 @@ add_executable(${PROJECT_NAME} CShapesRunner.cpp
     ${UTILS}
     ${MT_UT}
     ${FLYWEIGHT}
-	${BRIDGES}
+    ${BRIDGES}
 )
 
 add_dependencies(${PROJECT_NAME} gtest_main)

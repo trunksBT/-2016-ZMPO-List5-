@@ -21,9 +21,20 @@ namespace geometry
     constexpr char Y = 'y';
 }
 
+namespace dataBusKeys
+{
+    namespace circle
+    {
+        constexpr const char* RADIOUS = "radious";
+    }
+}
+
 namespace typeLiterals
 {
+    constexpr const char* DOUBLE_OVERFLOW_OR_UNDERFLOW
+        = "DOUBLE_OVERFLOW_OR_UNDERFLOW";
     constexpr const char* IBRIDGE = "IBRIDGE";
+    constexpr const char* CIRCLE_AREA_BRIDGE = "CIRCLE_AREA_BRIDGE";
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SHAPE = "SHAPE";
@@ -85,6 +96,9 @@ namespace defaultVals
 
     constexpr const double MAX_DOUBLE_VAL = (std::numeric_limits<double>::max)();
     constexpr const double MIN_DOUBLE_VAL = (std::numeric_limits<double>::lowest)();
+
+    constexpr const char* ERROR = "ERROR";
+    constexpr const char* NOT_FOUND_IN_IM = "NOT_FOUND_IN_IM";
 }
 
 namespace cacheIdx
