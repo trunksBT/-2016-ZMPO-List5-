@@ -148,9 +148,7 @@ CODE CGoHandler::purePerform(CShapeWithSize inCache)
             CFlyweight::updateIsInitializedShapeCache(cursor, true);
             newTable[cursor] = CRectangle::buildNewObj(
                 DEFAULT_FST_AXIS_VAL,
-                DEFAULT_FST_AXIS_VAL,
-                DEFAULT_SND_AXIS_VAL,
-                DEFAULT_SND_AXIS_VAL
+                DEFAULT_FST_AXIS_VAL
             );
         }
         CFlyweight::setShapeCacheSize(newSize);

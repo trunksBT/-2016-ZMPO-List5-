@@ -16,11 +16,6 @@ endif()
 
 include_directories(.)
 
-set(GEOMETRY
-    Geometry/CoordinatesBelongability.cpp
-    Geometry/CoordinatesBelongability.hpp
-)
-
 set(HANDLERS
     Handlers/CreatePointCopyHandler.cpp
     Handlers/CreatePointCopyHandler.hpp
@@ -32,8 +27,6 @@ set(HANDLERS
     Handlers/CreateRectDefaultHandler.hpp
     Handlers/CreateRectDoubleHandler.cpp
     Handlers/CreateRectDoubleHandler.hpp
-    Handlers/CreateRectPointsHandler.cpp
-    Handlers/CreateRectPointsHandler.hpp
     Handlers/FieldRectHandler.cpp
     Handlers/FieldRectHandler.hpp
     Handlers/GetPointXHandler.cpp
@@ -87,12 +80,11 @@ set(UTILS
 )
 
 set(MT_UT
-    MT_UT/CoordinatesBelongabilityUT.cpp
-    MT_UT/CPointUT.cpp
+    # MT_UT/CPointUT.cpp
     MT_UT/CRectangleUT.cpp
-    MT_UT/FlyweightProperAmountOfArgsButWrongMT.cpp
-    MT_UT/FlyweightProperArgsMT.cpp
-    MT_UT/FlyweightUnproperAmountOfArgsMT.cpp
+    # MT_UT/FlyweightProperAmountOfArgsButWrongMT.cpp
+    # MT_UT/FlyweightProperArgsMT.cpp
+    # MT_UT/FlyweightUnproperAmountOfArgsMT.cpp
     MT_UT/ParsingValuesUT.hpp
 )
 
@@ -101,7 +93,6 @@ set(FLYWEIGHT
     Flyweight/Flyweight.hpp
 )
 
-source_group("Geometry" FILES ${GEOMETRY})
 source_group("Handlers" FILES ${HANDLERS})
 source_group("MT_UT" FILES ${MT_UT})
 source_group("Shapes" FILES ${SHAPES})
@@ -109,8 +100,7 @@ source_group("Utils" FILES ${UTILS})
 source_group("Flyweight" FILES ${FLYWEIGHT})
 
 add_executable(${PROJECT_NAME} CShapesRunner.cpp
-    ${GEOMETRY}
-    ${HANDLERS}
+    #${HANDLERS}
     ${SHAPES}
     ${UTILS}
     ${MT_UT}

@@ -14,7 +14,7 @@ std::vector<std::string> performLexer(std::string inCommand)
     boost::char_separator<char> sep(defaultVals::SEPARATOR);
     tokenizer tokens(inCommand, sep);
     std::vector<std::string> retVal(tokens.begin(), tokens.end());
-    return{ "" };
+    return retVal;
 }
 
 std::vector<std::string> receiveAndLexCommandFromUser()

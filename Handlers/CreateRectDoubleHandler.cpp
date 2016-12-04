@@ -62,14 +62,12 @@ CODE CCreateRectDoubleHandler::purePerform(CShapeWithSize inCache)
     }
 
 
-    //// TODO FORGOTTEN CHECK OF PROPER ARGS WTS?
+    //// TODO FORGOTTEN CHECK OF PROPER ARGS WTS? /// TODO
 
     delete std::get<ARRAY>(inCache)[copyToIdx];
     std::get<ARRAY>(inCache)[copyToIdx] = CRectangle::buildNewObj(
         pointFstXIdx,
-        pointFstYIdx,
-        pointSndXIdx,
-        pointSndYIdx
+        pointFstYIdx
     );
 
     return CODE::DONE;

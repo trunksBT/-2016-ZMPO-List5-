@@ -14,7 +14,7 @@ using namespace typeLiterals;
 using namespace flags;
 
 CRectangle::CRectangle() 
-    : objectFst_(0, 0), objectSnd_(1, 1)
+    : width_(ZERO), height_(ZERO)
 {
     if (PRINT_CTORS)
     {
@@ -25,20 +25,8 @@ CRectangle::CRectangle()
     }
 }
 
-CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd)
-    : objectFst_(*inPointFst), objectSnd_(*inPointSnd)
-{
-    if (PRINT_CTORS)
-    {
-        Logger()
-            << CTOR_ARG1_PRE_PRINT
-            << RECTANGLE
-            << POST_PRINT;
-    }
-}
-
-CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
-    : objectFst_(fstX, fstY), objectSnd_(sndX, sndY)
+CRectangle::CRectangle(double width, double height)
+    : width_(width), height_(height)
 {
     if (PRINT_CTORS)
     {
@@ -50,7 +38,7 @@ CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
 }
 
 CRectangle::CRectangle(const CRectangle& inVal)
-    : objectFst_(inVal.objectFst_), objectSnd_(inVal.objectSnd_)
+    : width_(inVal.width_), height_(inVal.height_)
 {
     if (PRINT_CTORS)
     {
@@ -74,45 +62,41 @@ CRectangle::~CRectangle()
 
 std::pair<CODE,double> CRectangle::field()
 {
-    double fstX = objectFst_.getX();
-    double fstY = objectFst_.getY();
+    //double fstX = objectFst_.getX();
+    //double fstY = objectFst_.getY();
 
-    double sndX = objectSnd_.getX();
-    double sndY = objectSnd_.getY();
+    //double sndX = objectSnd_.getX();
+    //double sndY = objectSnd_.getY();
 
-    double segmentFstLength = 0.0;
-    double segmentSndLength = 0.0;
-    double finalField = 0.0;
-    if (isSegmentToBig(fstX, sndX) && isSegmentToBig(fstY, sndY))
-    {
-        return{ CODE::ERROR, 0.0 };
-    }
-    else
-    {
-        segmentFstLength = std::abs(fstX - sndX);
-        segmentSndLength = std::abs(fstY - sndY);
-    }
+    //double segmentFstLength = 0.0;
+    //double segmentSndLength = 0.0;
+    //double finalField = 0.0;
+    //if (isSegmentToBig(fstX, sndX) && isSegmentToBig(fstY, sndY))
+    //{
+    //    return{ CODE::ERROR, 0.0 };
+    //}
+    //else
+    //{
+    //    segmentFstLength = std::abs(fstX - sndX);
+    //    segmentSndLength = std::abs(fstY - sndY);
+    //}
 
-    if (isDoubleOverflow(segmentFstLength, segmentSndLength))
-    {
-        return{ CODE::ERROR, 0.0 };
-    }
-    else
-    {
-        finalField = segmentFstLength * segmentSndLength;
-    }
+    //if (isDoubleOverflow(segmentFstLength, segmentSndLength))
+    //{
+    //    return{ CODE::ERROR, 0.0 };
+    //}
+    //else
+    //{
+    //    finalField = segmentFstLength * segmentSndLength;
+    //}
 
-    return{ CODE::DONE, finalField };
+    return { CODE::DONE, 3.0 };
+    //return std::pair<CODE, double>();
 }
 
-CRectangle* CRectangle::buildNewObj(CPoint* inPointFst, CPoint* inPointSnd)
+CRectangle* CRectangle::buildNewObj(double width, double height)
 {
-    return new CRectangle(inPointFst, inPointSnd);
-}
-
-CRectangle* CRectangle::buildNewObj(double fstX, double fstY, double sndX, double sndY)
-{
-    return new CRectangle(fstX, fstY, sndX, sndY);
+    return new CRectangle(width, height);
 }
 
 CRectangle* CRectangle::buildNewObj(CRectangle* inObj)
@@ -125,41 +109,18 @@ CRectangle* CRectangle::buildNewObj()
     return new CRectangle();
 }
 
-std::string CRectangle::getType()
-{
-    return RECTANGLE;
-}
-
 std::string CRectangle::toString()
 {
     std::stringstream retVal;
     retVal
         << PRE_PRINT << RECTANGLE << BRACKET_OPEN
-        << objectFst_.toString()
+        << WIDTH << SEPARATOR
+        << width_
         << COMMA_SPACE
-        << objectSnd_.toString()
+        << HEIGHT << SEPARATOR
+        << height_
         << BRACKET_CLOSE;
 
     return retVal.str();
-}
-
-double CRectangle::fstGetX()
-{
-    return objectFst_.getX();
-}
-
-double CRectangle::fstGetY()
-{
-    return objectFst_.getY();
-}
-
-double CRectangle::sndGetX()
-{
-    return objectSnd_.getX();
-}
-
-double CRectangle::sndGetY()
-{
-    return objectSnd_.getY();
 }
 

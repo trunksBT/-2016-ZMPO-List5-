@@ -4,23 +4,22 @@
 #include <Utils/Utils.hpp>
 #include <Utils/UtilsForMT.hpp>
 #include <Utils/Logger.hpp>
-
-#include <Handlers/GoHandler.hpp>
-#include <Handlers/CreatePointHandler.hpp>
-#include <Handlers/SetPointHandler.hpp>
-#include <Handlers/CreatePointCopyHandler.hpp>
-#include <Handlers/GetPointXHandler.hpp>
-#include <Handlers/GetPointYHandler.hpp>
-#include <Handlers/CreateRectPointsHandler.hpp>
-#include <Handlers/CreateRectDoubleHandler.hpp>
-#include <Handlers/CreateRectCopyHandler.hpp>
-#include <Handlers/CreateRectDefaultHandler.hpp>
-#include <Handlers/FieldRectHandler.hpp>
-#include <Handlers/ShowRectHandler.hpp>
-#include <Handlers/RemoveAllHandler.hpp>
-#include <Handlers/RemoveHandler.hpp>
-#include <Handlers/PrintAllHandler.hpp>
-#include <Handlers/HelpHandler.hpp>
+//
+//#include <Handlers/GoHandler.hpp>
+//#include <Handlers/CreatePointHandler.hpp>
+//#include <Handlers/SetPointHandler.hpp>
+//#include <Handlers/GetPointXHandler.hpp>
+//#include <Handlers/GetPointYHandler.hpp>
+//#include <Handlers/CreateRectPointsHandler.hpp>
+//#include <Handlers/CreateRectDoubleHandler.hpp>
+//#include <Handlers/CreateRectCopyHandler.hpp>
+//#include <Handlers/CreateRectDefaultHandler.hpp>
+//#include <Handlers/FieldRectHandler.hpp>
+//#include <Handlers/ShowRectHandler.hpp>
+//#include <Handlers/RemoveAllHandler.hpp>
+//#include <Handlers/RemoveHandler.hpp>
+//#include <Handlers/PrintAllHandler.hpp>
+//#include <Handlers/HelpHandler.hpp>
 
 using namespace defaultVals;
 using namespace messageLiterals;
@@ -57,81 +56,76 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             shapeCacheSize_,
             shapeCacheIsInitialized_ );
 
-        if (command == GO)
-        {
-            IPointAndRectangleHandler* evaluate = new CGoHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
-        }
-        else if(command == CREATE_POINT)
-        {
-            IPointHandler* evaluate = new CCreatePointHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        }
-        else if(command == CREATE_POINT_COPY)
-        {
-            IPointHandler* evaluate = new CCreatePointCopyHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        }
-        else if (command == SET_POINT)
-        {
-            IPointHandler* evaluate = new CSetPointHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        }
-        else if (command == GET_POINT_X)
-        {
-            IPointHandler* evaluate = new CGetPointXHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        }
-        else if (command == GET_POINT_Y)
-        {
-            IPointHandler* evaluate = new CGetPointYHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        }
-        else if (command == CREATE_RECT_POINTS)
-        {
-            IPointAndRectangleHandler* evaluate = new CCreateRectPointsHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
-        }
-        else if (command == CREATE_RECT_DOUBLE)
-        {
-            IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        }
-        else if (command == CREATE_RECT_DEFAULT)
-        {
-            IShapeHandler* evaluate = new CCreateRectDefaultHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        }
-        else if (command == CREATE_RECT_COPY)
-        {
-            IShapeHandler* evaluate = new CCreateRectCopyHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        }
-        else if (command == FIELD_RECT)
-        {
-            IShapeHandler* evaluate = new CFieldRectHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        }
-        else if (command == PRINT_ALL)
-        {
-            IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
-        }
-        else if (command == SHOW_RECT)
-        {
-            IShapeHandler* evaluate = new CShowRectHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        }
-        else if (command == HELP)
-        {
-            IShapeHandler* evaluate = new CHelpHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        }
-        else if (command == CLOSE)
-        {
-            releaseResources();
-            returnedCode = CODE::CLOSE;
-        }
+        //if (command == GO)
+        //{
+        //    IPointAndRectangleHandler* evaluate = new CGoHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
+        //}
+        //else if(command == CREATE_POINT)
+        //{
+        //    IPointHandler* evaluate = new CCreatePointHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
+        //}
+        //else if (command == SET_POINT)
+        //{
+        //    IPointHandler* evaluate = new CSetPointHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
+        //}
+        //else if (command == GET_POINT_X)
+        //{
+        //    IPointHandler* evaluate = new CGetPointXHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
+        //}
+        //else if (command == GET_POINT_Y)
+        //{
+        //    IPointHandler* evaluate = new CGetPointYHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
+        //}
+        //else if (command == CREATE_RECT_POINTS)
+        //{
+        //    IPointAndRectangleHandler* evaluate = new CCreateRectPointsHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
+        //}
+        //else if (command == CREATE_RECT_DOUBLE)
+        //{
+        //    IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        //}
+        //else if (command == CREATE_RECT_DEFAULT)
+        //{
+        //    IShapeHandler* evaluate = new CCreateRectDefaultHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        //}
+        //else if (command == CREATE_RECT_COPY)
+        //{
+        //    IShapeHandler* evaluate = new CCreateRectCopyHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        //}
+        //else if (command == FIELD_RECT)
+        //{
+        //    IShapeHandler* evaluate = new CFieldRectHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        //}
+        //else if (command == PRINT_ALL)
+        //{
+        //    IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
+        //}
+        //else if (command == SHOW_RECT)
+        //{
+        //    IShapeHandler* evaluate = new CShowRectHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        //}
+        //else if (command == HELP)
+        //{
+        //    IShapeHandler* evaluate = new CHelpHandler(inCommand);
+        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        //}
+        //else if (command == CLOSE)
+        //{
+        //    releaseResources();
+        //    returnedCode = CODE::CLOSE;
+        //}
 
     }
 

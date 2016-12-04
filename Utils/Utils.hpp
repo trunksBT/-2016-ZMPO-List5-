@@ -31,6 +31,8 @@ namespace typeLiterals
     constexpr const char* FIELD = "FIELD";
     constexpr const char* X = "X";
     constexpr const char* Y = "Y";
+    constexpr const char* WIDTH = "WIDTH";
+    constexpr const char* HEIGHT = "HEIGHT";
 }
 
 namespace defaultVals

@@ -109,11 +109,6 @@ double CPoint::getY() const
     return double(*yAxis_);
 }
 
-std::string CPoint::getType()
-{
-    return POINT;
-}
-
 std::string CPoint::toString()
 {
     std::stringstream retVal;

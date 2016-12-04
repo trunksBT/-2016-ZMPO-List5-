@@ -14,7 +14,6 @@ public:
     double getX() const;
     double getY() const;
     std::string toString() override;
-    std::string getType() override;
 public:
     void setX(double newX);
     void setY(double newY);
