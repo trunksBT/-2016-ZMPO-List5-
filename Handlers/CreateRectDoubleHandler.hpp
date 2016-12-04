@@ -3,13 +3,13 @@
 #include <vector>
 #include <string>
 
-#include "IPointAndRectangleHandler.hpp"
+#include <Handlers/IShapeHandler.hpp>
 
-class CCreateRectDoubleHandler : public virtual IShapeHandler
+class CCreateRectDoubleHandler : public IShapeHandler
 {
 public:
     CCreateRectDoubleHandler(std::vector<std::string>& inCommand);
-    virtual ~CCreateRectDoubleHandler();
+    virtual ~CCreateRectDoubleHandler() {};
     CODE checkArgsAndPerform(CShapeWithSize inCache) override;
 protected:
     CODE purePerform(CShapeWithSize inCache) override;

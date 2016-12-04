@@ -6,7 +6,7 @@
 #include "IHandler.hpp"
 
 class CPoint;
-class IShapeHandler : public virtual IHandler
+class IShapeHandler : public IHandler
 {
 public:
     IShapeHandler(std::vector<std::string>& inCommand);

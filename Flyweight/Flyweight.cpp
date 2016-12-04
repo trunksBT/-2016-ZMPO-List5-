@@ -4,17 +4,18 @@
 #include <Utils/Utils.hpp>
 #include <Utils/UtilsForMT.hpp>
 #include <Utils/Logger.hpp>
-//
-//#include <Handlers/GoHandler.hpp>
+
+#include <Handlers/GoHandler.hpp>
+#include <Handlers/CreateRectDoubleHandler.hpp>
+#include <Handlers/FieldRectHandler.hpp>
+
 //#include <Handlers/CreatePointHandler.hpp>
 //#include <Handlers/SetPointHandler.hpp>
 //#include <Handlers/GetPointXHandler.hpp>
 //#include <Handlers/GetPointYHandler.hpp>
 //#include <Handlers/CreateRectPointsHandler.hpp>
-//#include <Handlers/CreateRectDoubleHandler.hpp>
 //#include <Handlers/CreateRectCopyHandler.hpp>
 //#include <Handlers/CreateRectDefaultHandler.hpp>
-//#include <Handlers/FieldRectHandler.hpp>
 //#include <Handlers/ShowRectHandler.hpp>
 //#include <Handlers/RemoveAllHandler.hpp>
 //#include <Handlers/RemoveHandler.hpp>
@@ -24,10 +25,6 @@
 using namespace defaultVals;
 using namespace messageLiterals;
 using namespace funs;
-
-CShape** CFlyweight::pointCache_;
-int CFlyweight::pointCacheSize_;
-std::map<int, bool> CFlyweight::pointCacheIsInitialized_;
 
 CShape** CFlyweight::shapeCache_;
 int CFlyweight::shapeCacheSize_;
@@ -43,24 +40,30 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
 
         std::string command(inCommand[idxOf::COMMAND]);
-        CPointWithSize pairedPointCache =
-        std::make_tuple(
-            reinterpret_cast<CPoint**>(pointCache_),
-            pointCacheSize_,
-            pointCacheIsInitialized_);
-;
 
         CShapeWithSize pairedShapeCache = 
-        std::make_tuple(
+        std::forward_as_tuple(
             shapeCache_,
             shapeCacheSize_,
-            shapeCacheIsInitialized_ );
+            shapeCacheIsInitialized_);
 
-        //if (command == GO)
-        //{
-        //    IPointAndRectangleHandler* evaluate = new CGoHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
-        //}
+        if (command == GO)
+        {
+            IShapeHandler* evaluate = new CGoHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == CLOSE)
+        {
+            releaseResources();
+            returnedCode = CODE::CLOSE;
+        }
+        else if (command == CREATE_RECT_DOUBLE)
+        {
+            IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+
+        std::cout << shapeCacheIsInitialized_[0] << std::endl;
         //else if(command == CREATE_POINT)
         //{
         //    IPointHandler* evaluate = new CCreatePointHandler(inCommand);
@@ -85,11 +88,6 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         //{
         //    IPointAndRectangleHandler* evaluate = new CCreateRectPointsHandler(inCommand);
         //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
-        //}
-        //else if (command == CREATE_RECT_DOUBLE)
-        //{
-        //    IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         //}
         //else if (command == CREATE_RECT_DEFAULT)
         //{
@@ -121,11 +119,6 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         //    IShapeHandler* evaluate = new CHelpHandler(inCommand);
         //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         //}
-        //else if (command == CLOSE)
-        //{
-        //    releaseResources();
-        //    returnedCode = CODE::CLOSE;
-        //}
 
     }
 
@@ -136,19 +129,6 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 
 void CFlyweight::releaseResources()
 {
-    for (int i = 0; i < pointCacheSize_; i++)
-    {
-        if (pointCacheIsInitialized_[i] && pointCache_[i] != nullptr)
-        {
-            delete pointCache_[i];
-            pointCache_[i] = nullptr;
-        }
-    }
-    delete[] pointCache_;
-    pointCache_ = nullptr;
-    pointCacheSize_ = ZERO;
-    pointCacheIsInitialized_.clear();
-
     for (int i = 0; i < shapeCacheSize_; i++)
     {
         if ( shapeCacheIsInitialized_[i] && shapeCache_[i] != nullptr )
@@ -161,21 +141,6 @@ void CFlyweight::releaseResources()
     shapeCache_ = nullptr;
     shapeCacheSize_ = ZERO;
     shapeCacheIsInitialized_.clear();
-}
-
-void CFlyweight::initPointCache(int inCacheSize)
-{
-    if (inCacheSize >= ZERO)
-    {
-        pointCacheSize_ = inCacheSize;
-        pointCache_ = nullptr;
-        for (int i = 0; i < pointCacheSize_; i++)
-        {
-            pointCacheIsInitialized_[i] = false;
-        }
-
-        pointCache_ = new CShape*[pointCacheSize_];
-    }
 }
 
 void CFlyweight::initShapeCache(int inCacheSize)
@@ -195,14 +160,12 @@ void CFlyweight::initShapeCache(int inCacheSize)
 
 CFlyweight::CFlyweight()
 {
-    initPointCache(ZERO);
-    initPointCache(ZERO);
+    initShapeCache(ZERO);
 }
 
-CFlyweight::CFlyweight(int inPointCacheSize, int inShapeCacheSize)
+CFlyweight::CFlyweight(int inShapeCacheSize)
 {
-    initPointCache(inPointCacheSize);
-    initPointCache(inShapeCacheSize);
+    initShapeCache(inShapeCacheSize);
 }
 
 CFlyweight::~CFlyweight()
@@ -210,39 +173,20 @@ CFlyweight::~CFlyweight()
     CFlyweight::releaseResources();
 }
 
-void CFlyweight::setPointCacheSize(int inSize)
-{
-    pointCacheSize_ = inSize;
-}
 void CFlyweight::setShapeCacheSize(int inSize)
 {
     shapeCacheSize_ = inSize;
 }
 
-void CFlyweight::updateIsInitializedPointCache(int idx, bool newVal)
-{
-    pointCacheIsInitialized_[idx] = newVal;
-}
 
 void CFlyweight::updateIsInitializedShapeCache(int idx, bool newVal)
 {
     shapeCacheIsInitialized_[idx] = newVal;
 }
 
-void CFlyweight::updatePointCache(CShape** newPointCache)
-{
-    pointCache_ = newPointCache;
-}
-
 void CFlyweight::updateShapeCache(CShape** newShapeCache)
 {
     shapeCache_ = newShapeCache;
 }
-
-void CFlyweight::updatePointCache(int idx, CShape* newPointCache)
-{
-    pointCache_[idx] = newPointCache;
-}
-
 
 # pragma endregion

@@ -5,35 +5,25 @@
 #include <boost/math/constants/constants.hpp>
 #include <cmath>
 
-using namespace dataBusKeys::circle;
+using namespace dataBusKeys::rectangle;
 using namespace defaultVals;
 using namespace flags;
 using namespace typeLiterals;
 
 boost::any RectangleAreaBridge::perform(const InfoModel& inVal)
 {
-    if (inVal.count(RADIOUS))
+    if (inVal.count(SIDE_FST) && inVal.count(SIDE_SND))
     {
-        double radious = boost::any_cast<double>(inVal.at(RADIOUS));
-        double retVal = boost::math::constants::pi<double>()*std::pow(radious,2);
+        double sideFst = boost::any_cast<double>(inVal.at(SIDE_FST));
+        double sideSnd = boost::any_cast<double>(inVal.at(SIDE_SND));
 
-        if (static_cast<bool>(std::fetestexcept(FE_OVERFLOW)) ||
-            static_cast<bool>(std::fetestexcept(FE_UNDERFLOW)))
-        {
-            Logger()
-                << ERROR << SEPARATOR
-                << DOUBLE_OVERFLOW_OR_UNDERFLOW << SPACE
-                << POST_PRINT;
-
-            return double();
-        }
-
-        return radious*radious;
+        return sideFst*sideSnd;
     }
 
     Logger()
         << ERROR << SEPARATOR
-        << RADIOUS << SPACE
+        << SIDE_FST << COMMA_SPACE
+        << SIDE_SND << COMMA_SPACE
         << NOT_FOUND_IN_IM
         << POST_PRINT;
 

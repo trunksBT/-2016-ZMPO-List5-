@@ -17,44 +17,43 @@ endif()
 include_directories(.)
 
 set(HANDLERS
-    Handlers/CreatePointCopyHandler.cpp
-    Handlers/CreatePointCopyHandler.hpp
-    Handlers/CreatePointHandler.cpp
-    Handlers/CreatePointHandler.hpp
-    Handlers/CreateRectCopyHandler.cpp
-    Handlers/CreateRectCopyHandler.hpp
-    Handlers/CreateRectDefaultHandler.cpp
-    Handlers/CreateRectDefaultHandler.hpp
-    Handlers/CreateRectDoubleHandler.cpp
-    Handlers/CreateRectDoubleHandler.hpp
-    Handlers/FieldRectHandler.cpp
-    Handlers/FieldRectHandler.hpp
-    Handlers/GetPointXHandler.cpp
-    Handlers/GetPointXHandler.hpp
-    Handlers/GetPointYHandler.cpp
-    Handlers/GetPointYHandler.hpp
-    Handlers/GoHandler.cpp
-    Handlers/GoHandler.hpp
-    Handlers/HelpHandler.cpp
-    Handlers/HelpHandler.hpp
-    Handlers/IHandler.cpp
-    Handlers/IHandler.hpp
-    Handlers/IPointAndRectangleHandler.cpp
-    Handlers/IPointAndRectangleHandler.hpp
-    Handlers/IPointHandler.cpp
-    Handlers/IPointHandler.hpp
     Handlers/IShapeHandler.cpp
     Handlers/IShapeHandler.hpp
-    Handlers/PrintAllHandler.cpp
-    Handlers/PrintAllHandler.hpp
-    Handlers/RemoveAllHandler.cpp
-    Handlers/RemoveAllHandler.hpp
-    Handlers/RemoveHandler.cpp
-    Handlers/RemoveHandler.hpp
-    Handlers/SetPointHandler.cpp
-    Handlers/SetPointHandler.hpp
-    Handlers/ShowRectHandler.cpp
-    Handlers/ShowRectHandler.hpp
+    Handlers/IHandler.cpp
+    Handlers/IHandler.hpp
+	Handlers/GoHandler.cpp
+    Handlers/GoHandler.hpp
+
+    Handlers/CreateRectDoubleHandler.cpp
+    Handlers/CreateRectDoubleHandler.hpp
+
+    #Handlers/FieldRectHandler.cpp
+    #Handlers/FieldRectHandler.hpp
+
+    #Handlers/CreatePointCopyHandler.cpp
+    #Handlers/CreatePointCopyHandler.hpp
+    #Handlers/CreatePointHandler.cpp
+    #Handlers/CreatePointHandler.hpp
+    #Handlers/CreateRectCopyHandler.cpp
+    #Handlers/CreateRectCopyHandler.hpp
+    #Handlers/CreateRectDefaultHandler.cpp
+    #Handlers/CreateRectDefaultHandler.hpp
+    #Handlers/GetPointXHandler.cpp
+    #Handlers/GetPointXHandler.hpp
+    #Handlers/GetPointYHandler.cpp
+    #Handlers/GetPointYHandler.hpp
+    #Handlers/HelpHandler.cpp
+    #Handlers/HelpHandler.hpp
+    #Handlers/PrintAllHandler.cpp
+    #Handlers/PrintAllHandler.hpp
+    #Handlers/RemoveAllHandler.cpp
+    #Handlers/RemoveAllHandler.hpp
+    #Handlers/RemoveHandler.cpp
+    #Handlers/RemoveHandler.hpp
+    #Handlers/SetPointHandler.cpp
+    #Handlers/SetPointHandler.hpp
+    #Handlers/ShowRectHandler.cpp
+    #Handlers/ShowRectHandler.hpp
 )
 
 set(SHAPES
@@ -110,7 +109,7 @@ source_group("Flyweight" FILES ${FLYWEIGHT})
 source_group("Bridges" FILES ${BRIDGES})
 
 add_executable(${PROJECT_NAME} CShapesRunner.cpp
-    #${HANDLERS}
+    ${HANDLERS}
     ${SHAPES}
     ${UTILS}
     ${MT_UT}

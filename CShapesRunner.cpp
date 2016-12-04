@@ -23,7 +23,7 @@ using namespace funs;
 int main(int argc, char **argv)
 {
     {
-        CFlyweight application(ZERO, ZERO);
+        CFlyweight application(ZERO);
         CODE commandResult = CODE::ERROR;
 
         std::cout << "Pass command" << std::endl;

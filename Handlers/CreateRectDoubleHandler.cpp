@@ -12,19 +12,20 @@ using namespace cacheIdx;
 using namespace funs;
 using namespace assertWrapper;
 using namespace tupleIdx;
+using namespace idxOf::rectangle;
 
 CCreateRectDoubleHandler::CCreateRectDoubleHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand), IShapeHandler(inCommand)
+    : IShapeHandler(inCommand)
 {}
 
 const int CCreateRectDoubleHandler::getProperAmountOfArgs()
 {
-    return 6;
+    return 4;
 }
 
 std::string CCreateRectDoubleHandler::getProperTypesOfArgs()
 {
-    return "sidddd";
+    return "sidd";
 }
 
 CODE CCreateRectDoubleHandler::checkArgsAndPerform(CShapeWithSize inCache)
@@ -42,38 +43,32 @@ CODE CCreateRectDoubleHandler::checkArgsAndPerform(CShapeWithSize inCache)
 CODE CCreateRectDoubleHandler::purePerform(CShapeWithSize inCache)
 {
     std::string goalIdxStr(wholeCommand_[idxOf::RECT_GOAL_ID]);
-    int copyToIdx = std::stoi(goalIdxStr);
+    int newRectIdx = std::stoi(goalIdxStr);
 
-    std::string pointFstXIdxStr(wholeCommand_[idxOf::POINT_FST_X]);
-    double pointFstXIdx = std::stod(pointFstXIdxStr);
+    std::string sideFstStr(wholeCommand_[SIDE_FST_IDX]);
+    double sideFst = std::stod(sideFstStr);
 
-    std::string pointFstYIdxStr(wholeCommand_[idxOf::POINT_FST_Y]);
-    double pointFstYIdx = std::stod(pointFstYIdxStr);
+    std::string sideSndStr(wholeCommand_[SIDE_SND_IDX]);
+    double sideSnd = std::stod(sideSndStr);
 
-    std::string pointSndXIdxStr(wholeCommand_[idxOf::POINT_SND_X]);
-    double pointSndXIdx = std::stod(pointSndXIdxStr);
-
-    std::string pointSndYIdxStr(wholeCommand_[idxOf::POINT_SND_Y]);
-    double pointSndYIdx = std::stod(pointSndYIdxStr);
-
-    if (!isProperIdx(copyToIdx, std::get<SIZE>(inCache)))
+    if (!isProperIdx(newRectIdx, std::get<SIZE>(inCache)))
     {
         return CODE::ERROR;
     }
 
-
     //// TODO FORGOTTEN CHECK OF PROPER ARGS WTS? /// TODO
 
-    delete std::get<ARRAY>(inCache)[copyToIdx];
-    std::get<ARRAY>(inCache)[copyToIdx] = CRectangle::buildNewObj(
-        pointFstXIdx,
-        pointFstYIdx
+    if (std::get<INITIALIZED_MAP>(inCache)[newRectIdx])
+    {
+        delete std::get<ARRAY>(inCache)[newRectIdx];
+    }
+
+    std::get<ARRAY>(inCache)[newRectIdx] = CRectangle::buildNewObj(
+        sideFst,
+        sideSnd
     );
 
+    std::get<INITIALIZED_MAP>(inCache)[newRectIdx] = true;
+
     return CODE::DONE;
-}
-
-CCreateRectDoubleHandler::~CCreateRectDoubleHandler()
-{
-
 }
