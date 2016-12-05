@@ -7,6 +7,7 @@
 
 #include <Handlers/GoHandler.hpp>
 #include <Handlers/CreateRectDoubleHandler.hpp>
+#include <Handlers/CreateSquareDoubleHandler.hpp>
 #include <Handlers/AreaHandler.hpp>
 #include <Handlers/PrintAllHandler.hpp>
 
@@ -55,6 +56,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         else if (command == CREATE_RECT_DOUBLE)
         {
             IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == CREATE_SQUARE_DOUBLE)
+        {
+            IShapeHandler* evaluate = new CCreateSquareDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CALCULATE_AREA)

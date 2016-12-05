@@ -23,13 +23,17 @@ set(HANDLERS
     Handlers/IHandler.hpp
 	Handlers/GoHandler.cpp
     Handlers/GoHandler.hpp
+
     Handlers/CreateRectDoubleHandler.cpp
     Handlers/CreateRectDoubleHandler.hpp
+
     Handlers/AreaHandler.cpp
     Handlers/AreaHandler.hpp
-
 	Handlers/PrintAllHandler.cpp
     Handlers/PrintAllHandler.hpp
+
+	Handlers/CreateSquareDoubleHandler.cpp
+	Handlers/CreateSquareDoubleHandler.hpp
 
     #Handlers/CreatePointCopyHandler.cpp
     #Handlers/CreatePointCopyHandler.hpp
@@ -59,10 +63,12 @@ set(HANDLERS
 set(SHAPES
     Shapes/Point.cpp
     Shapes/Point.hpp
-    Shapes/Rectangle.cpp
-    Shapes/Rectangle.hpp
     Shapes/Shape.cpp
     Shapes/Shape.hpp
+    Shapes/Rectangle.cpp
+    Shapes/Rectangle.hpp
+	Shapes/Square.cpp
+	Shapes/Square.hpp
 )
 
 set(UTILS
@@ -81,7 +87,7 @@ set(UTILS
 set(MT_UT
 	MT_UT/CBridgesUT.cpp
     # MT_UT/CPointUT.cpp
-    MT_UT/CRectangleUT.cpp
+    MT_UT/CShapesUT.cpp
     # MT_UT/FlyweightProperAmountOfArgsButWrongMT.cpp
     # MT_UT/FlyweightProperArgsMT.cpp
     # MT_UT/FlyweightUnproperAmountOfArgsMT.cpp
@@ -97,10 +103,17 @@ set(BRIDGES
 	Bridges/BridgesModel.cpp
 	Bridges/BridgesModel.hpp
 	Bridges/IBridge.hpp
+
 	Bridges/RectangleAreaBridge.cpp
 	Bridges/RectangleAreaBridge.hpp
 	Bridges/RectanglePerimeterBridge.cpp
 	Bridges/RectanglePerimeterBridge.hpp
+
+	
+	Bridges/SquareAreaBridge.hpp
+	Bridges/SquareAreaBridge.cpp
+	Bridges/SquarePerimeterBridge.hpp
+	Bridges/SquarePerimeterBridge.cpp
 )
 
 source_group("Handlers" FILES ${HANDLERS})

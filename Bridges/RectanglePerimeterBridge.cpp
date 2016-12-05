@@ -2,7 +2,7 @@
 #include <Utils/Utils.hpp>
 #include <Utils/Logger.hpp>
 
-using namespace dataBusKeys::rectangle;
+using namespace dataBusKeys;
 using namespace defaultVals;
 using namespace flags;
 using namespace typeLiterals;
@@ -19,10 +19,24 @@ CRectanglePerimeterBridge::CRectanglePerimeterBridge()
     }
 }
 
-const boost::any CRectanglePerimeterBridge::perform(const InfoModel& inVal)
+const boost::any CRectanglePerimeterBridge::perform(const DataBus& inVal)
 {
-    double sideFst = boost::any_cast<double>(inVal.at(SIDE_FST));
-    double sideSnd = boost::any_cast<double>(inVal.at(SIDE_SND));
+    double sideFst;
+    double sideSnd;
+
+    if (inVal.count(rectangle::SIDE_FST) && inVal.count(rectangle::SIDE_SND))
+    {
+        sideFst = boost::any_cast<double>(inVal.at(rectangle::SIDE_FST));
+        sideSnd = boost::any_cast<double>(inVal.at(rectangle::SIDE_SND));
+    }
+    else
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << rectangle::SIDE_FST << OR
+            << rectangle::SIDE_SND
+            << NOT_FOUND_IN_DATABUS;
+    }
 
     return 2*sideFst + 2*sideSnd;
 }

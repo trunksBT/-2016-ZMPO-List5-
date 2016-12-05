@@ -21,7 +21,7 @@ CRectangleAreaBridge::CRectangleAreaBridge()
     }
 }
 
-const boost::any CRectangleAreaBridge::perform(const InfoModel& inVal)
+const boost::any CRectangleAreaBridge::perform(const DataBus& inVal)
 {
     double sideFst = boost::any_cast<double>(inVal.at(SIDE_FST));
     double sideSnd = boost::any_cast<double>(inVal.at(SIDE_SND));

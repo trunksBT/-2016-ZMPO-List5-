@@ -2,11 +2,11 @@
 
 #include <Bridges/IBridge.hpp>
 
-class CRectangleAreaBridge : public IBridge
+class CSquarePerimeterBridge : public IBridge
 {
 public:
-    CRectangleAreaBridge();
-    virtual ~CRectangleAreaBridge();
+    CSquarePerimeterBridge();
+    virtual ~CSquarePerimeterBridge();
 public:
     const boost::any perform(const DataBus& inVal) override;
     IBridge* clone() override;

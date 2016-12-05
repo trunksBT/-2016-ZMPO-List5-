@@ -8,6 +8,6 @@ public:
     CRectanglePerimeterBridge();
     virtual ~CRectanglePerimeterBridge();
 public:
-    const boost::any perform(const InfoModel& inVal) override;
+    const boost::any perform(const DataBus& inVal) override;
     IBridge* clone() override;
 };
