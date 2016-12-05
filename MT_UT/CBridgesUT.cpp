@@ -90,7 +90,7 @@ TEST_F(CBridgesUT, CreateWithDefaultCTOR_UpdateTwice_OtherKeys_And_Fetch_And_Rem
 
 TEST_F(CBridgesUT, InfoModel_count)
 {
-    InfoModel tempBridges=
+    DataBus tempBridges=
     {
         { RANDOM_KEY_1, 3 },
         { RANDOM_KEY_2, 4 }

@@ -34,6 +34,11 @@ namespace dataBusKeys
         constexpr const char* SIDE_FST = "sideFst";
         constexpr const char* SIDE_SND = "sideSnd";
     }
+
+    namespace square
+    {
+        constexpr const char* SIDE = "side";
+    }
 }
 
 namespace bridgeModelKeys
@@ -42,6 +47,12 @@ namespace bridgeModelKeys
     {
         constexpr const char* AREA = "rectangleArea";
         constexpr const char* PERIMETER = "rectanglePerimeter";
+    }
+
+    namespace square
+    {
+        constexpr const char* AREA = "circleArea";
+        constexpr const char* PERIMETER = "circlePerimeter";
     }
 }
 
@@ -55,6 +66,7 @@ namespace typeLiterals
     constexpr const char* RECTANGLE_PERIMETER_BRIDGE = "RECTANGLE_PERIMETER_BRIDGE";
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
+    constexpr const char* SQUARE = "CSQUARE";
     constexpr const char* SHAPE = "SHAPE";
     constexpr const char* POINTS = "POINTS";
     constexpr const char* SHAPES = "SHAPES";
@@ -62,12 +74,14 @@ namespace typeLiterals
     constexpr const char* X = "X";
     constexpr const char* Y = "Y";
     constexpr const char* WIDTH = "WIDTH";
+    constexpr const char* SIDE = "SIDE";
     constexpr const char* HEIGHT = "HEIGHT";
 }
 
 namespace defaultVals
 {
     constexpr const char* CURSOR_SIGN = "! ";
+    constexpr const char* OR = " || ";
     constexpr const char* PRE_PRINT = "   ";
     constexpr const char* POST_PRINT = "\n";
     constexpr const char* SEPARATOR = ": ";
@@ -116,7 +130,7 @@ namespace defaultVals
     constexpr const double MIN_DOUBLE_VAL = (std::numeric_limits<double>::lowest)();
 
     constexpr const char* ERROR = "ERROR";
-    constexpr const char* NOT_FOUND_IN_IM = "NOT_FOUND_IN_IM";
+    constexpr const char* NOT_FOUND_IN_DATABUS = "NOT_FOUND_IN_DATABUS";
 }
 
 namespace cacheIdx
