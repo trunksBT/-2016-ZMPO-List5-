@@ -35,6 +35,13 @@ namespace dataBusKeys
         constexpr const char* SIDE_SND = "sideSnd";
     }
 
+    namespace triangle
+    {
+        constexpr const char* SIDE_FST = "sideFst";
+        constexpr const char* SIDE_SND = "sideSnd";
+        constexpr const char* SIDE_THRD = "sideThrd";
+    }
+
     namespace square
     {
         constexpr const char* SIDE = "side";
@@ -60,6 +67,12 @@ namespace bridgeModelKeys
         constexpr const char* PERIMETER = "squarePerimeter";
     }
 
+    namespace triangle
+    {
+        constexpr const char* AREA = "triangleArea";
+        constexpr const char* PERIMETER = "trianglePerimeter";
+    }
+
     namespace circle
     {
         constexpr const char* AREA = "circleArea";
@@ -76,7 +89,10 @@ namespace typeLiterals
 
     constexpr const char* RECTANGLE_AREA_BRIDGE = "RECTANGLE_AREA_BRIDGE";
     constexpr const char* RECTANGLE_PERIMETER_BRIDGE = "RECTANGLE_PERIMETER_BRIDGE";
-    
+
+    constexpr const char* TRIANGLE_AREA_BRIDGE = "TRIANGLE_AREA_BRIDGE";
+    constexpr const char* TRIANGLE_PERIMETER_BRIDGE = "TRIANGLE_PERIMETER_BRIDGE";
+
     constexpr const char* CIRCLE_AREA_BRIDGE = "CIRCLE_AREA_BRIDGE";
     constexpr const char* CIRCLE_PERIMETER_BRIDGE = "CIRCLE_PERIMETER_BRIDGE";
 
@@ -84,6 +100,7 @@ namespace typeLiterals
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SQUARE = "CSQUARE";
     constexpr const char* CIRCLE = "CCIRCLE";
+    constexpr const char* TRIANGLE = "CTRIANGLE";
     constexpr const char* SHAPE = "SHAPE";
     constexpr const char* RADIOUS = "CRADIOUS";
 
@@ -156,6 +173,7 @@ namespace defaultVals
     constexpr const char* NOT_FOUND_IN_DATABUS = "NOT_FOUND_IN_DATABUS";
     constexpr const char* NOT_FOUND_IN_CACHE = "NOT_FOUND_IN_CACHE";
     constexpr const char* TO_BIG_IDX_FOR_CACHE = "TO_BIG_IDX_FOR_CACHE";
+    constexpr const char* THIS_TRIANGLE_CANNOT_EXIST = "THIS_TRIANGLE_CANNOT_EXIST";
 }
 
 namespace cacheIdx
@@ -192,6 +210,7 @@ namespace funs
     int sizeOfDouble(double inVal);
     bool isDoubleOverflow(double inVal1, double inVal2);
     bool isSegmentToBig(double fstX, double sndX);
+    bool isTriangleProper(double sideFst, double sideSnd, double sideThrd);
 
 }
 

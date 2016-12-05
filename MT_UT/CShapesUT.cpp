@@ -6,6 +6,7 @@
 
 #include <Shapes/Rectangle.hpp>
 #include <Shapes/Square.hpp>
+#include <Shapes/Triangle.hpp>
 #include <Shapes/Circle.hpp>
 
 #include <Utils/Utils.hpp>
@@ -145,32 +146,34 @@ TEST_F(CShapesUT, Square_build_calculateArea_and_Perimeter_5y0)
     delete square;
 }
 
-TEST_F(CShapesUT, Circle_build_width_1)
+TEST_F(CShapesUT, Triangle_build_side_Egiptian)
 {
-    double width = 1;
+    double side1 = 3;
+    double side2 = 4;
+    double side3 = 5;
 
-    CShape* square = CCircle::buildNewObj(width);
+    CShape* square = CTriangle::buildNewObj(side1, side2, side3);
     std::cout << square->toString() << POST_PRINT;
 
     ASSERT_TRUE(square);
     delete square;
 }
 
-TEST_F(CShapesUT, Circle_build_default)
+TEST_F(CShapesUT, Triangle_build_default)
 {
-    CShape* square = CCircle::buildNewObj();
+    CShape* square = CTriangle::buildNewObj();
     std::cout << square->toString() << POST_PRINT;
 
     ASSERT_TRUE(square);
     delete square;
 }
 
-TEST_F(CShapesUT, Circle_build_copyCtor)
+TEST_F(CShapesUT, Triangle_build_copyCtor)
 {
-    CShape* square = CCircle::buildNewObj();
+    CShape* square = CTriangle::buildNewObj();
 
-    CShape* afterClone = CCircle::buildNewObj(
-        dynamic_cast<CCircle*>(square));
+    CShape* afterClone = CTriangle::buildNewObj(
+        dynamic_cast<CTriangle*>(square));
 
     std::cout << square->toString() << POST_PRINT;
     std::cout << afterClone->toString() << POST_PRINT;
@@ -181,9 +184,9 @@ TEST_F(CShapesUT, Circle_build_copyCtor)
     delete afterClone;
 }
 
-TEST_F(CShapesUT, Circle_build_calculateArea_and_Perimeter_defVals)
+TEST_F(CShapesUT, Triangle_build_calculateArea_and_Perimeter_defVals)
 {
-    CShape* square = CCircle::buildNewObj();
+    CShape* square = CTriangle::buildNewObj();
 
     std::cout << square->toString() << POST_PRINT;
 
@@ -193,17 +196,34 @@ TEST_F(CShapesUT, Circle_build_calculateArea_and_Perimeter_defVals)
     delete square;
 }
 
-TEST_F(CShapesUT, Circle_build_calculateArea_and_Perimeter_6y0)
+TEST_F(CShapesUT, Triangle_build_calculateArea_and_Perimeter_Egiptian)
 {
-    CShape* square = CCircle::buildNewObj(6.0);
+    double side1 = 3;
+    double side2 = 4;
+    double side3 = 5;
+
+    CShape* square = CTriangle::buildNewObj(side1, side2, side3);
 
     std::cout << square->toString() << POST_PRINT;
 
-    ASSERT_EQ(113, static_cast<int>(square->calculateArea()));
-    ASSERT_EQ(37, static_cast<int>(square->calculatePerimeter()));
+    ASSERT_EQ(6, static_cast<int>(square->calculateArea()));
+    ASSERT_EQ(12, static_cast<int>(square->calculatePerimeter()));
 
     delete square;
 }
 
+TEST_F(CShapesUT, Triangle_build_calculateArea_and_Perimeter_Wrong)
+{
+    double side1 = 1;
+    double side2 = 2;
+    double side3 = 5;
+
+    CShape* square = CTriangle::buildNewObj(side1, side2, side3);
+
+    std::cout << square->toString() << POST_PRINT;
+
+    ASSERT_TRUE(square);
+    delete square;
+}
 
 }
