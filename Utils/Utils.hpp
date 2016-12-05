@@ -207,6 +207,9 @@ namespace messageLiterals
     constexpr const char* CREATE_RECT_POINTS = "createRectPoints";
     constexpr const char* CREATE_RECT_DOUBLE = "createRectDouble";
     constexpr const char* CREATE_RECT_DEFAULT = "createRectDefault";
+
+    constexpr const char* CREATE_SQUARE_DOUBLE = "createSquareDouble";
+
     constexpr const char* CREATE_RECT_COPY = "createRectCopy";
     constexpr const char* SET_POINT = "setPoint";
     constexpr const char* GET_POINT_X = "getPointX";

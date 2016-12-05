@@ -23,13 +23,17 @@ set(HANDLERS
     Handlers/IHandler.hpp
 	Handlers/GoHandler.cpp
     Handlers/GoHandler.hpp
+
     Handlers/CreateRectDoubleHandler.cpp
     Handlers/CreateRectDoubleHandler.hpp
+
     Handlers/AreaHandler.cpp
     Handlers/AreaHandler.hpp
-
 	Handlers/PrintAllHandler.cpp
     Handlers/PrintAllHandler.hpp
+
+	Handlers/CreateSquareDoubleHandler.cpp
+	Handlers/CreateSquareDoubleHandler.hpp
 
     #Handlers/CreatePointCopyHandler.cpp
     #Handlers/CreatePointCopyHandler.hpp
