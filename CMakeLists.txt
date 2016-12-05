@@ -76,6 +76,8 @@ set(SHAPES
     Shapes/Square.hpp
     Shapes/Circle.cpp
     Shapes/Circle.hpp
+	Shapes/Triangle.cpp
+    Shapes/Triangle.hpp
 )
 
 set(UTILS

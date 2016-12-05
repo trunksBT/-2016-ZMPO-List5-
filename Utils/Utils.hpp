@@ -35,6 +35,13 @@ namespace dataBusKeys
         constexpr const char* SIDE_SND = "sideSnd";
     }
 
+    namespace triangle
+    {
+        constexpr const char* SIDE_FST = "sideFst";
+        constexpr const char* SIDE_SND = "sideSnd";
+        constexpr const char* SIDE_THRD = "sideSnd";
+    }
+
     namespace square
     {
         constexpr const char* SIDE = "side";
@@ -58,6 +65,12 @@ namespace bridgeModelKeys
     {
         constexpr const char* AREA = "squareArea";
         constexpr const char* PERIMETER = "squarePerimeter";
+    }
+
+    namespace triangle
+    {
+        constexpr const char* AREA = "triangleArea";
+        constexpr const char* PERIMETER = "trianglePerimeter";
     }
 
     namespace circle
@@ -84,6 +97,7 @@ namespace typeLiterals
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SQUARE = "CSQUARE";
     constexpr const char* CIRCLE = "CCIRCLE";
+    constexpr const char* TRIANGLE = "CTRIANGLE";
     constexpr const char* SHAPE = "SHAPE";
     constexpr const char* RADIOUS = "CRADIOUS";
 
