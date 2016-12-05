@@ -8,7 +8,10 @@
 #include <Handlers/GoHandler.hpp>
 #include <Handlers/CreateRectDoubleHandler.hpp>
 #include <Handlers/CreateSquareDoubleHandler.hpp>
+#include <Handlers/CreateCircleDoubleHandler.hpp>
+
 #include <Handlers/AreaHandler.hpp>
+#include <Handlers/PerimeterHandler.hpp>
 #include <Handlers/PrintAllHandler.hpp>
 
 //#include <Handlers/CreatePointHandler.hpp>
@@ -63,9 +66,19 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IShapeHandler* evaluate = new CCreateSquareDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
+        else if (command == CREATE_CIRCLE_DOUBLE)
+        {
+            IShapeHandler* evaluate = new CCreateCircleDoubleHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
         else if (command == CALCULATE_AREA)
         {
             IShapeHandler* evaluate = new CAreaHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == CALCULATE_PERIMETER)
+        {
+            IShapeHandler* evaluate = new CPerimeterHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == PRINT_ALL)

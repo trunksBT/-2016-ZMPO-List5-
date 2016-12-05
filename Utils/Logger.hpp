@@ -7,6 +7,7 @@ namespace flags
 {
 constexpr bool PRINT_CTORS = true;
 constexpr bool REPLY_COMMAND = true;
+constexpr bool PRINT_ERRORS = true;
 }
 
 class Logger

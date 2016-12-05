@@ -21,19 +21,24 @@ set(HANDLERS
     Handlers/IShapeHandler.hpp
     Handlers/IHandler.cpp
     Handlers/IHandler.hpp
-	Handlers/GoHandler.cpp
+    Handlers/GoHandler.cpp
     Handlers/GoHandler.hpp
 
-    Handlers/CreateRectDoubleHandler.cpp
-    Handlers/CreateRectDoubleHandler.hpp
 
     Handlers/AreaHandler.cpp
     Handlers/AreaHandler.hpp
-	Handlers/PrintAllHandler.cpp
+    Handlers/PerimeterHandler.cpp
+    Handlers/PerimeterHandler.hpp
+
+    Handlers/PrintAllHandler.cpp
     Handlers/PrintAllHandler.hpp
 
-	Handlers/CreateSquareDoubleHandler.cpp
-	Handlers/CreateSquareDoubleHandler.hpp
+    Handlers/CreateRectDoubleHandler.cpp
+    Handlers/CreateRectDoubleHandler.hpp
+    Handlers/CreateSquareDoubleHandler.cpp
+    Handlers/CreateSquareDoubleHandler.hpp
+    Handlers/CreateCircleDoubleHandler.cpp
+    Handlers/CreateCircleDoubleHandler.hpp
 
     #Handlers/CreatePointCopyHandler.cpp
     #Handlers/CreatePointCopyHandler.hpp
@@ -67,8 +72,10 @@ set(SHAPES
     Shapes/Shape.hpp
     Shapes/Rectangle.cpp
     Shapes/Rectangle.hpp
-	Shapes/Square.cpp
-	Shapes/Square.hpp
+    Shapes/Square.cpp
+    Shapes/Square.hpp
+    Shapes/Circle.cpp
+    Shapes/Circle.hpp
 )
 
 set(UTILS
@@ -85,7 +92,7 @@ set(UTILS
 )
 
 set(MT_UT
-	MT_UT/CBridgesUT.cpp
+    MT_UT/CBridgesUT.cpp
     # MT_UT/CPointUT.cpp
     MT_UT/CShapesUT.cpp
     # MT_UT/FlyweightProperAmountOfArgsButWrongMT.cpp
@@ -100,20 +107,24 @@ set(FLYWEIGHT
 )
 
 set(BRIDGES
-	Bridges/BridgesModel.cpp
-	Bridges/BridgesModel.hpp
-	Bridges/IBridge.hpp
-
-	Bridges/RectangleAreaBridge.cpp
-	Bridges/RectangleAreaBridge.hpp
-	Bridges/RectanglePerimeterBridge.cpp
-	Bridges/RectanglePerimeterBridge.hpp
-
-	
-	Bridges/SquareAreaBridge.hpp
-	Bridges/SquareAreaBridge.cpp
-	Bridges/SquarePerimeterBridge.hpp
-	Bridges/SquarePerimeterBridge.cpp
+    Bridges/BridgesModel.cpp
+    Bridges/BridgesModel.hpp
+    Bridges/IBridge.hpp
+    
+    Bridges/RectangleAreaBridge.cpp
+    Bridges/RectangleAreaBridge.hpp
+    Bridges/RectanglePerimeterBridge.cpp
+    Bridges/RectanglePerimeterBridge.hpp
+    
+    Bridges/SquareAreaBridge.hpp
+    Bridges/SquareAreaBridge.cpp
+    Bridges/SquarePerimeterBridge.hpp
+    Bridges/SquarePerimeterBridge.cpp
+    
+    Bridges/CircleAreaBridge.hpp
+    Bridges/CircleAreaBridge.cpp
+    Bridges/CirclePerimeterBridge.hpp
+    Bridges/CirclePerimeterBridge.cpp
 )
 
 source_group("Handlers" FILES ${HANDLERS})

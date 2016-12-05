@@ -39,6 +39,11 @@ namespace dataBusKeys
     {
         constexpr const char* SIDE = "side";
     }
+
+    namespace circle
+    {
+        constexpr const char* RADIOUS = "radious";
+    }
 }
 
 namespace bridgeModelKeys
@@ -51,6 +56,12 @@ namespace bridgeModelKeys
 
     namespace square
     {
+        constexpr const char* AREA = "squareArea";
+        constexpr const char* PERIMETER = "squarePerimeter";
+    }
+
+    namespace circle
+    {
         constexpr const char* AREA = "circleArea";
         constexpr const char* PERIMETER = "circlePerimeter";
     }
@@ -62,15 +73,27 @@ namespace typeLiterals
     constexpr const char* DOUBLE_OVERFLOW_OR_UNDERFLOW
         = "DOUBLE_OVERFLOW_OR_UNDERFLOW";
     constexpr const char* IBRIDGE = "IBRIDGE";
+
     constexpr const char* RECTANGLE_AREA_BRIDGE = "RECTANGLE_AREA_BRIDGE";
     constexpr const char* RECTANGLE_PERIMETER_BRIDGE = "RECTANGLE_PERIMETER_BRIDGE";
+    
+    constexpr const char* CIRCLE_AREA_BRIDGE = "CIRCLE_AREA_BRIDGE";
+    constexpr const char* CIRCLE_PERIMETER_BRIDGE = "CIRCLE_PERIMETER_BRIDGE";
+
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SQUARE = "CSQUARE";
+    constexpr const char* CIRCLE = "CCIRCLE";
     constexpr const char* SHAPE = "SHAPE";
+    constexpr const char* RADIOUS = "CRADIOUS";
+
+
     constexpr const char* POINTS = "POINTS";
     constexpr const char* SHAPES = "SHAPES";
-    constexpr const char* FIELD = "FIELD";
+
+    constexpr const char* AREA_HANDLER = "AREA_HANDLER";
+    constexpr const char* PERIMETER_HANDLER = "PERIMETER_HANDLER";
+   
     constexpr const char* X = "X";
     constexpr const char* Y = "Y";
     constexpr const char* WIDTH = "WIDTH";
@@ -131,6 +154,8 @@ namespace defaultVals
 
     constexpr const char* ERROR = "ERROR";
     constexpr const char* NOT_FOUND_IN_DATABUS = "NOT_FOUND_IN_DATABUS";
+    constexpr const char* NOT_FOUND_IN_CACHE = "NOT_FOUND_IN_CACHE";
+    constexpr const char* TO_BIG_IDX_FOR_CACHE = "TO_BIG_IDX_FOR_CACHE";
 }
 
 namespace cacheIdx
@@ -205,16 +230,18 @@ namespace messageLiterals
     constexpr const char* CREATE_POINT = "createPoint";
     constexpr const char* CREATE_POINT_COPY = "createPointCopy";
     constexpr const char* CREATE_RECT_POINTS = "createRectPoints";
-    constexpr const char* CREATE_RECT_DOUBLE = "createRectDouble";
     constexpr const char* CREATE_RECT_DEFAULT = "createRectDefault";
 
+    constexpr const char* CREATE_RECT_DOUBLE = "createRectDouble";
     constexpr const char* CREATE_SQUARE_DOUBLE = "createSquareDouble";
+    constexpr const char* CREATE_CIRCLE_DOUBLE = "createCircleDouble";
 
     constexpr const char* CREATE_RECT_COPY = "createRectCopy";
     constexpr const char* SET_POINT = "setPoint";
     constexpr const char* GET_POINT_X = "getPointX";
     constexpr const char* GET_POINT_Y = "getPointY";
     constexpr const char* CALCULATE_AREA = "calculateArea";
+    constexpr const char* CALCULATE_PERIMETER = "calculatePerimeter";
     constexpr const char* PRINT_ALL = "printAll";
     constexpr const char* SHOW_RECT = "showRect";
     constexpr const char* CLOSE = "close";

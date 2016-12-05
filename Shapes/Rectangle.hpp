@@ -16,7 +16,6 @@
 
 using namespace defaultVals;
 using namespace funs;
-using namespace typeLiterals;
 using namespace flags;
 using namespace bridgeModelKeys::rectangle;
 
@@ -24,7 +23,7 @@ class CRectangle : public CShape
 {
 public:
     CRectangle(const BridgesModel& inBridges = 
-        BridgesModel({ {AREA, new CRectangleAreaBridge() }, {PERIMETER, new CRectanglePerimeterBridge()} }));
+        BridgesModel({ {AREA, new CRectangleAreaBridge() }, { PERIMETER, new CRectanglePerimeterBridge()} }));
     CRectangle(double width, double height, const BridgesModel& inBridges =
         BridgesModel({ { AREA, new CRectangleAreaBridge() },{ PERIMETER, new CRectanglePerimeterBridge() } }));
     CRectangle(const CRectangle& inVal);
@@ -38,7 +37,8 @@ public:
 public:
     static CRectangle* buildNewObj(double width, double height);
     static CRectangle* buildNewObj(CRectangle* inObj);
-    static CRectangle* buildNewObj();
+    static CRectangle* buildNewObj(const BridgesModel& inBridges =
+        BridgesModel({ { AREA, new CRectangleAreaBridge() }, { PERIMETER, new CRectanglePerimeterBridge() } }));
 private:
     double width_;
     double height_;

@@ -41,7 +41,7 @@ CRectangle::CRectangle(double width, double height, const BridgesModel& inBridge
 }
 
 CRectangle::CRectangle(const CRectangle& inVal)
-    : CShape(), width_(inVal.width_), height_(inVal.height_)
+    : CShape(inVal), width_(inVal.width_), height_(inVal.height_)
 {
     if (PRINT_CTORS)
     {
@@ -95,9 +95,9 @@ CRectangle* CRectangle::buildNewObj(CRectangle* inObj)
     return new CRectangle(*inObj);
 }
 
-CRectangle* CRectangle::buildNewObj()
+CRectangle* CRectangle::buildNewObj(const BridgesModel& inBridges)
 {
-    return new CRectangle();
+    return new CRectangle(inBridges);
 }
 
 std::string CRectangle::toString()

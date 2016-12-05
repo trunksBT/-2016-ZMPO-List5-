@@ -6,6 +6,8 @@
 
 #include <Shapes/Rectangle.hpp>
 #include <Shapes/Square.hpp>
+#include <Shapes/Circle.hpp>
+
 #include <Utils/Utils.hpp>
 
 using namespace defaultVals;
@@ -42,14 +44,16 @@ TEST_F(CShapesUT, Rectangle_build_default)
     delete rectangle;
 }
 
+
 TEST_F(CShapesUT, Rectangle_build_copyCtor)
 {
-    CShape* rectangle = CRectangle::buildNewObj();
+    CShape* rectangle = CRectangle::buildNewObj(
+        BridgesModel({ { AREA, new CRectanglePerimeterBridge() },{ PERIMETER, new CRectanglePerimeterBridge() } }));
     CShape* afterClone = CRectangle::buildNewObj(
         dynamic_cast<CRectangle*>(rectangle));
 
-    std::cout << rectangle->toString() << POST_PRINT;
-    std::cout << afterClone->toString() << POST_PRINT;
+    std::cout << rectangle->calculateArea() << POST_PRINT;
+    std::cout << afterClone->calculateArea() << POST_PRINT;
    
     ASSERT_TRUE(rectangle);
     ASSERT_TRUE(afterClone);
@@ -84,10 +88,9 @@ TEST_F(CShapesUT, Rectangle_build_calculateArea_and_Perimeter_4y0_5y0)
 
 TEST_F(CShapesUT, Square_build_width_1)
 {
-    double width = 1;
-    double height = 4;
+    double radious = 1;
 
-    CShape* square = CSquare::buildNewObj(width);
+    CShape* square = CSquare::buildNewObj(radious);
     std::cout << square->toString() << POST_PRINT;
 
     ASSERT_TRUE(square);
@@ -138,6 +141,66 @@ TEST_F(CShapesUT, Square_build_calculateArea_and_Perimeter_5y0)
 
     ASSERT_EQ(25.0, square->calculateArea());
     ASSERT_EQ(20.0, square->calculatePerimeter());
+
+    delete square;
+}
+
+TEST_F(CShapesUT, Circle_build_width_1)
+{
+    double width = 1;
+
+    CShape* square = CCircle::buildNewObj(width);
+    std::cout << square->toString() << POST_PRINT;
+
+    ASSERT_TRUE(square);
+    delete square;
+}
+
+TEST_F(CShapesUT, Circle_build_default)
+{
+    CShape* square = CCircle::buildNewObj();
+    std::cout << square->toString() << POST_PRINT;
+
+    ASSERT_TRUE(square);
+    delete square;
+}
+
+TEST_F(CShapesUT, Circle_build_copyCtor)
+{
+    CShape* square = CCircle::buildNewObj();
+
+    CShape* afterClone = CCircle::buildNewObj(
+        dynamic_cast<CCircle*>(square));
+
+    std::cout << square->toString() << POST_PRINT;
+    std::cout << afterClone->toString() << POST_PRINT;
+
+    ASSERT_TRUE(square);
+    ASSERT_TRUE(afterClone);
+    delete square;
+    delete afterClone;
+}
+
+TEST_F(CShapesUT, Circle_build_calculateArea_and_Perimeter_defVals)
+{
+    CShape* square = CCircle::buildNewObj();
+
+    std::cout << square->toString() << POST_PRINT;
+
+    ASSERT_EQ(0, square->calculateArea());
+    ASSERT_EQ(0, square->calculatePerimeter());
+
+    delete square;
+}
+
+TEST_F(CShapesUT, Circle_build_calculateArea_and_Perimeter_6y0)
+{
+    CShape* square = CCircle::buildNewObj(6.0);
+
+    std::cout << square->toString() << POST_PRINT;
+
+    ASSERT_EQ(113, static_cast<int>(square->calculateArea()));
+    ASSERT_EQ(37, static_cast<int>(square->calculatePerimeter()));
 
     delete square;
 }
