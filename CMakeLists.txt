@@ -39,6 +39,8 @@ set(HANDLERS
     Handlers/CreateSquareDoubleHandler.hpp
     Handlers/CreateCircleDoubleHandler.cpp
     Handlers/CreateCircleDoubleHandler.hpp
+    Handlers/CreateTriangleDoubleHandler.cpp
+    Handlers/CreateTriangleDoubleHandler.hpp
 
     #Handlers/CreatePointCopyHandler.cpp
     #Handlers/CreatePointCopyHandler.hpp

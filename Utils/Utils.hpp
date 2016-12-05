@@ -219,7 +219,14 @@ namespace idxOf
     namespace rectangle
     {
         constexpr const int SIDE_FST_IDX = 2;
-        constexpr const int SIDE_SND_IDX = 2;
+        constexpr const int SIDE_SND_IDX = 3;
+    }
+
+    namespace triangle
+    {
+        constexpr const int SIDE_FST_IDX = 2;
+        constexpr const int SIDE_SND_IDX = 3;
+        constexpr const int SIDE_THRD_IDX = 4;
     }
 
     constexpr const int COMMAND = 0;
@@ -254,7 +261,8 @@ namespace messageLiterals
     constexpr const char* CREATE_RECT_DOUBLE = "createRectDouble";
     constexpr const char* CREATE_SQUARE_DOUBLE = "createSquareDouble";
     constexpr const char* CREATE_CIRCLE_DOUBLE = "createCircleDouble";
-
+    constexpr const char* CREATE_TRIANGLE_DOUBLE = "createTriangleDouble";
+    
     constexpr const char* CREATE_RECT_COPY = "createRectCopy";
     constexpr const char* SET_POINT = "setPoint";
     constexpr const char* GET_POINT_X = "getPointX";
