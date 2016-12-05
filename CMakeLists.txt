@@ -127,6 +127,11 @@ set(BRIDGES
     Bridges/CircleAreaBridge.cpp
     Bridges/CirclePerimeterBridge.hpp
     Bridges/CirclePerimeterBridge.cpp
+
+    Bridges/TriangleAreaBridge.cpp
+    Bridges/TriangleAreaBridge.hpp
+    Bridges/TrianglePerimeterBridge.hpp
+    Bridges/TrianglePerimeterBridge.cpp
 )
 
 source_group("Handlers" FILES ${HANDLERS})

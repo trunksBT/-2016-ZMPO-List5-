@@ -89,7 +89,10 @@ namespace typeLiterals
 
     constexpr const char* RECTANGLE_AREA_BRIDGE = "RECTANGLE_AREA_BRIDGE";
     constexpr const char* RECTANGLE_PERIMETER_BRIDGE = "RECTANGLE_PERIMETER_BRIDGE";
-    
+
+    constexpr const char* TRIANGLE_AREA_BRIDGE = "TRIANGLE_AREA_BRIDGE";
+    constexpr const char* TRIANGLE_PERIMETER_BRIDGE = "TRIANGLE_PERIMETER_BRIDGE";
+
     constexpr const char* CIRCLE_AREA_BRIDGE = "CIRCLE_AREA_BRIDGE";
     constexpr const char* CIRCLE_PERIMETER_BRIDGE = "CIRCLE_PERIMETER_BRIDGE";
 
