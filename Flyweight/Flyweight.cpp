@@ -9,6 +9,7 @@
 #include <Handlers/CreateRectDoubleHandler.hpp>
 #include <Handlers/CreateSquareDoubleHandler.hpp>
 #include <Handlers/CreateCircleDoubleHandler.hpp>
+#include <Handlers/CreateTriangleDoubleHandler.hpp>
 
 #include <Handlers/AreaHandler.hpp>
 #include <Handlers/PerimeterHandler.hpp>
@@ -69,6 +70,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         else if (command == CREATE_CIRCLE_DOUBLE)
         {
             IShapeHandler* evaluate = new CCreateCircleDoubleHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == CREATE_TRIANGLE_DOUBLE)
+        {
+            IShapeHandler* evaluate = new CCreateTriangleDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CALCULATE_AREA)

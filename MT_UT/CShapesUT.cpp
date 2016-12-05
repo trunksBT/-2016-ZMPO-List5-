@@ -86,7 +86,6 @@ TEST_F(CShapesUT, Rectangle_build_calculateArea_and_Perimeter_4y0_5y0)
     delete rectangle;
 }
 
-
 TEST_F(CShapesUT, Square_build_width_1)
 {
     double radious = 1;
