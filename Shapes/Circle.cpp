@@ -23,7 +23,7 @@ CCircle::CCircle(const BridgesModel& inBridges)
     {
         Logger()
             << CTOR_DEF_PRE_PRINT
-            << SQUARE
+            << CIRCLE
             << POST_PRINT;
     }
 }
@@ -35,19 +35,19 @@ CCircle::CCircle(double inRadious,  const BridgesModel& inBridges)
     {
         Logger()
             << CTOR_ARG1_PRE_PRINT
-            << SQUARE
+            << CIRCLE
             << POST_PRINT;
     }
 }
 
 CCircle::CCircle(const CCircle& inVal)
-    : CShape(), radious_(inVal.radious_)
+    : CShape(inVal), radious_(inVal.radious_)
 {
     if (PRINT_CTORS)
     {
         Logger()
             << CTOR_COPY_PRE_PRINT
-            << SQUARE
+            << CIRCLE
             << POST_PRINT;
     }
 }
@@ -58,7 +58,7 @@ CCircle::~CCircle()
     {
         Logger()
             << DTOR_PRE_PRINT
-            << SQUARE
+            << CIRCLE
             << POST_PRINT;
     }
 }
@@ -102,7 +102,7 @@ std::string CCircle::toString()
 {
     std::stringstream retVal;
     retVal
-        << PRE_PRINT << SQUARE << BRACKET_OPEN
+        << PRE_PRINT << CIRCLE << BRACKET_OPEN
         << RADIOUS << SEPARATOR
         << radious_
         << BRACKET_CLOSE;

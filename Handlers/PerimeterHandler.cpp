@@ -47,6 +47,21 @@ CODE CPerimeterHandler::purePerform(CShapeWithSize inCache)
 
     if (!isProperIdx(idxOrAmount, std::get<SIZE>(inCache)))
     {
+        if (PRINT_ERRORS)
+        {
+            Logger() << PERIMETER_HANDLER << SEPARATOR << ERROR << SEPARATOR <<
+                std::to_string(idxOrAmount) << SEPARATOR << TO_BIG_IDX_FOR_CACHE << POST_PRINT;
+        }
+        return CODE::ERROR;
+    }
+
+    if (!std::get<INITIALIZED_MAP>(inCache)[idxOrAmount])
+    {
+        if (PRINT_ERRORS)
+        {
+            Logger() << PERIMETER_HANDLER << SEPARATOR << ERROR << SEPARATOR <<
+                std::to_string(idxOrAmount) << SEPARATOR << NOT_FOUND_IN_CACHE << POST_PRINT;
+        }
         return CODE::ERROR;
     }
 
@@ -59,7 +74,7 @@ CODE CPerimeterHandler::purePerform(CShapeWithSize inCache)
     }
     else
     {
-        Logger() << POINT << SPACE << PERIMETER_HANDLER << SEPARATOR <<
+        Logger() << PERIMETER_HANDLER << SEPARATOR <<
             std::to_string(perimeterWithCode) << POST_PRINT;
     }
 

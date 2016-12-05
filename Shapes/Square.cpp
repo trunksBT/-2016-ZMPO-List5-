@@ -41,7 +41,7 @@ CSquare::CSquare(double inSide,  const BridgesModel& inBridges)
 }
 
 CSquare::CSquare(const CSquare& inVal)
-    : CShape(), side_(inVal.side_)
+    : CShape(inVal), side_(inVal.side_)
 {
     if (PRINT_CTORS)
     {

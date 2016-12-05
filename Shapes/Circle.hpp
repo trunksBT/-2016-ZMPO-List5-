@@ -24,9 +24,9 @@ class CCircle : public CShape
 {
 public:
     CCircle(const BridgesModel& inBridges = 
-        BridgesModel({ { square::AREA, new CCircleAreaBridge() }, { square::PERIMETER, new CCirclePerimeterBridge()} }));
+        BridgesModel({ { circle::AREA, new CCircleAreaBridge() }, { circle::PERIMETER, new CCirclePerimeterBridge()} }));
     CCircle(double inRadious, const BridgesModel& inBridges =
-        BridgesModel({ { square::AREA, new CCircleAreaBridge() },{ square::PERIMETER, new CCirclePerimeterBridge() } }));
+        BridgesModel({ { circle::AREA, new CCircleAreaBridge() },{ circle::PERIMETER, new CCirclePerimeterBridge() } }));
     CCircle(const CCircle& inVal);
     virtual ~CCircle();
 public:

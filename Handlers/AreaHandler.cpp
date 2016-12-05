@@ -47,6 +47,23 @@ CODE CAreaHandler::purePerform(CShapeWithSize inCache)
 
     if (!isProperIdx(idxOrAmount, std::get<SIZE>(inCache)))
     {
+        if (PRINT_ERRORS)
+        {
+            Logger() << AREA_HANDLER << SEPARATOR << ERROR << SEPARATOR <<
+                std::to_string(idxOrAmount) << SEPARATOR << TO_BIG_IDX_FOR_CACHE << POST_PRINT;
+        }
+
+        return CODE::ERROR;
+    }
+
+    if (!std::get<INITIALIZED_MAP>(inCache)[idxOrAmount])
+    {
+        if (PRINT_ERRORS)
+        {
+            Logger() << AREA_HANDLER << SEPARATOR << ERROR << SEPARATOR <<
+                std::to_string(idxOrAmount) << SEPARATOR << NOT_FOUND_IN_CACHE << POST_PRINT;
+        }
+
         return CODE::ERROR;
     }
 
@@ -59,7 +76,7 @@ CODE CAreaHandler::purePerform(CShapeWithSize inCache)
     }
     else
     {
-        Logger() << POINT << SPACE << typeLiterals::AREA_HANDLER << SEPARATOR <<
+        Logger() << typeLiterals::AREA_HANDLER << SEPARATOR <<
             std::to_string(areaWithCode) << POST_PRINT;
     }
 

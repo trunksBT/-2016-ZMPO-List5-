@@ -37,7 +37,8 @@ public:
 public:
     static CRectangle* buildNewObj(double width, double height);
     static CRectangle* buildNewObj(CRectangle* inObj);
-    static CRectangle* buildNewObj();
+    static CRectangle* buildNewObj(const BridgesModel& inBridges =
+        BridgesModel({ { AREA, new CRectangleAreaBridge() }, { PERIMETER, new CRectanglePerimeterBridge() } }));
 private:
     double width_;
     double height_;

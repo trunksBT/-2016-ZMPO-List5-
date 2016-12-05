@@ -83,6 +83,7 @@ namespace typeLiterals
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SQUARE = "CSQUARE";
+    constexpr const char* CIRCLE = "CCIRCLE";
     constexpr const char* SHAPE = "SHAPE";
     constexpr const char* RADIOUS = "CRADIOUS";
 
@@ -153,6 +154,8 @@ namespace defaultVals
 
     constexpr const char* ERROR = "ERROR";
     constexpr const char* NOT_FOUND_IN_DATABUS = "NOT_FOUND_IN_DATABUS";
+    constexpr const char* NOT_FOUND_IN_CACHE = "NOT_FOUND_IN_CACHE";
+    constexpr const char* TO_BIG_IDX_FOR_CACHE = "TO_BIG_IDX_FOR_CACHE";
 }
 
 namespace cacheIdx
@@ -227,10 +230,11 @@ namespace messageLiterals
     constexpr const char* CREATE_POINT = "createPoint";
     constexpr const char* CREATE_POINT_COPY = "createPointCopy";
     constexpr const char* CREATE_RECT_POINTS = "createRectPoints";
-    constexpr const char* CREATE_RECT_DOUBLE = "createRectDouble";
     constexpr const char* CREATE_RECT_DEFAULT = "createRectDefault";
 
+    constexpr const char* CREATE_RECT_DOUBLE = "createRectDouble";
     constexpr const char* CREATE_SQUARE_DOUBLE = "createSquareDouble";
+    constexpr const char* CREATE_CIRCLE_DOUBLE = "createCircleDouble";
 
     constexpr const char* CREATE_RECT_COPY = "createRectCopy";
     constexpr const char* SET_POINT = "setPoint";
