@@ -47,11 +47,7 @@ const boost::any CTrapezoidPerimeterBridge::perform(const DataBus& inVal)
             << NOT_FOUND_IN_DATABUS;
     }
 
-    Logger()
-        << ERROR << SEPARATOR
-        << std::string("Not Implemented Yet");
-
-    return 0.0;
+    return sideFst + sideSnd + legFst + legSnd + height;
 }
 
 IBridge* CTrapezoidPerimeterBridge::clone()

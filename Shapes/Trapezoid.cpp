@@ -138,6 +138,7 @@ std::string CTrapezoid::toString()
         << LEG << SEPARATOR
         << legFst_ << COMMA_SPACE
         << legSnd_ << COMMA_SPACE
+        << HEIGHT << SEPARATOR
         << height_ << BRACKET_CLOSE;
 
     return retVal.str();

@@ -47,11 +47,7 @@ const boost::any CTrapezoidAreaBridge::perform(const DataBus& inVal)
             << NOT_FOUND_IN_DATABUS;
     }
 
-    Logger()
-        << ERROR << SEPARATOR
-        << std::string("Not Implemented Yet");
-
-    return 0.0;
+    return 0.5 * (sideFst + sideSnd) * height;
 }
 
 IBridge* CTrapezoidAreaBridge::clone()
