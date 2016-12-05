@@ -78,8 +78,10 @@ set(SHAPES
     Shapes/Square.hpp
     Shapes/Circle.cpp
     Shapes/Circle.hpp
-	Shapes/Triangle.cpp
+    Shapes/Triangle.cpp
     Shapes/Triangle.hpp
+    Shapes/Trapezoid.cpp
+    Shapes/Trapezoid.hpp
 )
 
 set(UTILS
@@ -134,6 +136,11 @@ set(BRIDGES
     Bridges/TriangleAreaBridge.hpp
     Bridges/TrianglePerimeterBridge.hpp
     Bridges/TrianglePerimeterBridge.cpp
+
+	Bridges/TrapezoidAreaBridge.cpp
+    Bridges/TrapezoidAreaBridge.hpp
+    Bridges/TrapezoidPerimeterBridge.hpp
+    Bridges/TrapezoidPerimeterBridge.cpp
 )
 
 source_group("Handlers" FILES ${HANDLERS})

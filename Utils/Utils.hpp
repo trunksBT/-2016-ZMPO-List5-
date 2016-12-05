@@ -42,6 +42,15 @@ namespace dataBusKeys
         constexpr const char* SIDE_THRD = "sideThrd";
     }
 
+    namespace trapezoid
+    {
+        constexpr const char* SIDE_FST = "sideFst";
+        constexpr const char* SIDE_SND = "sideSnd";
+        constexpr const char* LEG_FST = "legFst";
+        constexpr const char* LEG_SND = "legSnd";
+        constexpr const char* HEIGHT = "height";
+    }
+
     namespace square
     {
         constexpr const char* SIDE = "side";
@@ -73,6 +82,12 @@ namespace bridgeModelKeys
         constexpr const char* PERIMETER = "trianglePerimeter";
     }
 
+    namespace trapezoid
+    {
+        constexpr const char* AREA = "trapezoidArea";
+        constexpr const char* PERIMETER = "trapezoidPerimeter";
+    }
+
     namespace circle
     {
         constexpr const char* AREA = "circleArea";
@@ -96,6 +111,9 @@ namespace typeLiterals
     constexpr const char* CIRCLE_AREA_BRIDGE = "CIRCLE_AREA_BRIDGE";
     constexpr const char* CIRCLE_PERIMETER_BRIDGE = "CIRCLE_PERIMETER_BRIDGE";
 
+    constexpr const char* TRAPEZOID_AREA_BRIDGE = "TRAPEZOID_AREA_BRIDGE";
+    constexpr const char* TRAPEZOID_PERIMETER_BRIDGE = "TRAPEZOID_PERIMETER_BRIDGE";
+
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SQUARE = "CSQUARE";
@@ -103,6 +121,7 @@ namespace typeLiterals
     constexpr const char* TRIANGLE = "CTRIANGLE";
     constexpr const char* SHAPE = "SHAPE";
     constexpr const char* RADIOUS = "CRADIOUS";
+    constexpr const char* TRAPEZOID = "CTRAPEZOID";
 
 
     constexpr const char* POINTS = "POINTS";
@@ -116,6 +135,7 @@ namespace typeLiterals
     constexpr const char* WIDTH = "WIDTH";
     constexpr const char* SIDE = "SIDE";
     constexpr const char* HEIGHT = "HEIGHT";
+    constexpr const char* LEG = "LEG";
 }
 
 namespace defaultVals
