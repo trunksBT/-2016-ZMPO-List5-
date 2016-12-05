@@ -14,7 +14,7 @@ CTriangleAreaBridge::CTriangleAreaBridge()
     {
         Logger()
             << CTOR_DEF_PRE_PRINT
-            << RECTANGLE_AREA_BRIDGE
+            << TRIANGLE_AREA_BRIDGE
             << POST_PRINT;
     }
 }
@@ -57,7 +57,7 @@ CTriangleAreaBridge::~CTriangleAreaBridge()
     {
         Logger()
             << DTOR_PRE_PRINT
-            << RECTANGLE_AREA_BRIDGE
+            << TRIANGLE_AREA_BRIDGE
             << POST_PRINT;
     }
 }

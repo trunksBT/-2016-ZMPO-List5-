@@ -300,7 +300,15 @@ namespace funs
         return sizeOfLongerValue > (MAX_SIZE_OF_DOUBLE - TWO);
         // bo dodajac liczby rozmiar wyniku moze miec wartosc maksymalna rowna rozmiarowi dluzszej + 1
         // TWO a nie sprawdzajac calego double bezpieczniej wczesniej zglosic blad ( minus )
+    }
 
+    bool isTriangleProper(double sideFst, double sideSnd, double sideThrd)
+    {
+        double temp1 = sideFst + sideSnd > sideThrd;
+        double temp2 = sideFst + sideThrd > sideSnd;
+        double temp3 = sideSnd + sideThrd > sideFst;
+
+        return temp1 && temp2 && temp3;
     }
 
 }

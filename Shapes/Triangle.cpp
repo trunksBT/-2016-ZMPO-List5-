@@ -19,6 +19,14 @@ using namespace bridgeModelKeys;
 CTriangle::CTriangle(const BridgesModel& inBridges)
     : CShape(inBridges), sideFst_(ZERO), sideSnd_(ZERO), sideThrd_(ZERO)
 {
+    if (!isTriangleProper(sideFst_, sideSnd_, sideThrd_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_TRIANGLE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
@@ -32,6 +40,14 @@ CTriangle::CTriangle(double inSideFst, double inSideSnd, double inSideThrd,
     const BridgesModel& inBridges)
     : CShape(inBridges), sideFst_(inSideFst), sideSnd_(inSideSnd), sideThrd_(inSideThrd)
 {
+    if (!isTriangleProper(sideFst_, sideSnd_, sideThrd_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_TRIANGLE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
