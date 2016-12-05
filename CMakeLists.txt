@@ -29,6 +29,9 @@ set(HANDLERS
 
     Handlers/AreaHandler.cpp
     Handlers/AreaHandler.hpp
+    Handlers/PerimeterHandler.cpp
+    Handlers/PerimeterHandler.hpp
+
 	Handlers/PrintAllHandler.cpp
     Handlers/PrintAllHandler.hpp
 
@@ -69,6 +72,8 @@ set(SHAPES
     Shapes/Rectangle.hpp
 	Shapes/Square.cpp
 	Shapes/Square.hpp
+	Shapes/Circle.cpp
+	Shapes/Circle.hpp
 )
 
 set(UTILS
@@ -109,11 +114,15 @@ set(BRIDGES
 	Bridges/RectanglePerimeterBridge.cpp
 	Bridges/RectanglePerimeterBridge.hpp
 
-	
 	Bridges/SquareAreaBridge.hpp
 	Bridges/SquareAreaBridge.cpp
 	Bridges/SquarePerimeterBridge.hpp
 	Bridges/SquarePerimeterBridge.cpp
+
+	Bridges/CircleAreaBridge.hpp
+	Bridges/CircleAreaBridge.cpp
+	Bridges/CirclePerimeterBridge.hpp
+	Bridges/CirclePerimeterBridge.cpp
 )
 
 source_group("Handlers" FILES ${HANDLERS})
