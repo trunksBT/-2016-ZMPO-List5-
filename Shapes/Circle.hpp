@@ -41,5 +41,7 @@ public:
     static CCircle* buildNewObj(CCircle* inObj);
     static CCircle* buildNewObj();
 private:
+    bool isPossibleToCreate(double inRadious);
+private:
     double radious_;
 };

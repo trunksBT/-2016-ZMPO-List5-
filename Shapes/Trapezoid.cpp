@@ -20,13 +20,13 @@ CTrapezoid::CTrapezoid(const BridgesModel& inBridges)
     : CShape(inBridges), sideFst_(ZERO), sideSnd_(ZERO),
       legFst_(ZERO), legSnd_(ZERO)
 {
-    //if (!isTrapezoidProper(sideFst_, sideSnd_, sideThrd_))
-    //{
-    //    Logger()
-    //        << ERROR << SEPARATOR
-    //        << THIS_TRAPEZOID_CANNOT_EXIST
-    //        << POST_PRINT;
-    //}
+    if (!isPossibleToCreate(sideFst_, sideSnd_, legFst_, legSnd_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
 
     if (PRINT_CTORS)
     {
@@ -42,13 +42,13 @@ CTrapezoid::CTrapezoid(double inSideFst, double inSideSnd,
     : CShape(inBridges), sideFst_(inSideFst), sideSnd_(inSideSnd), 
       legFst_(inLegFst), legSnd_(inLegSnd)
 {
-    //if (!isTrapezoidProper(sideFst_, sideSnd_, sideThrd_))
-    //{
-    //    Logger()
-    //        << ERROR << SEPARATOR
-    //        << THIS_TRAPEZOID_CANNOT_EXIST
-    //        << POST_PRINT;
-    //}
+    if (!isPossibleToCreate(sideFst_, sideSnd_, legFst_, legSnd_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
 
     if (PRINT_CTORS)
     {

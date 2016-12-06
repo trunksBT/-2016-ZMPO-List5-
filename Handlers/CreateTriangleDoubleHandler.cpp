@@ -59,7 +59,7 @@ CODE CCreateTriangleDoubleHandler::purePerform(CShapeWithSize inCache)
     {
         Logger()
             << ERROR << SEPARATOR
-            << THIS_TRIANGLE_CANNOT_EXIST
+            << THIS_SHAPE_CANNOT_EXIST
             << POST_PRINT;
         
         return CODE::ERROR;

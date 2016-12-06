@@ -19,6 +19,14 @@ using namespace bridgeModelKeys;
 CCircle::CCircle(const BridgesModel& inBridges)
     : CShape(inBridges), radious_(ZERO)
 {
+    if (!isPossibleToCreate(radious_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
@@ -31,6 +39,14 @@ CCircle::CCircle(const BridgesModel& inBridges)
 CCircle::CCircle(double inRadious,  const BridgesModel& inBridges)
     : CShape(inBridges), radious_(inRadious)
 {
+    if (!isPossibleToCreate(radious_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
@@ -98,14 +114,14 @@ CCircle* CCircle::buildNewObj()
     return new CCircle();
 }
 
+bool CCircle::isPossibleToCreate(double inRadious)
+{
+    return inRadious > ZERO;
+}
+
 bool CCircle::isPossibleToCreate()
 {
-        Logger()
-            << ERROR << SEPARATOR
-            << "Not implmeneted yet"
-            << POST_PRINT;
-
-        return false;
+    return isPossibleToCreate(radious_);
 }
 
 std::string CCircle::toString()

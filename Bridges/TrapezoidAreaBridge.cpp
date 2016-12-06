@@ -57,7 +57,7 @@ const boost::any CTrapezoidAreaBridge::perform(const DataBus& inVal)
         return sideFst*sideFst;
     }
 
-    // is rectangle
+    // is trapezoid or rectangle
     double longerSide = (sideFst > sideSnd) ? sideFst : sideSnd;
     double shorterSide = (sideFst < sideSnd) ? sideFst : sideSnd;
 

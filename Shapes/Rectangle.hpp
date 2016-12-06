@@ -41,6 +41,8 @@ public:
     static CRectangle* buildNewObj(const BridgesModel& inBridges =
         BridgesModel({ { AREA, new CRectangleAreaBridge() }, { PERIMETER, new CRectanglePerimeterBridge() } }));
 private:
+    bool isPossibleToCreate(double inWidth, double inHeight);
+private:
     double width_;
     double height_;
 };

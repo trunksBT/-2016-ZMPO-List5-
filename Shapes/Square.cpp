@@ -19,6 +19,14 @@ using namespace bridgeModelKeys;
 CSquare::CSquare(const BridgesModel& inBridges)
     : CShape(inBridges), side_(ZERO)
 {
+    if (!isPossibleToCreate(side_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
@@ -31,6 +39,14 @@ CSquare::CSquare(const BridgesModel& inBridges)
 CSquare::CSquare(double inSide,  const BridgesModel& inBridges)
     : CShape(inBridges), side_(inSide)
 {
+    if (!isPossibleToCreate())
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
