@@ -55,16 +55,6 @@ CODE CCreateTriangleDoubleHandler::purePerform(CShapeWithSize inCache)
     std::string sideThrdStr(wholeCommand_[SIDE_THRD_IDX]);
     double sideThrd = std::stod(sideThrdStr);
 
-    if (!isTriangleProper(sideFst, sideSnd, sideThrd))
-    {
-        Logger()
-            << ERROR << SEPARATOR
-            << THIS_SHAPE_CANNOT_EXIST
-            << POST_PRINT;
-        
-        return CODE::ERROR;
-    }
-
     if (!isProperIdx(newTriangleIdx, std::get<SIZE>(inCache)))
     {
         return CODE::ERROR;

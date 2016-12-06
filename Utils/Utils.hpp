@@ -138,6 +138,8 @@ namespace typeLiterals
     constexpr const char* SIDE = "SIDE";
     constexpr const char* HEIGHT = "HEIGHT";
     constexpr const char* LEG = "LEG";
+    constexpr const char* SUM_OF_AREAS = "SUM_OF_AREAS";
+    constexpr const char* SUM_OF_PERIMETERS = "SUM_OF_PERIMETERS";
 }
 
 namespace defaultVals
@@ -167,6 +169,8 @@ namespace defaultVals
     constexpr const int MINUS_ONE = -1;
     constexpr const int ONE = 1;
     constexpr const int TWO = 2;
+    constexpr const int THREE = 3;
+    constexpr const int FOUR = 4;
     constexpr const int FIVE = 5;
     constexpr const int TEN = 10;
     constexpr const long MAX_INT_VAL = (std::numeric_limits<int>::max)();

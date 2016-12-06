@@ -20,6 +20,8 @@
 
 using namespace defaultVals;
 using namespace messageLiterals;
+using namespace tupleIdx;
+using namespace typeLiterals;
 using namespace funs;
 
 CShape** CFlyweight::shapeCache_;
@@ -127,6 +129,115 @@ void CFlyweight::releaseResources()
     shapeCache_ = nullptr;
     shapeCacheSize_ = ZERO;
     shapeCacheIsInitialized_.clear();
+}
+
+double CFlyweight::sumPerimeters(bool& isNotPossible)
+{
+    double retVal = ZERO;
+
+    CShapeWithSize pairedShapeCache =
+        std::forward_as_tuple(
+            shapeCache_,
+            shapeCacheSize_,
+            shapeCacheIsInitialized_);
+
+    std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(pairedShapeCache);
+
+    for (int i = 0; i < shapeCacheSize_; i++)
+    {
+        CShape* tempObj = std::get<ARRAY>(pairedShapeCache)[i];
+        if (isInitializedMap[i])
+        {
+            if (tempObj->isPossibleToCreate())
+            {
+                retVal += tempObj->calculatePerimeter();
+            }
+            else
+            {
+                Logger()
+                    << ERROR << SEPARATOR
+                    << SHAPE_CAN_NOT_EXIST
+                    << POST_PRINT;
+
+                isNotPossible = true;
+                return retVal;
+            }
+        }
+        else
+        {
+            retVal += ZERO;
+        }
+    }
+
+    return retVal;
+
+}
+
+double CFlyweight::sumAreas(bool& isNotPossible)
+{
+    double retVal = ZERO;
+
+    CShapeWithSize pairedShapeCache =
+        std::forward_as_tuple(
+            shapeCache_,
+            shapeCacheSize_,
+            shapeCacheIsInitialized_);
+
+    Logger() << SHAPES << POST_PRINT;
+    std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(pairedShapeCache);
+
+    for (int i = 0; i < shapeCacheSize_; i++)
+    {
+        CShape* tempObj = std::get<ARRAY>(pairedShapeCache)[i];
+        if (isInitializedMap[i] )
+        {
+            if (tempObj->isPossibleToCreate())
+            {
+                retVal += tempObj->calculateArea();
+            }
+            else
+            {
+                Logger()
+                    << ERROR << SEPARATOR
+                    << SHAPE_CAN_NOT_EXIST
+                    << POST_PRINT;
+
+                isNotPossible = true;
+                return retVal;
+            }
+        }
+        else
+        {
+            retVal += ZERO;
+        }
+    }
+
+    return retVal;
+}
+
+void CFlyweight::printAll()
+{
+    CShapeWithSize pairedShapeCache =
+        std::forward_as_tuple(
+            shapeCache_,
+            shapeCacheSize_,
+            shapeCacheIsInitialized_);
+
+    Logger() << SHAPES << POST_PRINT;
+    std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(pairedShapeCache);
+
+    for (int i = 0; i < shapeCacheSize_; i++)
+    {
+        if (isInitializedMap[i])
+        {
+            Logger() << std::get<ARRAY>(pairedShapeCache)[i]->toString();
+        }
+        else
+        {
+            Logger() << toString(CODE::NOT_INITIALIZED);
+        }
+        Logger() << POST_PRINT;
+    }
 }
 
 void CFlyweight::initShapeCache(int inCacheSize)

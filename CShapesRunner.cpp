@@ -17,6 +17,7 @@ using namespace defaultVals;
 using namespace communication;
 using namespace assertWrapper;
 using namespace funs;
+using namespace typeLiterals;
 
 #define STUB
 
@@ -37,6 +38,65 @@ int main(int argc, char **argv)
         std::cout << std::endl << "Dzieki za uzycie programu, Korytko_MS" << POST_PRINT << POST_PRINT;
         system("Pause");
     }
+
+    //{
+    //    CFlyweight application(TEN);
+    //    std::vector<std::vector<std::string>> inCommands
+    //    {
+    //        { "go", "10" },
+    //        { "createRect", "0", "1", "2" },
+    //        { "createSquare", "1", "4" },
+    //        { "createCircle", "2", "9" },
+    //        { "createTriangle", "3", "3", "4", "5" },
+    //        { "createTrapezoid", "4", "2", "3", "4", "5" }
+    //    };
+
+    //    for (auto command : inCommands)
+    //    {
+    //        application.interpretCommand(command);
+    //    }
+
+    //    application.printAll();
+
+    //    bool ifWrongAreasCalculated = false;
+    //    double sumOfAreas = application.sumAreas(ifWrongAreasCalculated);
+    //    if (ifWrongAreasCalculated)
+    //    {
+    //        Logger()
+    //            << SUM_OF_AREAS << SEPARATOR 
+    //            << ERROR << SEPARATOR
+    //            << SHAPE_CAN_NOT_EXIST
+    //            << POST_PRINT;
+    //    }
+    //    else
+    //    {
+    //        Logger()
+    //            << SUM_OF_AREAS << SEPARATOR
+    //            << std::to_string(sumOfAreas)
+    //            << POST_PRINT;
+    //    }
+
+        //bool ifWrongPerimetersCalculated = false;
+        //double sumOfPerimeters = application.sumPerimeters(ifWrongPerimetersCalculated);
+        //if (ifWrongPerimetersCalculated)
+        //{
+        //    Logger()
+        //        << SUM_OF_PERIMETERS << SEPARATOR
+        //        << ERROR << SEPARATOR
+        //        << SHAPE_CAN_NOT_EXIST
+        //        << POST_PRINT;
+        //}
+        //else
+        //{
+        //    Logger()
+        //        << SUM_OF_PERIMETERS << SEPARATOR
+        //        << std::to_string(sumOfPerimeters)
+        //        << POST_PRINT;
+        //}
+
+    //    std::cout << std::endl << "Dzieki za uzycie programu, Korytko_MS" << POST_PRINT << POST_PRINT;
+    //    system("Pause");
+    //}
 
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
