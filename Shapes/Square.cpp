@@ -101,7 +101,7 @@ double CSquare::calculatePerimeter()
 
 bool CSquare::isPossibleToCreate(double inSide)
 {
-    return inSide >= 0;
+    return inSide > 0;
 }
 
 bool CSquare::isPossibleToCreate()

@@ -134,11 +134,7 @@ bool CTrapezoid::isPossibleToCreate(double inSideFst, double inSideSnd,
         inLegFst > 0 &&
         inLegSnd > 0;
 
-    bool predicateLength =
-        std::pow(inSideFst - inSideSnd, 2) >=
-        std::abs(std::pow(inLegFst, 2) - std::pow(inLegSnd, 2));
-
-    return predicateOverZeroValue && predicateLength;
+    return predicateOverZeroValue;
 }
 
 bool CTrapezoid::isPossibleToCreate()

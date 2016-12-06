@@ -488,4 +488,240 @@ TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_AsRectangle_2)
     delete trapezoid;
 }
 
+//////////////////////////////////////////////////////////////////////
+
+TEST_F(CShapesUT, Rectangle_build_width_1_height_4_Is_Possible_To_Create)
+{
+    double width = 1;
+    double height = 4;
+
+    CShape* rectangle = CRectangle::buildNewObj(width, height);
+
+    ASSERT_TRUE(rectangle->isPossibleToCreate());
+    delete rectangle;
+}
+
+TEST_F(CShapesUT, Rectangle_build_default_Is_Possible_To_Create)
+{
+    CShape* rectangle = CRectangle::buildNewObj();
+    std::cout << rectangle->toString() << POST_PRINT;
+
+    ASSERT_FALSE(rectangle->isPossibleToCreate());
+    delete rectangle;
+}
+
+TEST_F(CShapesUT, Rectangle_build_isSquare_Is_Possible_To_Create)
+{
+    double width = 1;
+
+    CShape* rectangle = CRectangle::buildNewObj(width, width);
+
+    ASSERT_TRUE(rectangle->isPossibleToCreate());
+    delete rectangle;
+}
+
+TEST_F(CShapesUT, Rectangle_build_m1_Is_Possible_To_Create)
+{
+    double width = -1;
+
+    CShape* rectangle = CRectangle::buildNewObj(width, width);
+
+    ASSERT_FALSE(rectangle->isPossibleToCreate());
+    delete rectangle;
+}
+//
+///////////////////////////////////////////////////////////////////
+
+TEST_F(CShapesUT, Square_build_width_1_Is_Possible_To_Create)
+{
+    double width = 1;
+
+    CShape* square = CSquare::buildNewObj(width);
+
+    ASSERT_TRUE(square->isPossibleToCreate());
+    delete square;
+}
+
+TEST_F(CShapesUT, Square_build_default_Is_Possible_To_Create)
+{
+    CShape* square = CSquare::buildNewObj();
+
+    ASSERT_FALSE(square->isPossibleToCreate());
+    delete square;
+}
+
+TEST_F(CShapesUT, Square_build_calculateArea_and_Perimeter_defVals_Is_Possible_To_Create)
+{
+    double width = -1;
+
+    CShape* square = CSquare::buildNewObj(width);
+
+    ASSERT_FALSE(square->isPossibleToCreate());
+    delete square;
+}
+
+//
+///////////////////////////////////////////////////////////////////
+//
+TEST_F(CShapesUT, Triangle_build_side_Egiptian_Is_Possible_To_Create)
+{
+    double side1 = 3;
+    double side2 = 4;
+    double side3 = 5;
+
+    CShape* triangle = CTriangle::buildNewObj(side1, side2, side3);
+
+    ASSERT_TRUE(triangle->isPossibleToCreate());
+    delete triangle;
+}
+
+TEST_F(CShapesUT, Triangle_build_default_Is_Possible_To_Create)
+{
+    CShape* triangle = CTriangle::buildNewObj();
+    std::cout << triangle->toString() << POST_PRINT;
+
+    ASSERT_FALSE(triangle->isPossibleToCreate());
+    delete triangle;
+}
+
+TEST_F(CShapesUT, Triangle_build_wrongShape_Is_Possible_To_Create)
+{
+    double side1 = -3;
+    double side2 = 4;
+    double side3 = 5;
+
+    CShape* triangle = CTriangle::buildNewObj(side1, side2, side3);
+
+    ASSERT_FALSE(triangle->isPossibleToCreate());
+    delete triangle;
+}
+
+TEST_F(CShapesUT, Triangle_build_calculateArea_and_Perimeter_Wrong_Is_Possible_To_Create)
+{
+    double side1 = 1;
+    double side2 = 2;
+    double side3 = 5;
+
+    CShape* triangle = CTriangle::buildNewObj(side1, side2, side3);
+
+    ASSERT_FALSE(triangle->isPossibleToCreate());
+    delete triangle;
+}
+//
+/////////////////////////////////////////////////////////////////////
+//
+TEST_F(CShapesUT, Circle_build_Param_FromInternet_Is_Possible_To_Create)
+{
+    double radious = 9;
+
+    CShape* circle = CCircle::buildNewObj(radious);
+
+    ASSERT_TRUE(circle->isPossibleToCreate());
+    delete circle;
+}
+
+TEST_F(CShapesUT, Circle_build_default_Is_Possible_To_Create)
+{
+    CShape* circle = CCircle::buildNewObj();
+    std::cout << circle->toString() << POST_PRINT;
+
+    ASSERT_FALSE(circle->isPossibleToCreate());
+    delete circle;
+}
+
+TEST_F(CShapesUT, Circle_build_wrongShape_Is_Possible_To_Create)
+{
+    double radious = -9;
+
+    CShape* circle = CCircle::buildNewObj(radious);
+
+    ASSERT_FALSE(circle->isPossibleToCreate());
+    delete circle;
+}
+//
+///////////////////////////////////////////////////////////////////
+//
+TEST_F(CShapesUT, Trapezoid_build_Param_FromInternet_Is_Possible_To_Create)
+{
+    double side1 = 16;
+    double side2 = 44;
+    double leg1 = 17;
+    double leg2 = 25;
+
+    CShape* trapezoid = CTrapezoid::buildNewObj(side1, side2,
+        leg1, leg2);
+
+    ASSERT_TRUE(trapezoid->isPossibleToCreate());
+    delete trapezoid;
+}
+
+TEST_F(CShapesUT, Trapezoid_build_default_Is_Possible_To_Create)
+{
+    CShape* trapezoid = CTrapezoid::buildNewObj();
+    std::cout << trapezoid->toString() << POST_PRINT;
+
+    ASSERT_FALSE(trapezoid->isPossibleToCreate());
+    delete trapezoid;
+}
+
+TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_AsSquare_Is_Possible_To_Create)
+{
+    double side1 = 4;
+    double side2 = 4;
+    double leg1 = 4;
+    double leg2 = 4;
+
+    CShape* trapezoid = CTrapezoid::buildNewObj(side1, side2,
+        leg1, leg2);
+
+    ASSERT_TRUE(trapezoid->isPossibleToCreate());
+
+    delete trapezoid;
+}
+
+
+TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_Minus_Is_Possible_To_Create)
+{
+    double side1 = -1;
+    double side2 = 6;
+    double leg1 = 4;
+    double leg2 = 6;
+
+    CShape* trapezoid = CTrapezoid::buildNewObj(side1, side2,
+        leg1, leg2);
+
+    ASSERT_FALSE(trapezoid->isPossibleToCreate());
+
+    delete trapezoid;
+}
+
+TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_AsRectangle_1_Is_Possible_To_Create)
+{
+    double side1 = 4;
+    double side2 = 6;
+    double leg1 = 4;
+    double leg2 = 6;
+
+    CShape* trapezoid = CTrapezoid::buildNewObj(side1, side2, leg1, leg2);
+
+    ASSERT_TRUE(trapezoid->isPossibleToCreate());
+
+    delete trapezoid;
+}
+
+TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_AsRectangle_2_Is_Possible_To_Create)
+{
+    double side1 = 4;
+    double side2 = 6;
+    double leg1 = 6;
+    double leg2 = 4;
+
+    CShape* trapezoid = CTrapezoid::buildNewObj(side1, side2,
+        leg1, leg2);
+
+    ASSERT_TRUE(trapezoid->isPossibleToCreate());
+
+    delete trapezoid;
+}
+
 }

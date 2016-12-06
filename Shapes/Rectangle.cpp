@@ -118,20 +118,11 @@ CRectangle* CRectangle::buildNewObj(const BridgesModel& inBridges)
 
 bool CRectangle::isPossibleToCreate(double inWidth, double inHeight)
 {
-    bool isHigherThanZero =
-        inWidth > 0 &&
-        inHeight > 0;
-
-    return isHigherThanZero;
+    return inWidth > 0 && inHeight > 0;
 }
 
 bool CRectangle::isPossibleToCreate()
 {
-    Logger()
-        << ERROR << SEPARATOR
-        << "Not implmeneted yet"
-        << POST_PRINT;
-
     return isPossibleToCreate(width_, height_);
 }
 

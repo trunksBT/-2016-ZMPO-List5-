@@ -53,6 +53,24 @@ const boost::any CTrapezoidAreaBridge::perform(const DataBus& inVal)
     }
 
     // is trapezoid or rectangle
+    bool predicateOfRectangle1 =
+        double_equals(sideFst, legFst) && double_equals(sideSnd, legSnd);
+    
+    bool predicateOfRectangle2 =
+        double_equals(sideFst, legSnd) && double_equals(sideSnd, legFst);
+
+    if (predicateOfRectangle1 || predicateOfRectangle2)
+    {
+        if (predicateOfRectangle1)
+        {
+            return sideFst * legSnd;
+        }
+        else
+        {
+            return sideFst * legFst;
+        }
+    }
+
     double longerSide = (sideFst > sideSnd) ? sideFst : sideSnd;
     double shorterSide = (sideFst < sideSnd) ? sideFst : sideSnd;
 
