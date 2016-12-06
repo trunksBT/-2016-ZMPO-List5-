@@ -60,14 +60,15 @@ CODE CAreaHandler::purePerform(CShapeWithSize inCache)
     {
         if (PRINT_ERRORS)
         {
-            Logger() << AREA_HANDLER << SEPARATOR << ERROR << SEPARATOR <<
+            Logger() << AREA_HANDLER << SEPARATOR <<
                 std::to_string(idxOrAmount) << SEPARATOR << NOT_FOUND_IN_CACHE << POST_PRINT;
         }
 
         return CODE::ERROR;
     }
 
-    double areaWithCode = std::get<ARRAY>(inCache)[idxOrAmount]->calculateArea();
+    CShape* tempObj = std::get<ARRAY>(inCache)[idxOrAmount];
+    double areaWithCode = tempObj->calculateArea();
 
     if (static_cast<bool>(std::fetestexcept(FE_OVERFLOW)) ||
         static_cast<bool>(std::fetestexcept(FE_UNDERFLOW)))
@@ -77,6 +78,7 @@ CODE CAreaHandler::purePerform(CShapeWithSize inCache)
     else
     {
         Logger() << typeLiterals::AREA_HANDLER << SEPARATOR <<
+            tempObj->toString() << SEPARATOR <<
             std::to_string(areaWithCode) << POST_PRINT;
     }
 

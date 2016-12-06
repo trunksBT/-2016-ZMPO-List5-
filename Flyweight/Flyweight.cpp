@@ -13,20 +13,10 @@
 #include <Handlers/CreateTrapezoidDoubleHandler.hpp>
 
 #include <Handlers/AreaHandler.hpp>
+#include <Handlers/AreasHandler.hpp>
 #include <Handlers/PerimeterHandler.hpp>
+#include <Handlers/PerimetersHandler.hpp>
 #include <Handlers/PrintAllHandler.hpp>
-
-//#include <Handlers/CreatePointHandler.hpp>
-//#include <Handlers/SetPointHandler.hpp>
-//#include <Handlers/GetPointXHandler.hpp>
-//#include <Handlers/GetPointYHandler.hpp>
-//#include <Handlers/CreateRectPointsHandler.hpp>
-//#include <Handlers/CreateRectCopyHandler.hpp>
-//#include <Handlers/CreateRectDefaultHandler.hpp>
-//#include <Handlers/ShowRectHandler.hpp>
-//#include <Handlers/RemoveAllHandler.hpp>
-//#include <Handlers/RemoveHandler.hpp>
-//#include <Handlers/HelpHandler.hpp>
 
 using namespace defaultVals;
 using namespace messageLiterals;
@@ -77,7 +67,7 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
         else if (command == CREATE_TRIANGLE_DOUBLE)
         {
-            evaluate = new CCreateTrapezoidDoubleHandler(inCommand);
+            evaluate = new CCreateTriangleDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CREATE_TRAPEZOID_DOUBLE)
@@ -90,9 +80,19 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             evaluate = new CAreaHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
+        else if (command == CALCULATE_AREAS)
+        {
+            evaluate = new CAreasHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
         else if (command == CALCULATE_PERIMETER)
         {
             evaluate = new CPerimeterHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == CALCULATE_PERIMETERS)
+        {
+            evaluate = new CPerimetersHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == PRINT_ALL)
@@ -105,54 +105,6 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             releaseResources();
             returnedCode = CODE::CLOSE;
         }
-
-        std::cout << shapeCacheIsInitialized_[0] << std::endl;
-        //else if(command == CREATE_POINT)
-        //{
-        //    IPointHandler* evaluate = new CCreatePointHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        //}
-        //else if (command == SET_POINT)
-        //{
-        //    IPointHandler* evaluate = new CSetPointHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        //}
-        //else if (command == GET_POINT_X)
-        //{
-        //    IPointHandler* evaluate = new CGetPointXHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        //}
-        //else if (command == GET_POINT_Y)
-        //{
-        //    IPointHandler* evaluate = new CGetPointYHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
-        //}
-        //else if (command == CREATE_RECT_POINTS)
-        //{
-        //    IPointAndRectangleHandler* evaluate = new CCreateRectPointsHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
-        //}
-        //else if (command == CREATE_RECT_DEFAULT)
-        //{
-        //    IShapeHandler* evaluate = new CCreateRectDefaultHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        //}
-        //else if (command == CREATE_RECT_COPY)
-        //{
-        //    IShapeHandler* evaluate = new CCreateRectCopyHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        //}
-        //else if (command == SHOW_RECT)
-        //{
-        //    IShapeHandler* evaluate = new CShowRectHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        //}
-        //else if (command == HELP)
-        //{
-        //    IShapeHandler* evaluate = new CHelpHandler(inCommand);
-        //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
-        //}
-
         delete evaluate;
     }
 

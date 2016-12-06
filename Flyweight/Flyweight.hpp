@@ -17,7 +17,7 @@ public:
 public:
     static CODE interpretCommand(std::vector<std::string>& inCommand);
 public:
-   static void releaseResources();
+    static void releaseResources();
 public:
     static void setShapeCacheSize(int inSize);
     static void updateIsInitializedShapeCache(int idx, bool newVal);

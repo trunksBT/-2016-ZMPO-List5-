@@ -58,21 +58,6 @@ CODE CCreateTrapezoidDoubleHandler::purePerform(CShapeWithSize inCache)
     std::string legSndStr(wholeCommand_[LEG_SND_IDX]);
     double legSnd = std::stod(legSndStr);
 
-    //if (!isTrapezoidProper(sideFst, sideSnd, sideThrd))
-    //{
-    //    Logger()
-    //        << ERROR << SEPARATOR
-    //        << THIS_TRIANGLE_CANNOT_EXIST
-    //        << POST_PRINT;
-    //    
-    //    return CODE::ERROR;
-    //}
-
-        Logger()
-            << ERROR << SEPARATOR
-            << "Not implemented yet"
-            << POST_PRINT;
-
     if (!isProperIdx(newTrapezoidIdx, std::get<SIZE>(inCache)))
     {
         return CODE::ERROR;
