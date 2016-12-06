@@ -14,6 +14,7 @@ public:
     virtual ~CShape();
 public:
     virtual std::string toString() = 0;
+    virtual bool isPossibleToCreate() = 0;
     virtual double calculateArea() = 0;
     virtual double calculatePerimeter() = 0;
 protected:

@@ -119,6 +119,16 @@ CTriangle* CTriangle::buildNewObj()
     return new CTriangle();
 }
 
+bool CTriangle::isPossibleToCreate()
+{
+    Logger()
+        << ERROR << SEPARATOR
+        << "Not implmeneted yet"
+        << POST_PRINT;
+
+    return false;
+}
+
 std::string CTriangle::toString()
 {
     std::stringstream retVal;

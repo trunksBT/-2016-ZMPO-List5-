@@ -83,6 +83,16 @@ double CSquare::calculatePerimeter()
     return retVal;
 }
 
+bool CSquare::isPossibleToCreate(double inSide)
+{
+    return inSide >= 0;
+}
+
+bool CSquare::isPossibleToCreate()
+{
+    return isPossibleToCreate(side_);
+}
+
 CSquare* CSquare::buildNewObj(double inSide)
 {
     return new CSquare(inSide);

@@ -34,6 +34,7 @@ public:
 public:
     std::string toString() override;
     double calculateArea() override;
+    bool isPossibleToCreate() override;
     double calculatePerimeter() override;
 public:
     static CCircle* buildNewObj(double inRadious);

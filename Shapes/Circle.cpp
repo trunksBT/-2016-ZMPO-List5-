@@ -98,6 +98,16 @@ CCircle* CCircle::buildNewObj()
     return new CCircle();
 }
 
+bool CCircle::isPossibleToCreate()
+{
+        Logger()
+            << ERROR << SEPARATOR
+            << "Not implmeneted yet"
+            << POST_PRINT;
+
+        return false;
+}
+
 std::string CCircle::toString()
 {
     std::stringstream retVal;

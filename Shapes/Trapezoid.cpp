@@ -127,6 +127,27 @@ CTrapezoid* CTrapezoid::buildNewObj()
     return new CTrapezoid();
 }
 
+bool CTrapezoid::isPossibleToCreate(double inSideFst, double inSideSnd,
+    double inLegFst, double inLegSnd, double inHeight)
+{
+    bool predicateOverZeroValue =
+        inSideFst >= 0 &&
+        inSideSnd >= 0 &&
+        inLegFst >= 0 &&
+        inLegSnd >= 0 &&
+        inHeight >= 0;
+
+    bool predicateLength =
+        std::abs(inLegFst - inLegSnd) < std::abs(inSideFst - inSideSnd) < inLegFst + inLegFst;
+
+    return predicateOverZeroValue && predicateLength;
+}
+
+bool CTrapezoid::isPossibleToCreate()
+{
+    return isPossibleToCreate(sideFst_, sideSnd_, legFst_, legSnd_, height_);
+}
+
 std::string CTrapezoid::toString()
 {
     std::stringstream retVal;

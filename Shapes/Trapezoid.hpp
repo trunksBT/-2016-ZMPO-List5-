@@ -36,6 +36,7 @@ public:
 
 public:
     std::string toString() override;
+    bool isPossibleToCreate() override;
     double calculateArea() override;
     double calculatePerimeter() override;
 public:
@@ -44,6 +45,9 @@ public:
         double inLegFst, double inLegSnd, double inHeight);
     static CTrapezoid* buildNewObj(CTrapezoid* inObj);
     static CTrapezoid* buildNewObj();
+private:
+    bool isPossibleToCreate(double inSideFst, double inSideSnd,
+        double inLegFst, double inLegSnd, double inHeight);
 private:
     double sideFst_;
     double sideSnd_;

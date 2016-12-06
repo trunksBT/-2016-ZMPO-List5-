@@ -100,6 +100,16 @@ CRectangle* CRectangle::buildNewObj(const BridgesModel& inBridges)
     return new CRectangle(inBridges);
 }
 
+bool CRectangle::isPossibleToCreate()
+{
+    Logger()
+        << ERROR << SEPARATOR
+        << "Not implmeneted yet"
+        << POST_PRINT;
+
+    return false;
+}
+
 std::string CRectangle::toString()
 {
     std::stringstream retVal;

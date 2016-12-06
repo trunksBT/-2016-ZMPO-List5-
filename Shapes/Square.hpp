@@ -30,15 +30,16 @@ public:
     CSquare(const CSquare& inVal);
     virtual ~CSquare();
 public:
-
-public:
     std::string toString() override;
     double calculateArea() override;
     double calculatePerimeter() override;
+    bool isPossibleToCreate() override;
 public:
     static CSquare* buildNewObj(double inSide);
     static CSquare* buildNewObj(CSquare* inObj);
     static CSquare* buildNewObj();
+private:
+    bool isPossibleToCreate(double inSide);
 private:
     double side_;
 };

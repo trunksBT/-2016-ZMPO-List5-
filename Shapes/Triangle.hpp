@@ -33,6 +33,7 @@ public:
 
 public:
     std::string toString() override;
+    bool isPossibleToCreate() override;
     double calculateArea() override;
     double calculatePerimeter() override;
 public:
