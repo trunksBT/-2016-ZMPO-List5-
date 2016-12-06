@@ -27,7 +27,7 @@ public:
         BridgesModel({ { trapezoid::AREA, new CTrapezoidAreaBridge() },
                        { trapezoid::PERIMETER, new CTrapezoidPerimeterBridge()} }));
     CTrapezoid(double inSideFst, double inSideSnd, 
-        double inLegFst, double inLegSnd, double inHeight, const BridgesModel& inBridges =
+        double inLegFst, double inLegSnd, const BridgesModel& inBridges =
         BridgesModel({ { trapezoid::AREA, new CTrapezoidAreaBridge() },
                        { trapezoid::PERIMETER, new CTrapezoidPerimeterBridge() } }));
     CTrapezoid(const CTrapezoid& inVal);
@@ -42,16 +42,15 @@ public:
 public:
     static CTrapezoid* buildNewObj(
         double inSideFst, double inSideSnd,
-        double inLegFst, double inLegSnd, double inHeight);
+        double inLegFst, double inLegSnd);
     static CTrapezoid* buildNewObj(CTrapezoid* inObj);
     static CTrapezoid* buildNewObj();
 private:
     bool isPossibleToCreate(double inSideFst, double inSideSnd,
-        double inLegFst, double inLegSnd, double inHeight);
+        double inLegFst, double inLegSnd);
 private:
     double sideFst_;
     double sideSnd_;
     double legFst_;
     double legSnd_;
-    double height_;
 };

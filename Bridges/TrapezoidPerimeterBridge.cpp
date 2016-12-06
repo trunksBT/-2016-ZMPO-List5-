@@ -25,19 +25,16 @@ const boost::any CTrapezoidPerimeterBridge::perform(const DataBus& inVal)
     double sideSnd;
     double legFst;
     double legSnd;
-    double height;
 
     if (inVal.count(trapezoid::SIDE_FST) &&
         inVal.count(trapezoid::SIDE_SND) &&
         inVal.count(trapezoid::LEG_FST) &&
-        inVal.count(trapezoid::LEG_SND) &&
-        inVal.count(trapezoid::HEIGHT) )
+        inVal.count(trapezoid::LEG_SND))
     {
         sideFst = boost::any_cast<double>(inVal.at(trapezoid::SIDE_FST));
         sideSnd = boost::any_cast<double>(inVal.at(trapezoid::SIDE_SND));
         legFst = boost::any_cast<double>(inVal.at(trapezoid::LEG_FST));
         legSnd = boost::any_cast<double>(inVal.at(trapezoid::LEG_SND));
-        height = boost::any_cast<double>(inVal.at(trapezoid::HEIGHT));
     }
     else
     {
@@ -47,7 +44,7 @@ const boost::any CTrapezoidPerimeterBridge::perform(const DataBus& inVal)
             << NOT_FOUND_IN_DATABUS;
     }
 
-    return sideFst + sideSnd + legFst + legSnd + height;
+    return sideFst + sideSnd + legFst + legSnd;
 }
 
 IBridge* CTrapezoidPerimeterBridge::clone()
