@@ -41,6 +41,8 @@ set(HANDLERS
     Handlers/CreateCircleDoubleHandler.hpp
     Handlers/CreateTriangleDoubleHandler.cpp
     Handlers/CreateTriangleDoubleHandler.hpp
+    Handlers/CreateTrapezoidDoubleHandler.cpp
+    Handlers/CreateTrapezoidDoubleHandler.hpp
 
     #Handlers/CreatePointCopyHandler.cpp
     #Handlers/CreatePointCopyHandler.hpp

@@ -249,6 +249,15 @@ namespace idxOf
         constexpr const int SIDE_THRD_IDX = 4;
     }
 
+    namespace trapezoid
+    {
+        constexpr const int SIDE_FST_IDX = 2;
+        constexpr const int SIDE_SND_IDX = 3;
+        constexpr const int LEG_FST_IDX = 4;
+        constexpr const int LEG_SND_IDX = 5;
+        constexpr const int HEIGHT_IDX = 6;
+    }
+
     constexpr const int COMMAND = 0;
     constexpr const int ID_FOR_CREATE = 1;
     constexpr const int ID_OF_SHAPES = 1;
@@ -282,6 +291,7 @@ namespace messageLiterals
     constexpr const char* CREATE_SQUARE_DOUBLE = "createSquareDouble";
     constexpr const char* CREATE_CIRCLE_DOUBLE = "createCircleDouble";
     constexpr const char* CREATE_TRIANGLE_DOUBLE = "createTriangleDouble";
+    constexpr const char* CREATE_TRAPEZOID_DOUBLE = "createTrapezoidDouble";
     
     constexpr const char* CREATE_RECT_COPY = "createRectCopy";
     constexpr const char* SET_POINT = "setPoint";

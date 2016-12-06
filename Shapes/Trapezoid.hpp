@@ -24,10 +24,12 @@ class CTrapezoid : public CShape
 {
 public:
     CTrapezoid(const BridgesModel& inBridges = 
-        BridgesModel({ { trapezoid::AREA, new CTrapezoidAreaBridge() }, { trapezoid::PERIMETER, new CTrapezoidPerimeterBridge()} }));
+        BridgesModel({ { trapezoid::AREA, new CTrapezoidAreaBridge() },
+                       { trapezoid::PERIMETER, new CTrapezoidPerimeterBridge()} }));
     CTrapezoid(double inSideFst, double inSideSnd, 
         double inLegFst, double inLegSnd, double inHeight, const BridgesModel& inBridges =
-        BridgesModel({ { trapezoid::AREA, new CTrapezoidAreaBridge() },{ trapezoid::PERIMETER, new CTrapezoidPerimeterBridge() } }));
+        BridgesModel({ { trapezoid::AREA, new CTrapezoidAreaBridge() },
+                       { trapezoid::PERIMETER, new CTrapezoidPerimeterBridge() } }));
     CTrapezoid(const CTrapezoid& inVal);
     virtual ~CTrapezoid();
 public:
