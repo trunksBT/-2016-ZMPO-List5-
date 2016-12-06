@@ -222,17 +222,17 @@ namespace funs
 
     bool isMinus(char inChar);
     bool isDot(char inChar);
-    bool isOverDoubleMinLimit(std::string inChain);
-    bool isOverDoubleMaxLimit(std::string inChain);
-    bool isDouble(std::string inChain);
+    bool isOverMinLimit(std::string inChain);
+    bool isOverMaxLimit(std::string inChain);
+    bool is(std::string inChain);
 
     bool isInt(std::string inChain);
     bool isProperIdx(int inIdx, int inSize);
     bool isProperIdx(int idxOrAmount, CShapeWithSize inCache);
     bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);
     bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs);
-    int sizeOfDouble(double inVal);
-    bool isDoubleOverflow(double inVal1, double inVal2);
+    int sizeOf(double inVal);
+    bool isOverflow(double inVal1, double inVal2);
     bool isSegmentToBig(double fstX, double sndX);
     bool isTriangleProper(double sideFst, double sideSnd, double sideThrd);
 
@@ -291,11 +291,11 @@ namespace messageLiterals
     constexpr const char* CREATE_RECT_POINTS = "createRectPoints";
     constexpr const char* CREATE_RECT_DEFAULT = "createRectDefault";
 
-    constexpr const char* CREATE_RECT_DOUBLE = "createRectDouble";
-    constexpr const char* CREATE_SQUARE_DOUBLE = "createSquareDouble";
-    constexpr const char* CREATE_CIRCLE_DOUBLE = "createCircleDouble";
-    constexpr const char* CREATE_TRIANGLE_DOUBLE = "createTriangleDouble";
-    constexpr const char* CREATE_TRAPEZOID_DOUBLE = "createTrapezoidDouble";
+    constexpr const char* CREATE_RECT_DOUBLE = "createRect";
+    constexpr const char* CREATE_SQUARE_DOUBLE = "createSquare";
+    constexpr const char* CREATE_CIRCLE_DOUBLE = "createCircle";
+    constexpr const char* CREATE_TRIANGLE_DOUBLE = "createTriangle";
+    constexpr const char* CREATE_TRAPEZOID_DOUBLE = "createTrapezoid";
     
     constexpr const char* CREATE_RECT_COPY = "createRectCopy";
     constexpr const char* SET_POINT = "setPoint";
@@ -304,6 +304,7 @@ namespace messageLiterals
     constexpr const char* CALCULATE_AREA = "calculateArea";
     constexpr const char* CALCULATE_AREAS = "calculateAreas";
     constexpr const char* CALCULATE_PERIMETER = "calculatePerimeter";
+    constexpr const char* CALCULATE_PERIMETERS = "calculatePerimeters";
     constexpr const char* PRINT_ALL = "printAll";
     constexpr const char* SHOW_RECT = "showRect";
     constexpr const char* CLOSE = "close";
@@ -324,7 +325,7 @@ namespace fullCommands
     extern std::string createPointArgs;
     extern std::string createPointCopyArgs;
     extern std::string createRectPointsArgs;
-    extern std::string createRectDoubleArgs;
+    extern std::string createRectArgs;
     extern std::string createRectDefaultArgs;
     extern std::string createRectCopyArgs;
     extern std::string setPointArgs;

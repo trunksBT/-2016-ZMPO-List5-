@@ -31,6 +31,8 @@ set(HANDLERS
     Handlers/AreasHandler.cpp
     Handlers/PerimeterHandler.cpp
     Handlers/PerimeterHandler.hpp
+    Handlers/PerimetersHandler.cpp
+    Handlers/PerimetersHandler.hpp
 
     Handlers/PrintAllHandler.cpp
     Handlers/PrintAllHandler.hpp
