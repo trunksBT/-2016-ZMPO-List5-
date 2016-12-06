@@ -17,7 +17,7 @@ using namespace flags;
 using namespace bridgeModelKeys;
 
 CCircle::CCircle(const BridgesModel& inBridges)
-    : CShape(inBridges), radious_(ZERO)
+    : CShape(inBridges), radious_(ONE)
 {
     if (!isPossibleToCreate(radious_))
     {
@@ -41,6 +41,7 @@ CCircle::CCircle(double inRadious,  const BridgesModel& inBridges)
 {
     if (!isPossibleToCreate(radious_))
     {
+        radious_ = ONE;
         Logger()
             << ERROR << SEPARATOR
             << THIS_SHAPE_CANNOT_EXIST

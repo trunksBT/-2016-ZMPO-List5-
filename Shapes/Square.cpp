@@ -17,7 +17,7 @@ using namespace flags;
 using namespace bridgeModelKeys;
 
 CSquare::CSquare(const BridgesModel& inBridges)
-    : CShape(inBridges), side_(ZERO)
+    : CShape(inBridges), side_(FIVE)
 {
     if (!isPossibleToCreate(side_))
     {
@@ -41,6 +41,7 @@ CSquare::CSquare(double inSide,  const BridgesModel& inBridges)
 {
     if (!isPossibleToCreate())
     {
+        side_ = FIVE;
         Logger()
             << ERROR << SEPARATOR
             << THIS_SHAPE_CANNOT_EXIST

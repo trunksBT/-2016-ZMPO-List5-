@@ -17,7 +17,7 @@ using namespace flags;
 using namespace bridgeModelKeys;
 
 CRectangle::CRectangle(const BridgesModel& inBridges)
-    : CShape(inBridges), width_(ZERO), height_(ZERO)
+    : CShape(inBridges), width_(FIVE), height_(ONE)
 {
     if (!isPossibleToCreate(width_, height_))
     {
@@ -41,6 +41,8 @@ CRectangle::CRectangle(double width, double height, const BridgesModel& inBridge
 {
     if (!isPossibleToCreate(width_, height_))
     {
+        width_ = FIVE;
+        height_ = ONE;
         Logger()
             << ERROR << SEPARATOR
             << THIS_SHAPE_CANNOT_EXIST

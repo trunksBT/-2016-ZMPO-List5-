@@ -17,7 +17,7 @@ using namespace flags;
 using namespace bridgeModelKeys;
 
 CTriangle::CTriangle(const BridgesModel& inBridges)
-    : CShape(inBridges), sideFst_(ZERO), sideSnd_(ZERO), sideThrd_(ZERO)
+    : CShape(inBridges), sideFst_(THREE), sideSnd_(FOUR), sideThrd_(FIVE)
 {
     if (!isPossibleToCreate(sideFst_, sideSnd_, sideThrd_))
     {
@@ -42,6 +42,10 @@ CTriangle::CTriangle(double inSideFst, double inSideSnd, double inSideThrd,
 {
     if (!isPossibleToCreate(sideFst_, sideSnd_, sideThrd_))
     {
+        sideFst_ = THREE;
+        sideSnd_ = FOUR;
+        sideThrd_ = FIVE;
+
         Logger()
             << ERROR << SEPARATOR
             << THIS_SHAPE_CANNOT_EXIST

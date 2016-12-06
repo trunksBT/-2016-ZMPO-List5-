@@ -17,8 +17,8 @@ using namespace flags;
 using namespace bridgeModelKeys;
 
 CTrapezoid::CTrapezoid(const BridgesModel& inBridges)
-    : CShape(inBridges), sideFst_(ZERO), sideSnd_(ZERO),
-      legFst_(ZERO), legSnd_(ZERO)
+    : CShape(inBridges), sideFst_(TWO), sideSnd_(THREE),
+      legFst_(FOUR), legSnd_(FIVE)
 {
     if (!isPossibleToCreate(sideFst_, sideSnd_, legFst_, legSnd_))
     {
@@ -44,6 +44,11 @@ CTrapezoid::CTrapezoid(double inSideFst, double inSideSnd,
 {
     if (!isPossibleToCreate(sideFst_, sideSnd_, legFst_, legSnd_))
     {
+        sideFst_ = TWO;
+        sideSnd_ = THREE;
+        legFst_ = FOUR;
+        legSnd_ = FIVE;
+
         Logger()
             << ERROR << SEPARATOR
             << THIS_SHAPE_CANNOT_EXIST
