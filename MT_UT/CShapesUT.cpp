@@ -366,23 +366,18 @@ TEST_F(CShapesUT, Trapezoid_build_copyCtor)
     delete trapezoid;
     delete afterClone;
 }
-//
-//TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_defVals)
-//{
-//    CShape* trapezoid = CTrapezoid::buildNewObj();
-//
-//    std::cout << trapezoid->toString() << POST_PRINT;
-//
-//    if (trapezoid->isPossibleToCreate())
-//    {
-//        ASSERT_EQ(450, static_cast<int>(trapezoid->calculateArea()));
-//        ASSERT_EQ(102, static_cast<int>(trapezoid->calculatePerimeter()));
-//    }
-//
-//    ASSERT_FALSE(false);
-//
-//    delete trapezoid;
-//}
+
+TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_defVals)
+{
+    CShape* trapezoid = CTrapezoid::buildNewObj();
+
+    std::cout << trapezoid->toString() << POST_PRINT;
+
+    ASSERT_EQ(450, static_cast<int>(trapezoid->calculateArea()));
+    ASSERT_EQ(102, static_cast<int>(trapezoid->calculatePerimeter()));
+
+    delete trapezoid;
+}
 //
 TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_Egiptian)
 {
@@ -417,11 +412,8 @@ TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_AsSquare)
 
     std::cout << trapezoid->toString() << POST_PRINT;
 
-    if (trapezoid->isPossibleToCreate())
-    {
-        ASSERT_EQ(16, static_cast<int>(trapezoid->calculateArea()));
-        ASSERT_EQ(16, static_cast<int>(trapezoid->calculatePerimeter()));
-    }
+    ASSERT_EQ(16, static_cast<int>(trapezoid->calculateArea()));
+    ASSERT_EQ(16, static_cast<int>(trapezoid->calculatePerimeter()));
 
     delete trapezoid;
 }
@@ -438,35 +430,29 @@ TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_AsRectangle_1)
 
     std::cout << trapezoid->toString() << POST_PRINT;
 
-    if (trapezoid->isPossibleToCreate())
-    {
-        ASSERT_EQ(24, static_cast<int>(trapezoid->calculateArea()));
-        ASSERT_EQ(20, static_cast<int>(trapezoid->calculatePerimeter()));
-    }
+    ASSERT_EQ(24, static_cast<int>(trapezoid->calculateArea()));
+    ASSERT_EQ(20, static_cast<int>(trapezoid->calculatePerimeter()));
 
     delete trapezoid;
 }
 //
-//TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_Minus)
-//{
-//    double side1 = -1;
-//    double side2 = 6;
-//    double leg1 = 4;
-//    double leg2 = 6;
-//
-//    CShape* trapezoid = CTrapezoid::buildNewObj(side1, side2,
-//        leg1, leg2);
-//
-//    std::cout << trapezoid->toString() << POST_PRINT;
-//
-//    if (trapezoid->isPossibleToCreate())
-//    {
-//        ASSERT_EQ(450, static_cast<int>(trapezoid->calculateArea()));
-//        ASSERT_EQ(102, static_cast<int>(trapezoid->calculatePerimeter()));
-//    }
-//
-//    delete trapezoid;
-//}
+TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_Minus)
+{
+    double side1 = -1;
+    double side2 = 6;
+    double leg1 = 4;
+    double leg2 = 6;
+
+    CShape* trapezoid = CTrapezoid::buildNewObj(side1, side2,
+        leg1, leg2);
+
+    std::cout << trapezoid->toString() << POST_PRINT;
+
+    ASSERT_EQ(450, static_cast<int>(trapezoid->calculateArea()));
+    ASSERT_EQ(102, static_cast<int>(trapezoid->calculatePerimeter()));
+
+    delete trapezoid;
+}
 //
 TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_AsRectangle_2)
 {
@@ -480,11 +466,8 @@ TEST_F(CShapesUT, Trapezoid_build_calculateArea_and_Perimeter_AsRectangle_2)
 
     std::cout << trapezoid->toString() << POST_PRINT;
 
-    if (trapezoid->isPossibleToCreate())
-    {
-        ASSERT_EQ(24, static_cast<int>(trapezoid->calculateArea()));
-        ASSERT_EQ(20, static_cast<int>(trapezoid->calculatePerimeter()));
-    }
+    ASSERT_EQ(24, static_cast<int>(trapezoid->calculateArea()));
+    ASSERT_EQ(20, static_cast<int>(trapezoid->calculatePerimeter()));
 
     delete trapezoid;
 }
@@ -523,8 +506,6 @@ TEST_F(CShapesUT, Square_build_width_1_Is_Possible_To_Create)
     ASSERT_TRUE(square->isPossibleToCreate());
     delete square;
 }
-//
-//
 ////
 /////////////////////////////////////////////////////////////////////
 ////
