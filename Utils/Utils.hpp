@@ -196,6 +196,8 @@ namespace defaultVals
     constexpr const char* NOT_FOUND_IN_CACHE = "NOT_FOUND_IN_CACHE";
     constexpr const char* TO_BIG_IDX_FOR_CACHE = "TO_BIG_IDX_FOR_CACHE";
     constexpr const char* THIS_SHAPE_CANNOT_EXIST = "THIS_SHAPE_CANNOT_EXIST";
+    constexpr const char* OVERFLOW_OR_UNDERFLOW = "OVERFLOW_OR_UNDERFLOW";
+    constexpr const char* SHAPE_CAN_NOT_EXIST = "SHAPE_CAN_NOT_EXIST";
 }
 
 namespace cacheIdx
@@ -300,6 +302,7 @@ namespace messageLiterals
     constexpr const char* GET_POINT_X = "getPointX";
     constexpr const char* GET_POINT_Y = "getPointY";
     constexpr const char* CALCULATE_AREA = "calculateArea";
+    constexpr const char* CALCULATE_AREAS = "calculateAreas";
     constexpr const char* CALCULATE_PERIMETER = "calculatePerimeter";
     constexpr const char* PRINT_ALL = "printAll";
     constexpr const char* SHOW_RECT = "showRect";

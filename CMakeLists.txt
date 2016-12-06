@@ -27,6 +27,8 @@ set(HANDLERS
 
     Handlers/AreaHandler.cpp
     Handlers/AreaHandler.hpp
+    Handlers/AreasHandler.hpp
+    Handlers/AreasHandler.cpp
     Handlers/PerimeterHandler.cpp
     Handlers/PerimeterHandler.hpp
 

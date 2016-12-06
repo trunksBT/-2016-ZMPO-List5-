@@ -13,6 +13,7 @@
 #include <Handlers/CreateTrapezoidDoubleHandler.hpp>
 
 #include <Handlers/AreaHandler.hpp>
+#include <Handlers/AreasHandler.hpp>
 #include <Handlers/PerimeterHandler.hpp>
 #include <Handlers/PrintAllHandler.hpp>
 
@@ -77,7 +78,7 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
         else if (command == CREATE_TRIANGLE_DOUBLE)
         {
-            evaluate = new CCreateTrapezoidDoubleHandler(inCommand);
+            evaluate = new CCreateTriangleDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CREATE_TRAPEZOID_DOUBLE)
@@ -88,6 +89,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         else if (command == CALCULATE_AREA)
         {
             evaluate = new CAreaHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == CALCULATE_AREAS)
+        {
+            evaluate = new CAreasHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CALCULATE_PERIMETER)
