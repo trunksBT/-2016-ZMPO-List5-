@@ -32,6 +32,7 @@ public:
 
 public:
     std::string toString() override;
+    bool isPossibleToCreate() override;
     double calculateArea() override;
     double calculatePerimeter() override;
 public:
@@ -39,6 +40,8 @@ public:
     static CRectangle* buildNewObj(CRectangle* inObj);
     static CRectangle* buildNewObj(const BridgesModel& inBridges =
         BridgesModel({ { AREA, new CRectangleAreaBridge() }, { PERIMETER, new CRectanglePerimeterBridge() } }));
+private:
+    bool isPossibleToCreate(double inWidth, double inHeight);
 private:
     double width_;
     double height_;

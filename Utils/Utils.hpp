@@ -16,6 +16,8 @@ enum class CODE : int
     CLOSE = 10
 };
 
+bool double_equals(double a, double b, double epsilon = 0.001);
+
 namespace geometry
 {
     constexpr char X = 'x';
@@ -193,7 +195,7 @@ namespace defaultVals
     constexpr const char* NOT_FOUND_IN_DATABUS = "NOT_FOUND_IN_DATABUS";
     constexpr const char* NOT_FOUND_IN_CACHE = "NOT_FOUND_IN_CACHE";
     constexpr const char* TO_BIG_IDX_FOR_CACHE = "TO_BIG_IDX_FOR_CACHE";
-    constexpr const char* THIS_TRIANGLE_CANNOT_EXIST = "THIS_TRIANGLE_CANNOT_EXIST";
+    constexpr const char* THIS_SHAPE_CANNOT_EXIST = "THIS_SHAPE_CANNOT_EXIST";
 }
 
 namespace cacheIdx

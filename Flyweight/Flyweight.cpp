@@ -53,49 +53,51 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             shapeCacheSize_,
             shapeCacheIsInitialized_);
 
+        IShapeHandler* evaluate = nullptr;
+
         if (command == GO)
         {
-            IShapeHandler* evaluate = new CGoHandler(inCommand);
+            evaluate = new CGoHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CREATE_RECT_DOUBLE)
         {
-            IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
+            evaluate = new CCreateRectDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CREATE_SQUARE_DOUBLE)
         {
-            IShapeHandler* evaluate = new CCreateSquareDoubleHandler(inCommand);
+            evaluate = new CCreateSquareDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CREATE_CIRCLE_DOUBLE)
         {
-            IShapeHandler* evaluate = new CCreateCircleDoubleHandler(inCommand);
+            evaluate = new CCreateCircleDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CREATE_TRIANGLE_DOUBLE)
         {
-            IShapeHandler* evaluate = new CCreateTrapezoidDoubleHandler(inCommand);
+            evaluate = new CCreateTrapezoidDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CREATE_TRAPEZOID_DOUBLE)
         {
-            IShapeHandler* evaluate = new CCreateTrapezoidDoubleHandler(inCommand);
+            evaluate = new CCreateTrapezoidDoubleHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CALCULATE_AREA)
         {
-            IShapeHandler* evaluate = new CAreaHandler(inCommand);
+            evaluate = new CAreaHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CALCULATE_PERIMETER)
         {
-            IShapeHandler* evaluate = new CPerimeterHandler(inCommand);
+            evaluate = new CPerimeterHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == PRINT_ALL)
         {
-            IShapeHandler* evaluate = new CPrintAllHandler(inCommand);
+            evaluate = new CPrintAllHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == CLOSE)
@@ -151,6 +153,7 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         //    returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         //}
 
+        delete evaluate;
     }
 
     return returnedCode;

@@ -30,15 +30,16 @@ public:
     CTriangle(const CTriangle& inVal);
     virtual ~CTriangle();
 public:
-
-public:
     std::string toString() override;
+    bool isPossibleToCreate() override;
     double calculateArea() override;
     double calculatePerimeter() override;
 public:
     static CTriangle* buildNewObj(double inSideFst, double inSideSnd, double inSideThrd);
     static CTriangle* buildNewObj(CTriangle* inObj);
     static CTriangle* buildNewObj();
+private:
+    bool isPossibleToCreate(double inSideFst, double inSideSnd, double inSideThrd);
 private:
     double sideFst_;
     double sideSnd_;

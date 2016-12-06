@@ -18,15 +18,15 @@ using namespace bridgeModelKeys;
 
 CTrapezoid::CTrapezoid(const BridgesModel& inBridges)
     : CShape(inBridges), sideFst_(ZERO), sideSnd_(ZERO),
-      legFst_(ZERO), legSnd_(ZERO), height_(ZERO)
+      legFst_(ZERO), legSnd_(ZERO)
 {
-    //if (!isTrapezoidProper(sideFst_, sideSnd_, sideThrd_))
-    //{
-    //    Logger()
-    //        << ERROR << SEPARATOR
-    //        << THIS_TRAPEZOID_CANNOT_EXIST
-    //        << POST_PRINT;
-    //}
+    if (!isPossibleToCreate(sideFst_, sideSnd_, legFst_, legSnd_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
 
     if (PRINT_CTORS)
     {
@@ -38,17 +38,17 @@ CTrapezoid::CTrapezoid(const BridgesModel& inBridges)
 }
 
 CTrapezoid::CTrapezoid(double inSideFst, double inSideSnd,
-    double inLegFst, double inLegSnd, double inHeight, const BridgesModel& inBridges)
+    double inLegFst, double inLegSnd, const BridgesModel& inBridges)
     : CShape(inBridges), sideFst_(inSideFst), sideSnd_(inSideSnd), 
-      legFst_(inLegFst), legSnd_(inLegSnd), height_(inHeight)
+      legFst_(inLegFst), legSnd_(inLegSnd)
 {
-    //if (!isTrapezoidProper(sideFst_, sideSnd_, sideThrd_))
-    //{
-    //    Logger()
-    //        << ERROR << SEPARATOR
-    //        << THIS_TRAPEZOID_CANNOT_EXIST
-    //        << POST_PRINT;
-    //}
+    if (!isPossibleToCreate(sideFst_, sideSnd_, legFst_, legSnd_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
 
     if (PRINT_CTORS)
     {
@@ -61,7 +61,7 @@ CTrapezoid::CTrapezoid(double inSideFst, double inSideSnd,
 
 CTrapezoid::CTrapezoid(const CTrapezoid& inVal)
     : CShape(inVal), sideFst_(inVal.sideFst_), sideSnd_(inVal.sideSnd_),
-    legFst_(inVal.legFst_), legSnd_(inVal.legSnd_), height_(inVal.height_)
+    legFst_(inVal.legFst_), legSnd_(inVal.legSnd_)
 {
     if (PRINT_CTORS)
     {
@@ -91,8 +91,7 @@ double CTrapezoid::calculateArea()
         { dataBusKeys::trapezoid::SIDE_FST, sideFst_ },
         { dataBusKeys::trapezoid::SIDE_SND, sideSnd_ },
         { dataBusKeys::trapezoid::LEG_FST, legFst_ },
-        { dataBusKeys::trapezoid::LEG_SND, legSnd_ },
-        { dataBusKeys::trapezoid::HEIGHT, height_ }
+        { dataBusKeys::trapezoid::LEG_SND, legSnd_ }
     }));
     return retVal;
 }
@@ -105,16 +104,15 @@ double CTrapezoid::calculatePerimeter()
         { dataBusKeys::trapezoid::SIDE_FST, sideFst_ },
         { dataBusKeys::trapezoid::SIDE_SND, sideSnd_ },
         { dataBusKeys::trapezoid::LEG_FST, legFst_ },
-        { dataBusKeys::trapezoid::LEG_SND, legSnd_ },
-        { dataBusKeys::trapezoid::HEIGHT, height_ }
+        { dataBusKeys::trapezoid::LEG_SND, legSnd_ }
     }));
     return retVal;
 }
 
 CTrapezoid* CTrapezoid::buildNewObj(double inSideFst, double inSideSnd,
-    double inLegFst, double inLegSnd, double inHeight)
+    double inLegFst, double inLegSnd)
 {
-    return new CTrapezoid(inSideFst, inSideSnd, inLegFst, inLegSnd, inHeight);
+    return new CTrapezoid(inSideFst, inSideSnd, inLegFst, inLegSnd);
 }
 
 CTrapezoid* CTrapezoid::buildNewObj(CTrapezoid* inObj)
@@ -127,6 +125,23 @@ CTrapezoid* CTrapezoid::buildNewObj()
     return new CTrapezoid();
 }
 
+bool CTrapezoid::isPossibleToCreate(double inSideFst, double inSideSnd,
+    double inLegFst, double inLegSnd)
+{
+    bool predicateOverZeroValue =
+        inSideFst > 0 &&
+        inSideSnd > 0 &&
+        inLegFst > 0 &&
+        inLegSnd > 0;
+
+    return predicateOverZeroValue;
+}
+
+bool CTrapezoid::isPossibleToCreate()
+{
+    return isPossibleToCreate(sideFst_, sideSnd_, legFst_, legSnd_);
+}
+
 std::string CTrapezoid::toString()
 {
     std::stringstream retVal;
@@ -137,9 +152,8 @@ std::string CTrapezoid::toString()
         << sideSnd_ << COMMA_SPACE
         << LEG << SEPARATOR
         << legFst_ << COMMA_SPACE
-        << legSnd_ << COMMA_SPACE
-        << HEIGHT << SEPARATOR
-        << height_ << BRACKET_CLOSE;
+        << legSnd_ << SEPARATOR
+        << BRACKET_CLOSE;
 
     return retVal.str();
 }

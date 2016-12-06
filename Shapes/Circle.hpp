@@ -34,11 +34,14 @@ public:
 public:
     std::string toString() override;
     double calculateArea() override;
+    bool isPossibleToCreate() override;
     double calculatePerimeter() override;
 public:
     static CCircle* buildNewObj(double inRadious);
     static CCircle* buildNewObj(CCircle* inObj);
     static CCircle* buildNewObj();
+private:
+    bool isPossibleToCreate(double inRadious);
 private:
     double radious_;
 };

@@ -21,12 +21,12 @@ CCreateTrapezoidDoubleHandler::CCreateTrapezoidDoubleHandler(std::vector<std::st
 
 const int CCreateTrapezoidDoubleHandler::getProperAmountOfArgs()
 {
-    return 7;
+    return 6;
 }
 
 std::string CCreateTrapezoidDoubleHandler::getProperTypesOfArgs()
 {
-    return "siddddd";
+    return "sidddd";
 }
 
 CODE CCreateTrapezoidDoubleHandler::checkArgsAndPerform(CShapeWithSize inCache)
@@ -58,9 +58,6 @@ CODE CCreateTrapezoidDoubleHandler::purePerform(CShapeWithSize inCache)
     std::string legSndStr(wholeCommand_[LEG_SND_IDX]);
     double legSnd = std::stod(legSndStr);
 
-    std::string heightStr(wholeCommand_[HEIGHT_IDX]);
-    double height = std::stod(heightStr);
-
     //if (!isTrapezoidProper(sideFst, sideSnd, sideThrd))
     //{
     //    Logger()
@@ -87,7 +84,7 @@ CODE CCreateTrapezoidDoubleHandler::purePerform(CShapeWithSize inCache)
     }
 
     std::get<ARRAY>(inCache)[newTrapezoidIdx] = CTrapezoid::buildNewObj(
-        sideFst, sideSnd, legFst, legSnd, height
+        sideFst, sideSnd, legFst, legSnd
 );
 
     std::get<INITIALIZED_MAP>(inCache)[newTrapezoidIdx] = true;

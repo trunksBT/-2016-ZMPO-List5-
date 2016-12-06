@@ -19,11 +19,11 @@ using namespace bridgeModelKeys;
 CTriangle::CTriangle(const BridgesModel& inBridges)
     : CShape(inBridges), sideFst_(ZERO), sideSnd_(ZERO), sideThrd_(ZERO)
 {
-    if (!isTriangleProper(sideFst_, sideSnd_, sideThrd_))
+    if (!isPossibleToCreate(sideFst_, sideSnd_, sideThrd_))
     {
         Logger()
             << ERROR << SEPARATOR
-            << THIS_TRIANGLE_CANNOT_EXIST
+            << THIS_SHAPE_CANNOT_EXIST
             << POST_PRINT;
     }
 
@@ -40,11 +40,11 @@ CTriangle::CTriangle(double inSideFst, double inSideSnd, double inSideThrd,
     const BridgesModel& inBridges)
     : CShape(inBridges), sideFst_(inSideFst), sideSnd_(inSideSnd), sideThrd_(inSideThrd)
 {
-    if (!isTriangleProper(sideFst_, sideSnd_, sideThrd_))
+    if (!isPossibleToCreate(sideFst_, sideSnd_, sideThrd_))
     {
         Logger()
             << ERROR << SEPARATOR
-            << THIS_TRIANGLE_CANNOT_EXIST
+            << THIS_SHAPE_CANNOT_EXIST
             << POST_PRINT;
     }
 
@@ -119,6 +119,20 @@ CTriangle* CTriangle::buildNewObj()
     return new CTriangle();
 }
 
+bool CTriangle::isPossibleToCreate(double inSideFst, double inSideSnd, double inSideThrd)
+{
+    bool predFst = inSideFst < inSideSnd + inSideThrd;
+    bool predSnd = inSideSnd < inSideThrd + inSideFst;
+    bool predThrd = inSideThrd < inSideFst + inSideSnd;
+
+    return predFst && predSnd && predThrd;
+}
+
+bool CTriangle::isPossibleToCreate()
+{
+    return isPossibleToCreate(sideFst_, sideSnd_, sideThrd_);
+}
+
 std::string CTriangle::toString()
 {
     std::stringstream retVal;
@@ -132,4 +146,3 @@ std::string CTriangle::toString()
 
     return retVal.str();
 }
-

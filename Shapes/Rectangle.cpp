@@ -19,6 +19,14 @@ using namespace bridgeModelKeys;
 CRectangle::CRectangle(const BridgesModel& inBridges)
     : CShape(inBridges), width_(ZERO), height_(ZERO)
 {
+    if (!isPossibleToCreate(width_, height_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
@@ -31,6 +39,14 @@ CRectangle::CRectangle(const BridgesModel& inBridges)
 CRectangle::CRectangle(double width, double height, const BridgesModel& inBridges)
     : CShape(inBridges), width_(width), height_(height)
 {
+    if (!isPossibleToCreate(width_, height_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
@@ -98,6 +114,16 @@ CRectangle* CRectangle::buildNewObj(CRectangle* inObj)
 CRectangle* CRectangle::buildNewObj(const BridgesModel& inBridges)
 {
     return new CRectangle(inBridges);
+}
+
+bool CRectangle::isPossibleToCreate(double inWidth, double inHeight)
+{
+    return inWidth > 0 && inHeight > 0;
+}
+
+bool CRectangle::isPossibleToCreate()
+{
+    return isPossibleToCreate(width_, height_);
 }
 
 std::string CRectangle::toString()

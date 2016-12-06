@@ -19,6 +19,14 @@ using namespace bridgeModelKeys;
 CSquare::CSquare(const BridgesModel& inBridges)
     : CShape(inBridges), side_(ZERO)
 {
+    if (!isPossibleToCreate(side_))
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
@@ -31,6 +39,14 @@ CSquare::CSquare(const BridgesModel& inBridges)
 CSquare::CSquare(double inSide,  const BridgesModel& inBridges)
     : CShape(inBridges), side_(inSide)
 {
+    if (!isPossibleToCreate())
+    {
+        Logger()
+            << ERROR << SEPARATOR
+            << THIS_SHAPE_CANNOT_EXIST
+            << POST_PRINT;
+    }
+
     if (PRINT_CTORS)
     {
         Logger()
@@ -81,6 +97,16 @@ double CSquare::calculatePerimeter()
         { dataBusKeys::square::SIDE, side_ }
     }));
     return retVal;
+}
+
+bool CSquare::isPossibleToCreate(double inSide)
+{
+    return inSide > 0;
+}
+
+bool CSquare::isPossibleToCreate()
+{
+    return isPossibleToCreate(side_);
 }
 
 CSquare* CSquare::buildNewObj(double inSide)
