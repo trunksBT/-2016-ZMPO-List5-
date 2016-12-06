@@ -16,6 +16,8 @@ enum class CODE : int
     CLOSE = 10
 };
 
+bool double_equals(double a, double b, double epsilon = 0.001);
+
 namespace geometry
 {
     constexpr char X = 'x';

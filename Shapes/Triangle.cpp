@@ -121,21 +121,15 @@ CTriangle* CTriangle::buildNewObj()
 
 bool CTriangle::isPossibleToCreate(double inSideFst, double inSideSnd, double inSideThrd)
 {
-    Logger()
-        << ERROR << SEPARATOR
-        << "Not implmeneted yet"
-        << POST_PRINT;
+    bool predFst = inSideFst < inSideSnd + inSideThrd;
+    bool predSnd = inSideSnd < inSideThrd + inSideFst;
+    bool predThrd = inSideThrd < inSideFst + inSideSnd;
 
-    return true;
+    return predFst && predSnd && predThrd;
 }
 
 bool CTriangle::isPossibleToCreate()
 {
-    Logger()
-        << ERROR << SEPARATOR
-        << "Not implmeneted yet"
-        << POST_PRINT;
-
     return isPossibleToCreate(sideFst_, sideSnd_, sideThrd_);
 }
 

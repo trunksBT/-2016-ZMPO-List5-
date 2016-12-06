@@ -9,6 +9,11 @@
 using namespace defaultVals;
 using namespace tupleIdx;
 
+bool double_equals(double a, double b, double epsilon)
+{
+    return std::abs(a - b) < epsilon;
+}
+
 namespace funs
 {
     bool isMinus(char inChar)

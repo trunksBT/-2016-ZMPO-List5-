@@ -19,11 +19,6 @@ CTrapezoidAreaBridge::CTrapezoidAreaBridge()
     }
 }
 
-bool double_equals(double a, double b, double epsilon = 0.001)
-{
-    return std::abs(a - b) < epsilon;
-}
-
 const boost::any CTrapezoidAreaBridge::perform(const DataBus& inVal)
 {
     double sideFst;
