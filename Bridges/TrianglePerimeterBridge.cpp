@@ -21,8 +21,6 @@ CTrianglePerimeterBridge::CTrianglePerimeterBridge()
 
 const boost::any CTrianglePerimeterBridge::perform(const DataBus& inVal)
 {
-    double side;
-
     double sideFst;
     double sideSnd;
     double sideThrd;

@@ -42,6 +42,15 @@ namespace dataBusKeys
         constexpr const char* SIDE_THRD = "sideThrd";
     }
 
+    namespace trapezoid
+    {
+        constexpr const char* SIDE_FST = "sideFst";
+        constexpr const char* SIDE_SND = "sideSnd";
+        constexpr const char* LEG_FST = "legFst";
+        constexpr const char* LEG_SND = "legSnd";
+        constexpr const char* HEIGHT = "height";
+    }
+
     namespace square
     {
         constexpr const char* SIDE = "side";
@@ -73,6 +82,12 @@ namespace bridgeModelKeys
         constexpr const char* PERIMETER = "trianglePerimeter";
     }
 
+    namespace trapezoid
+    {
+        constexpr const char* AREA = "trapezoidArea";
+        constexpr const char* PERIMETER = "trapezoidPerimeter";
+    }
+
     namespace circle
     {
         constexpr const char* AREA = "circleArea";
@@ -96,6 +111,9 @@ namespace typeLiterals
     constexpr const char* CIRCLE_AREA_BRIDGE = "CIRCLE_AREA_BRIDGE";
     constexpr const char* CIRCLE_PERIMETER_BRIDGE = "CIRCLE_PERIMETER_BRIDGE";
 
+    constexpr const char* TRAPEZOID_AREA_BRIDGE = "TRAPEZOID_AREA_BRIDGE";
+    constexpr const char* TRAPEZOID_PERIMETER_BRIDGE = "TRAPEZOID_PERIMETER_BRIDGE";
+
     constexpr const char* POINT = "CPOINT";
     constexpr const char* RECTANGLE = "CRECTANGLE";
     constexpr const char* SQUARE = "CSQUARE";
@@ -103,6 +121,7 @@ namespace typeLiterals
     constexpr const char* TRIANGLE = "CTRIANGLE";
     constexpr const char* SHAPE = "SHAPE";
     constexpr const char* RADIOUS = "CRADIOUS";
+    constexpr const char* TRAPEZOID = "CTRAPEZOID";
 
 
     constexpr const char* POINTS = "POINTS";
@@ -116,6 +135,7 @@ namespace typeLiterals
     constexpr const char* WIDTH = "WIDTH";
     constexpr const char* SIDE = "SIDE";
     constexpr const char* HEIGHT = "HEIGHT";
+    constexpr const char* LEG = "LEG";
 }
 
 namespace defaultVals
@@ -229,6 +249,15 @@ namespace idxOf
         constexpr const int SIDE_THRD_IDX = 4;
     }
 
+    namespace trapezoid
+    {
+        constexpr const int SIDE_FST_IDX = 2;
+        constexpr const int SIDE_SND_IDX = 3;
+        constexpr const int LEG_FST_IDX = 4;
+        constexpr const int LEG_SND_IDX = 5;
+        constexpr const int HEIGHT_IDX = 6;
+    }
+
     constexpr const int COMMAND = 0;
     constexpr const int ID_FOR_CREATE = 1;
     constexpr const int ID_OF_SHAPES = 1;
@@ -262,6 +291,7 @@ namespace messageLiterals
     constexpr const char* CREATE_SQUARE_DOUBLE = "createSquareDouble";
     constexpr const char* CREATE_CIRCLE_DOUBLE = "createCircleDouble";
     constexpr const char* CREATE_TRIANGLE_DOUBLE = "createTriangleDouble";
+    constexpr const char* CREATE_TRAPEZOID_DOUBLE = "createTrapezoidDouble";
     
     constexpr const char* CREATE_RECT_COPY = "createRectCopy";
     constexpr const char* SET_POINT = "setPoint";
